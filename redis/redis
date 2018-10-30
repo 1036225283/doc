@@ -8,3 +8,6 @@
 3.mac	安装
 	make test
 	make install
+
+4.window redis-cli
+    redis-cli -h localhost  -p 6379 -a password

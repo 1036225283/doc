@@ -1,0 +1,22 @@
+1.原理介绍
+    http://www.infoq.com/cn/articles/database-timestamp-02?utm_source=infoq&utm_medium=related_content_link&utm_campaign=relatedContent_articles_clk
+
+2.安装使用
+    解压elasticsearch-6.4.0.tar
+    cd bin
+    elasticsearch.bat  elasticsearch.sh
+
+3.查看
+    http://localhost:9200/
+
+4.查看集群是否健康
+    http://localhost:9200/_cat/health?v&pretty
+
+5.获取集群中的节点列表
+    http://localhost:9200/_cat/nodes?v
+
+6.查看索引
+    http://localhost:9200/_cat/indices?v
+
+7.创建索引
+      http://localhost:9200/_cat/customer?pretty

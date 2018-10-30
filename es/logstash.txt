@@ -1,0 +1,21 @@
+1.下载地址
+    https://www.elastic.co/cn/downloads/logstash
+
+2.配置
+   https://www.elastic.co/guide/en/logstash/current/configuration.html
+
+3.创建配置文件
+    vim logstash-simple.conf
+
+4.运行
+    bin/logstash -f logstash-simple.conf
+
+5.同步mysql的数据
+
+    5.1安装 jdbc 和 elasticsearch 插件
+        bin/logstash-plugin install logstash-input-jdbc
+        bin/logstash-plugin install logstash-output-elasticsearch
+
+    5.2编写配置文件 logstash-input-jdbc
+
+    5.3多表同步
