@@ -1,0 +1,59 @@
+0.doc search
+	0.1 基于golang doc的搜索(直接输入*包名*即可)
+		https://godoc.org/
+		demo:
+			https://godoc.org/golang.org/x/net/websocket
+			https://godoc.org/encoding/base64
+			
+	0.2 基于github的搜索(输入关键字即可)
+		https://github.com/search?q=org%3Agolang+websocket&type=Code
+		
+1.环境搭建(window)
+	1.1 配置GOROOT GOPATH
+	1.2 gopath entry is relative must be absolute 是由于多了个分号所致
+	1.3 验证环境是否搭建好：go version
+
+    1.4 安装go到/usr/local/
+    1.5 环境变量配置
+        #go
+        export PATH=$PATH:/usr/local/go/bin
+        export GOPATH=/home/xws/go_path
+
+2.命令行
+	http://studygolang.com/topics/2703
+
+3.国内下载包
+    http://www.golangtc.com/download/package
+
+4.常用命令
+    4.1 go get github.com/astaxie/beedb
+    4.2 go install github.com/go-sql-driver/mysql
+
+5.常见包
+    github.com/go-sql-driver/mysql
+
+6.错误
+    6.1 http://tonybai.com/2015/01/13/a-hole-about-variable-scope-in-golang/
+    6.2 http://blog.csdn.net/kenkao/article/details/47857795
+
+7.https .jks转换成.pem
+	http://www.cnblogs.com/interdrp/p/4879034.html
+
+    sert.jks 转为 cert.p12
+    keytool -importkeystore -srckeystore  www.1036225283.com.jks -destkeystore cert.p12 -srcstoretype jks -deststoretype pkcs12
+
+    cert.p12 转为 go的证书
+    openssl pkcs12 -clcerts -nokeys -out cert.pem -in cert.p12 -passin pass:890512
+    openssl pkcs12 -nocerts  -out key.pass.pem -in cert.p12 -passin pass:890512 -passout pass:890512
+    openssl rsa -in key.pass.pem -out key.pem -passin pass:890512
+
+8.string to int , int to string
+    http://blog.csdn.net/pkueecser/article/details/50433460
+	
+9.go websocket
+	go get golang.org/x/net/websocket
+	https://godoc.org/golang.org/x/net/websocket
+    https://blog.golang.org/
+
+github
+	   https://github.com/search?q=org%3Agolang+websocket&type=Code

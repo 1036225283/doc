@@ -1,0 +1,14 @@
+1.设置字体
+    setting ->  editor  ->  font-color
+
+1.intellij加载maven项目
+	file	->
+
+2.intellij部署tomcat和运行项目
+	2.1	配置Project
+				项目名称	SDK	8.0接口	项目的class路径
+	2.2	配置Moudle
+
+
+3.配置tomcat
+	Tomcat Server	->	+	->	填写name		->填写资源路径

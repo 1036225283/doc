@@ -1,0 +1,175 @@
+1.java 火狐浏览器下载excel，文件名乱码
+		http://blog.csdn.net/tongxinxiao/article/details/43733881
+		final String userAgent = request.getHeader("USER-AGENT");
+		String fileName ="用户切换模板.xls";
+
+		 if(StringUtils.contains(userAgent, "MSIE")){//IE浏览器
+			 fileName = URLEncoder.encode(fileName,"UTF8");
+         }else if(StringUtils.contains(userAgent, "Mozilla")){//google,火狐浏览器
+        	 fileName = new String(fileName.getBytes(), "ISO8859-1");
+         }else{
+        	 fileName = URLEncoder.encode(fileName,"UTF8");//其他浏览器
+         }
+         response.setHeader("Content-Disposition", "attachment; filename=\"" + fileName + "\"");//这里设置一下让浏览器弹出下载提示框，而不是直接在浏览器中打开
+         response.setContentType("application/vnd.ms-excel");
+
+
+2.log4j配置
+		如果配置了info，error，会把info和erro分别达到xxAll.log xxError.log,剩余的没有配置的日志，会打在默认的tomcat日志里面
+		//单独为某个类添加日志
+		#BGWSettlementService
+log4j.logger.com.dafy.bgwbusiness.business.plugin.replenishment.BGWSettlementService=info, NOTICE
+log4j.additivity.NOTICE = false
+log4j.appender.NOTICE=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.NOTICE.File=${catalina.home}/logs/BGWSettlementService.log
+log4j.appender.NOTICE.DatePattern='.'yyyy-MM-dd
+log4j.appender.NOTICE.Append=true
+log4j.appender.NOTICE.Threshold=info
+log4j.appender.NOTICE.layout=org.apache.log4j.PatternLayout
+log4j.appender.NOTICE.layout.ConversionPattern=%d{yyyy-MM-dd HH\:mm\:ss} [%5p] - %c -%F(%L) -%m%n
+
+
+3.html5视频播放器
+		https://www.zhihu.com/question/53686737
+
+4.matlab
+	http://cn.mathworks.com/help/matlab/examples.html?s_cid=doc_ftr
+
+
+5.mysql时间格式化
+	DATE_FORMAT(dtDebtEndTime,'%Y-%m-%d')
+
+6.mysq时间相减
+	datediff(
+	DATE_FORMAT(dtDebtEndTime, '%Y-%m-%d'),
+	DATE_FORMAT(dtDebtStartTime, '%Y-%m-%d')
+) + 1 = 45
+
+7.java获取星期几
+	Date date = new Date();
+		SimpleDateFormat dateFm = new SimpleDateFormat("EEEE");
+		dateFm.format(date);
+
+8.myeclipse格式化代码，不格式化注释
+	http://www.cnblogs.com/999-/p/6103631.html
+
+	8.1 调整代码格式化的宽度
+		Window→Preferences→Java→Code Style→ Formatter
+
+9.3d
+	http://11dom.com/index.php?s=/Models/Index/index.html
+
+10.apache的ftp下载
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.3</version>
+		</dependency>
+
+11.修改mysql字段属性
+	alter table `User`.tbProtocolTask modify column tsRefreshTime timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+12.磁盘空间满了
+	find / -size +100M -exec ls -lh {} \; 找到占空间的内容
+13.eclipse 折叠/展开代码快捷键设置
+	expand ctrl+w/collapse ctrl+q
+
+14.myeclipse deploy location ->	.settings	org.eclipse.wst.common.component	<propertyname="context-root" value="/MNGCC"/>
+
+15.maven项目myeclipse tomcat启动 org.apache.log4j没有找到->MyEclipse.Deployment Assembly add maven 依赖
+
+16.编写window 环境变量设置脚本
+::set system environment variable
+
+::set ant environment variable
+setx ANT_HOME E:\tools\apache-ant-1.9.0 /m
+setx PATH "%PATH%;%ANT_HOME%\BIN" /m
+
+::set android environment variable
+SETX ANDROID_HOME E:\android\android-sdk-windows /m
+SETX PATH "%PATH;%ANDROID_HOME%\platform-tools" /m
+
+echo "设置成功"
+pause
+exit
+
+17.动态创建css样式
+	http://www.360doc.com/content/10/0421/19/284485_24212637.shtml
+
+18.中文字符转码
+	http://tool.chinaz.com/Tools/URLEncode.aspx
+
+19.Beyond Compare 3 秘钥
+	C:\Users\Administrator\AppData\Roaming\Scooter Software\Beyond Compare 3 删除文件夹下全部文件，再输入秘钥
+--- BEGIN LICENSE KEY ---
+mv1nPlXAywBDCdhxFc9QOVv6TBcQHLAXBQUAKTh3ie4fqSEOnWrPsnVkF
+yt0wAkJHweoExRJWWVwwCniKNROSdJzJXE6YVapYW7f+tRRXRFI4yn4Nj
+jZ0RiiqGRCTVzwComUcXB-eiFWRBY6JpSsCNkmIxL5KsRCo442djHhTZE
+--- END LICENSE KEY -----
+
+20.fiddler修改返回文件
+	http://www.mamicode.com/info-detail-1176118.html
+	http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse
+	
+21.mysql  BIGINT UNSIGNED value is out of range in
+	SUM(cast(chd.lCreditMoney as signed) - cast(chd.lEverMoney  as signed))  AS lSaleCreditMoneyXZSXMonth
+
+22.js操作
+  		//获取第一个元素
+  		var td = $("#xws_table").find("tr:nth-child(2)").find("td:nth-child(4)");
+		var value = td.text();
+		var timestamp2 = Date.parse(new Date(value));
+		timestamp2 = timestamp2/1000;
+		//比较时间是否相差5分钟
+		var currentTime = Date.parse(new Date());
+		currentTime = currentTime / 1000;
+		var result = parseInt((currentTime - timestamp2)/60);
+		if(result>=5){
+			$("#xws_show").text("已超过"+result+"分钟没有刷新了");
+			$("#xws_show").css("background-color","red");
+		}
+		
+23.window 443被占用
+	netstat -ano|findstr "443"
+	tasklist|findstr 进程号
+	taskkill /f /t /im 进程名称
+	
+24.html text标签显示文本时,/t符合被替换的解决方案
+	function ReplaceAll(str, sptr, sptr1) {
+		while (str.indexOf(sptr) >= 0) {
+			str = str.replace(sptr, sptr1);
+		}
+		return str;
+	}
+
+	var string = cdoResponse.getStringValue("result");
+						string = ReplaceAll(string, " ", "\t");
+						$("#result").html(string);
+
+25.macbook pro sudo 启动idea
+	/Applications/IntelliJ IDEA.app/Contents/MacOS
+
+26.git永久移除数据，连提交日志都改变了
+	git filter-branch --tree-filter 'rm -rf .idea/' HEAD
+	git clean  -d  -fx ""
+
+27.idea tomcat 加内存
+	-Xms512m -Xmx1024m -XX:PermSize=256M -XX:MaxPermSize=1024m
+
+28.java jvm关闭钩子
+	Runtime.getRuntime().addShutdownHook	
+
+29.idea 设置预览端口号
+	退出idea，进入小界面，选择Build开头的选项，Debugger选项里面进行操作
+
+30.canvas获取热点
+	 < canvas id =“display”
+	 width =“500px”
+	 height =“500px”
+	 tabindex =“1”> 
+	< / canvas> 	
+
+31.创建jks
+		keytool -genkeypair -keyalg RSA -keysize 2048 -sigalg SHA1withRSA -validity 36000 -alias www.1036225283.com -keystore d:/test.jks
+		keytool -genkeypair -keyalg RSA -keysize 2048 -sigalg SHA1withRSA -validity 36000 -alias www.1036225283.com -keystore /software/test.jks
+		http://blog.csdn.net/boss666666/article/details/10284623

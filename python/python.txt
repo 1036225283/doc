@@ -1,0 +1,18 @@
+1.安装pip
+    yum -y install epel-release
+    yum -y install python-pip
+    yum clean all
+	
+2.国内镜像
+https://pan.baidu.com/s/1kU5OCOB#list/path=%2Fpub%2Fpython
+
+3.install
+    不要下载 "XZ compressed source tarball"
+    解压
+    ./configure --prefix=/usr/local/python3.2.6
+    make
+    make install
+
+
+3.三方的库
+	anaconda

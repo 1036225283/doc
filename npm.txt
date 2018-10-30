@@ -1,0 +1,16 @@
+1.npm 升级
+	npm install -g npm
+
+2.npm 查看版本
+	npm -v
+
+3.npm 查看远程仓库
+	npm info underscore
+
+4.vue+webpack搭建
+
+	npm install webpack webpack-dev-server vue-loader vue-html-loader css-loader vue-style-loader
+vue-hot-reload-api babel-loader babel-core babel-plugin-transform-runtime babel-preset-es2015 babel-runtime@5 --save-dev
+
+5.设置源
+	npm config set registry http://www.1036225283.com:8090/repository/npm-group/

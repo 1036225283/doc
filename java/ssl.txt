@@ -1,0 +1,253 @@
+1.创建.jks
+	keytool -genkeypair -keyalg RSA -keysize 2048 -sigalg SHA1withRSA -validity 36000 -alias www.1036225283.com -keystore d:/test.jks
+	keytool -genkeypair -keyalg RSA -keysize 2048 -sigalg SHA1withRSA -validity 36000 -alias www.1036225283.com -keystore /software/test.jks
+	http://blog.csdn.net/boss666666/article/details/10284623
+
+2.go https 解析
+type serverHandshakeState struct {
+	c                     *Conn
+	clientHello           *clientHelloMsg
+	hello                 *serverHelloMsg
+	suite                 *cipherSuite
+	ellipticOk            bool                  是否椭圆算法
+	ecdsaOk               bool
+	rsaDecryptOk          bool
+	rsaSignOk             bool
+	sessionState          *sessionState
+	finishedHash          finishedHash
+	masterSecret          []byte
+	certsFromClient       [][]byte
+	cert                  *Certificate
+	cachedClientHelloInfo *ClientHelloInfo
+}
+
+
+type serverHelloMsg struct {
+	raw                          []byte
+	vers                         uint16
+	random                       []byte
+	sessionId                    []byte
+	cipherSuite                  uint16
+	compressionMethod            uint8
+	nextProtoNeg                 bool
+	nextProtos                   []string
+	ocspStapling                 bool
+	scts                         [][]byte
+	ticketSupported              bool
+	secureRenegotiation          []byte
+	secureRenegotiationSupported bool
+	alpnProtocol                 string
+}
+
+type clientHelloMsg struct {
+	raw                          []byte
+	vers                         uint16
+	random                       []byte
+	sessionId                    []byte
+	cipherSuites                 []uint16
+	compressionMethods           []uint8
+	nextProtoNeg                 bool
+	serverName                   string
+	ocspStapling                 bool
+	scts                         bool
+	supportedCurves              []CurveID
+	supportedPoints              []uint8
+	ticketSupported              bool
+	sessionTicket                []uint8
+	signatureAndHashes           []signatureAndHash
+	secureRenegotiation          []byte
+	secureRenegotiationSupported bool
+	alpnProtocols                []string
+}
+
+
+doResumeHandshake()
+
+establishKeys()
+
+
+https详解
+　　①客户端的浏览器向服务器传送客户端 SSL 协议的版本号，加密算法的种类，产生的随机数，以及其他服务器和客户端之间通讯所需要的各种信息。
+ 
+　　②服务器向客户端传送 SSL 协议的版本号，加密算法的种类，随机数以及其他相关信息，同时服务器还将向客户端传送自己的证书。
+ 
+　　③客户利用服务器传过来的信息验证服务器的合法性，服务器的合法性包括：证书是否过期，发行服务器证书的 CA 是否可靠，发行者证书的公钥能否正确解开服务器证书的“发行者的数字签名”，服务器证书上的域名是否和服务器的实际域名相匹配。如果合法性验证没有通过，通讯将断开；如果合法性验证通过，将继续进行第四步。
+ 
+　　④用户端随机产生一个用于后面通讯的“对称密码”，然后用服务器的公钥（服务器的公钥从步骤②中的服务器的证书中获得）对其加密，然后将加密后的“预主密码”传给服务器。
+ 
+　　⑤如果服务器要求客户的身份认证（在握手过程中为可选），用户可以建立一个随机数然后对其进行数据签名，将这个含有签名的随机数和客户自己的证书以及加密过的“预主密码”一起传给服务器。
+ 
+　　⑥如果服务器要求客户的身份认证，服务器必须检验客户证书和签名随机数的合法性，具体的合法性验证过程包括：客户的证书使用日期是否有效，为客户提供证书的CA 是否可靠，发行CA 的公钥能否正确解开客户证书的发行 CA 的数字签名，检查客户的证书是否在证书废止列表（CRL）中。检验如果没有通过，通讯立刻中断；如果验证通过，服务器将用自己的私钥解开加密的“预主密码”，然后执行一系列步骤来产生主通讯密码（客户端也将通过同样的方法产生相同的主通讯密码）。
+ 
+　　⑦服务器和客户端用相同的主密码即“通话密码”，一个对称密钥用于 SSL 协议的安全数据通讯的加解密通讯。同时在 SSL 通讯过程中还要完成数据通讯的完整性，防止数据通讯中的任何变化。
+ 
+　　⑧客户端向服务器端发出信息，指明后面的数据通讯将使用的步骤⑦中的主密码为对称密钥，同时通知服务器客户端的握手过程结束。
+ 
+　　⑨服务器向客户端发出信息，指明后面的数据通讯将使用的步骤⑦中的主密码为对称密钥，同时通知客户端服务器端的握手过程结束。
+ 
+　　⑩SSL 的握手部分结束，SSL 安全通道的数据通讯开始，客户和服务器开始使用相同的对称密钥进行数据通讯，同时进行通讯完整性的检验。
+
+
+SSL协议分为两层
+	SSL记录协议（SSL Record Protocol）
+	SSL握手协议（SSL Handshake Protocol）
+	
+java 代码实现
+	http://kingj.iteye.com/blog/2103662
+	
+抓包
+	http://blog.csdn.net/xifeijian/article/details/54668283?locationNum=7&fps=1
+	
+linux 下抓包
+	http://www.freebuf.com/articles/system/37900.html
+
+抓包wireshark
+    安装
+        yum install wireshark
+        yum install wireshark-gnome
+    启动
+        sudo wireshark
+    过滤
+        http://blog.csdn.net/a2657222/article/details/7820036
+        https://jingyan.baidu.com/article/7f41ececede744593c095c79.html
+https://www.1036225283.com/home/list
+
+ssl
+(ssl and ip.dst==123.207.164.236 and ip.src==192.168.1.112) or (ssl and ip.src==123.207.164.236 and ip.dst==192.168.1.112)
+
+
+websocket
+(websocket and ip.dst==123.207.164.236 and ip.src==192.168.1.112) or (websocket and ip.src==123.207.164.236 and ip.dst==192.168.1.112)
+
+
+(ssl and ip.dst==192.168.1.112 and ip.src==192.168.1.112)
+
+
+
+(ssl and ip.dst==123.207.164.236 and tcp.dstport==8091 and ip.src==192.168.1.112) or (ssl and ip.src==123.207.164.236 and ip.dst==192.168.1.112)
+
+
+ssl data
+Content Type : Application Data (0x17,1)
+Version :TLS 1.2 (0x0303,2)
+Length: (0x0044,2)
+Encrypted Application Data :
+
+Content Type : Alert (0x15,1)
+Version :TLS 1.2 (0x0303,2)
+Length: (0x1a,2)
+Encrypted Application Data :
+
+Cipher suites Length:26
+Cipher Suites (13 suites)
+Compression Methods Length:1
+Compression Methods (1 method)
+Extensions Length:120
+Extension:server_name
+
+
+--------------------------------------------------------
+实战参考
+http://blog.csdn.net/hherima/article/details/52469674
+http://blog.csdn.net/jamal117/article/details/53908187
+密码学
+http://blog.csdn.net/mrpre/article/details/78025940
+http://blog.csdn.net/mrpre/article/details/52608867
+java操作数字证书
+http://blog.csdn.net/zhangrenhong/article/details/6178601
+--------------------------------------------------------
+
+server hello
+服务端密钥交换消息(Server Key Exchange 可选)
+go
+    Cipher Suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+    Cipher Suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+
+
+java
+Cipher Suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (0xc02f)
+Cipher Suite: TLS_DHE_RSA_WITH_AES_256_CBC_SHA (0x0039)
+Cipher Suite: TLS_RSA_WITH_AES_256_CBC_SHA (0x0035)
+
+
+client hello
+客户端支持的加密套件 cipher suites 列表
+
+
+client hello 一个用于生成主秘密的32字节的随机数。（等会介绍主秘密是什么）
+server hello一个用于生成主秘密的32字节的随机数。（客户端一个、服务端一个）
+
+关键字
+go doFullHandshake
+https://www.2cto.com/kf/201701/587954.html
+
+netty certificare
+https://stackoverflow.com/questions/14694701/java-netty-ssl-server-client-with-self-signed-certificates-throws-fatal-error
+
+Security.java
+http://www.360doc.com/content/15/0131/00/7853380_445124699.shtml
+
+
+ssl java 源码研究
+SSLSessionImpl
+
+beginHandshake
+    ServerHandshaker
+
+
+保存一下文档
+	http://blog.csdn.net/ldld1717/article/details/53116048
+	http://blog.csdn.net/amber_room/article/details/6406832
+	http://blog.csdn.net/happylee6688/article/details/45242691
+	http://blog.csdn.net/u012107165/article/details/43148743
+	http://blog.csdn.net/u013991521/article/details/48207969
+
+大整数分解、有限域上的离散对数问题和椭 圆曲线上的离散对数
+
+费马小定律:
+    n是一个奇素数，a是任何整数(1≤ a≤n-1) ，则 a^(n-1)≡1(mod n)
+Miller-Rabin 算法:
+
+    最大公约数:两个数共同的约数中最大的那个,记作(a,b),相反的[a,b]为最小公约数
+    ≡
+        1.f(x)≡k,表示,x无论怎么变,恒等于k
+        2.同余符号:26≡14(mod12),就是两个整数,除以一个数12=m,所得余数相等
+    素数:只能被1和本身整除,否则是和数,1和0即不是素数,也不是合数
+        梅森素数:2^p-1,p都是素数
+检测素数：
+    http://blog.csdn.net/qq_35116353/article/details/71076180
+
+java DH
+        http://blog.csdn.net/zuozhiyoulaisam/article/details/54947402
+        http://blog.csdn.net/jianggujin/article/details/50537103
+
+
+椭圆算法
+    http://blog.csdn.net/sahusoft/article/details/6868016
+
+
+calculateMasterSecret
+    KeyGenerator.init()
+    KeyGenerator.generateKey()
+
+
+**********************
+    http://blog.csdn.net/mrpre/article/details/77867831
+**********************
+http://www.layui.com/demo/layim.html
+
+go ssl parse
+    ecdheKeyAgreement
+    type ecdheKeyAgreement struct {
+    	version    uint16
+    	sigType    uint8
+    	privateKey []byte
+    	curveid    CurveID
+
+    	// publicKey is used to store the peer's public value when X25519 is
+    	// being used.
+    	publicKey []byte
+    	// x and y are used to store the peer's public value when one of the
+    	// NIST curves is being used.
+    	x, y *big.Int
+    }

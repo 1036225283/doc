@@ -1,0 +1,17 @@
+1.java中的引用有几种
+    http://www.cnblogs.com/alias-blog/p/5793108.html
+    强引用 StrongReference
+    软引用 SoftReference
+    弱引用 WeakReference
+    虚引用 PhantomReference
+
+2.java threadLocal
+    http://blog.csdn.net/lufeng20/article/details/24314381
+    作用：实验ThreadLocal维护变量时，ThreadLocal为每个使用该变量的线程维护一个变量副本，所以每一个线程都可以独立的改变自己的副本。而不会影响其他线程所对应的副本
+    实现：在ThreadLocal类中有一个map，用于存储每个线程的变量副本，key就是线程对象，value就是每个线程的变量副本
+    比较：与同步机制的比较，同步机制用时间换空间，仅提供一个变量，让不同的线程排队访问。ThreadLocal用空间换时间，为每一个线程提供一份变量，可以同时访问，而互补影响
+3.java final thread
+    http://blog.csdn.net/xiaoxiaoxuanao/article/details/52573859
+
+4.nginx
+    http://blog.csdn.net/yangbutao/article/details/8505270

@@ -1,0 +1,14 @@
+1.install
+    tar -xvf orient db.tar
+
+2.run
+    cd orientdb/bin
+    modify bin/orientdb.sh
+        set orientdb.path
+        set orientdb.user
+    ./bin/orientdb.sh start
+
+3.java connection orientdb
+
+4.doc
+    http://orientdb.com/docs/3.0.x/

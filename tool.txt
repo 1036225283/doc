@@ -1,0 +1,61 @@
+1.intel idea licence server = http://idea.iteblog.com/key.php
+
+----------------------------
+    p
+
+ x     w
+
+    l    r
+x.color=block,p.color=block,w.color=red,l.color=block,r.color=block
+----------------------------
+     w          w.block.height not change
+
+  p     r
+
+x   l
+----------------------------
+case:x.color=red                                            (ok)
+    handler:x.color=block;
+    end
+
+case:x.color=block
+    case:p.color=red                                        (ok)
+    /**
+    * w.color must is block
+    * p.block.height=0;
+    * w.block.height = x.block.height+1;
+    * leftRoute
+    *
+    **/
+        case:w.color=block                                  (ok)
+            handler:leftRoute()
+                    p.color=block
+            end
+    case:p.color=black                                      (ok)
+    /**
+    * w.color may red,may block
+    **/
+        case:w.color=red
+                l.color=block
+                r.color=block
+            handler:leftRoute()
+                    w.color
+            end
+        case:w.color=block
+
+
+第一种类型：x.color=red   (ok)
+第二种类型：x.color=block,p.color=red,w.color=block   (ok)
+第三种类型：x.color=block,p.color=block,w.color=red,l.color=block,r.color=block   (ok)
+第四种类型：x.color=block,p.color=block,w.color=block,l.color=block,r.color=block (ok)
+第五种类型：x.color=block,p.color=block,w.color=block,l.color=block,r.color=red
+
+
+
+
+x.color=block,p.color=block,w.color=block,wl.color=block
+左旋，p.color=red
+
+*注意事项：
+    1.计算树高，需要保护哨兵节点，不然凑不拢
+    2.红黑树删除后的平衡，主要靠黑高的降级来完成，可以是左边进行降级，也可能是右边降级，左边降级居多

@@ -1,0 +1,159 @@
+git window 客户端
+
+	参考教材
+	http://blog.csdn.net/mirkerson/article/details/48649309
+
+	下载基本版客户端
+	https://git-for-windows.github.io/
+
+
+	下载加强版window客户端
+	https://download.tortoisegit.org/tgit/2.3.0.0/
+
+	下载加强版window客户端语言包
+
+1.git配置
+    git.repositoriesFolder=${baseFolder}/git
+    server.httpPort 和server.httpsPort
+
+2.git客户端
+    http://git-scm.com/download/win
+
+3.乌龟客户端
+    http://download.tortoisegit.org/tgit/previews/
+
+4.git教程
+    http://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
+
+创建密钥
+ssh-keygen -t rsa -C 'second@mail.com' -f id_rsa_second
+
+二，git命令
+    配置用户名
+    git config --global user.name "John Doe"
+    配置密码
+    git config --global user.email johndoe@example.com
+    初始化git仓库
+    $ git init
+    添加git文件
+    $ git add *.java
+    添加git文件夹
+    $ gti add config
+    提交git文件
+    $ git commit -m 'initial project version'
+    拷贝git文件（未成功）
+    $ git clone ssh://admin@localhost:29418/test.git
+    推送远程git文件
+    $ git remote add origin ssh://admin......
+    下一条推送命令
+    $ git push -u origin master
+    查看git文件状态
+    $ git status
+    创建忽略文件.gitignore
+  *.[oa]所有以.o或.a结尾的文件
+  /要忽略的目录
+  #头的是注释
+  !取反，忽略指定模式以外的文件\目录
+  查看具体修改的文件
+  $ git diff
+    查看已缓存的各版本之间的变化
+    $ git diff -cached
+    一次提交多个文件
+    $ git commit -a
+    删除文件
+    git rm
+        查看log
+    $ git log -p -2
+    查看具体的log
+    $ git log -p -2 --word--diff
+    统计增改行数统计
+    $ git log --stat
+    添加远程仓库
+    $ git remote add name url
+    从远程仓库抓起数据
+    $ git fetch test
+    //从远处抓取并合并数据
+    $ git pull
+    //推送数据到远程仓库
+    $ git push origin master
+    查看远程仓库的信息
+    $ git remote show origin
+    //删除远程仓库
+    $ git remote rm test
+    //展示现有标签
+    $ git tag
+    //搜索tag
+    $ git tag -l '1.2.*'
+    //新建tag
+    $ git tag -a v1.1 -m 'test version 1
+    //展示tag
+    $ git tab 'v1.4
+    //创建分支
+    $ git branch testing
+    //切换分支
+    $ git checkout test
+    //新建并切换分支
+    $ git checkout -b iss53
+    //合并分支
+    $ git checkout master
+    $ git merge hotfix
+    //删除分支
+    $ git branch -d hotfix
+    //查看分支
+    $ git branch
+
+
+
+
+
+
+    远程仓库    git fetch
+
+    查看远程仓库    git remote show xws
+
+
+
+
+    排除文件，需要把.gitignore也排除掉
+    /target/
+    *.project
+    /.settings
+    *.classpath
+    *.gitignore
+
+git am --abort
+
+rm -rf .git/rebase-apply
+
+
+
+
+
+
+
+1.git推送命令
+    git push -u test margie
+
+git放弃本地所有修改，强行覆盖
+git fetch --all
+git reset --hard branch
+
+
+从其他分支提取文件
+git checkout [branch] -- [file name]
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+	

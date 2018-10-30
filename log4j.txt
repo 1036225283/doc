@@ -1,0 +1,48 @@
+1.基本配置
+	配置根配置，第一个参数定义日志级别，其他参数定义输出位置
+	log4j.rootLogger=All,stdout,ErrorLogFile
+
+	log4j日志appender有以下几种
+	org.apache.log4j.ConsoleAppender（控制台），
+	org.apache.log4j.FileAppender（文件），
+	org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），
+	org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），
+	org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）
+
+2.参考文档
+	http://www.codeceo.com/article/log4j-usage.html
+
+3.参考模板
+-----------------------------------------------------------------------------------------------------------------------------
+log4j.rootLogger=info,stdout,LogFile
+
+#log level
+log4j.logger.com.opensymphony=error
+log4j.logger.com.dafy=info
+log4j.logger.com.cdoframework=info
+log4j.logger.net.spy.memcached=error
+log4j.logger.org.apache.velocity=error
+
+
+
+#stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss:SSS}%5p [CompentBusiness,%C,%L]: %m%n
+
+
+#file
+log4j.appender.LogFile=org.apache.log4j.DailyRollingFileAppender
+log4j.appender.LogFile.File=${catalina.home}/logs/CompentBusiness.log
+log4j.appender.LogFile.DatePattern='.'yyyy-MM-dd
+log4j.appender.LogFile.Append=true
+log4j.appender.LogFile.Threshold=info
+log4j.appender.LogFile.layout=org.apache.log4j.PatternLayout
+log4j.appender.LogFile.layout.ConversionPattern=%d{yyyy-MM-dd HH\:mm\:ss\:SSS}%5p [CompentBusiness,%C,%L][%t]\: %m%n
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+	

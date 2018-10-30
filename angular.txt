@@ -1,0 +1,221 @@
+1.安装
+
+	apt-get update
+
+	apt-get install apt-transport-https ca-certificates
+
+	apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+	mkdir /etc/apt/sources.list.d/docker.list
+
+	添加内容
+		deb https://apt.dockerproject.org/repo ubuntu-trusty main
+
+	apt-get update
+
+	sudo apt-get purge lxc-docker
+
+	apt-cache policy docker-engine
+
+	apt-get install apparmor
+
+	apt-get update
+
+	apt-get install docker-engine
+
+	service docker start
+
+2.基本命令
+	获取docker命令的帮助
+		sudo docker --help
+		sudo docker attach --help
+	运行 web application
+		sudo docker run -d -P training/webapp python app.py
+	查看正在运行的container
+		sudo docker ps -l
+	查看正在运行的container
+		sudo docker ps -a
+	改变端口映射
+		sudo docker run -d -p 80:5000 training/webapp python app.py
+	查看container的端口
+		sudo docker port containerName
+	追踪container的log
+		sudo docker logs -f containerName
+	查看container的进程信息
+		sudo docker top containerName
+	查看container的具体信息
+		sudo docker inspect containerName
+	停止container的进程
+		sudo docker stop containerName
+	重启container的进程
+		sudo docker start containerName
+	移除container的信息
+		sudo docker rm containerName
+	重命名docker(唯一命名)
+		docker run --name helloworld
+
+3.交互式和守护式运行
+	交互式运行
+	docker run -i -t ubunt:14.04 /bin/bash
+
+	守护式运行
+	docker run -i -t -d ubuntu:14.04 /bin/bash
+
+	指定端口
+	docker run -i -t -d -p 80:5000 ubuntu:14.04 /bin/bash
+4.建立自己的镜像
+	查看本地镜像数量
+		sudo docker images
+	引用某个版本的镜像
+		ubuntu:14.04
+		sudo docker run -t -i ubuntu:14.04 /bin/bash
+
+	预加载镜像
+		sudo docker pull
+	搜索镜像
+		sudo docker search
+	下载镜像
+		sudo docker pull ubuntu
+	创建自己的镜像
+		1.更新一个container，创建image从现成的，并提交
+		2.创建一个dockerFile
+	构建镜像
+		docker build -t 1036225283/ubuntu:min .
+
+	根据已有的container创建镜像
+	docker commit -m 'apt-update' -a 'id512@126.com' 0bad 1036225283/ubuntu-min:apt-update
+
+
+
+	ubuntu:latest: 66MB (已经瘦身了非常多了，以前有些版本超过600MB)
+	debian:latest: 55MB (同上，一开始是200MB以上的）
+	arch:latest: 145MB
+	busybox:latest: 676KB (是的！KB，我稍后会讨论它)
+	alpine:latest: 2MB (2MB，包含一个包管理工具的Linux系统)
+
+	最小镜像
+	http://zhidao.baidu.com/link?url=KhB1bLUcBVVT9GyMbVPCyJ_vsCFg0kHTmY71raEkZBiZZWWSmAJltNHM1x_oXBKyJ007lOf1T1sXqmgTBoavew7BagaCZcY1VtEC2NY2-Tu
+
+	http://geek.csdn.net/news/detail/61634
+
+5.注意事项
+
+	**避免使用vim来编辑文件，因为需要安装vim，体积太大了
+	**直接使用外部文件，来挂载软件，然后copy进来，再然后
+
+	1.使用Dockerfile文件，设置环境变量
+	2.使用卷文件，挂载java jdk，并交互，拷贝java文件
+	3.挂载外部目录，Dockerfile配置环境变量
+6.镜像依赖
+	ubuntu:16.10->apt-update
+	apt-update->vim
+	vim->ssh->docker
+	vim->java
+	vim->mongodb
+
+	名称：ubuntu
+	描述：基本的ubuntu镜像188m
+
+	名称：ubuntu-vim
+	描述：带vim的ubuntu镜像
+
+	名称：ubuntu-ssh
+	描述：带远程登录的ubuntu镜像
+
+	名称：ubuntu-java
+	描述：带vim，带远程登录的java
+
+	名称：ubuntu-mysql
+	描述：带vim，带远程登录的mysql
+
+	名称：ubuntu-hadoop
+	描述：带vim，带远程登录的hadoop
+
+7.redis脚本1：配置redis.conf中的ip和port
+	#!/bin/sh
+	if [ "$1" = "start" ] ; then
+			echo "******config redis ip and port******"
+			ip=$(LC_ALL=C ip address|grep inet|grep -v "inet6"|grep -v "127.0.0.1"|awk '{print $2}'|cut -d/ -f1|cut -d/ -f1|sed -n 'N;s/\n/ /;p')
+			echo $ip
+			sed -i "s/^bind .*/bind $ip/" /software/redis-3.2.3/redis.conf
+		#sed -i "s/^bind .*/bind $ip/" redis.conf
+			echo "redis ip is: "$ip
+			if [ "$2" = "" ] ; then
+					echo "redis port is 8000"
+			else
+					sed -i "s/^port .*/port $2/" /software/redis-3.2.3/redis.conf
+					#sed -i "s/^port .*/port $2/" redis.conf
+			echo "redis port is : "$2
+			fi
+			/software/redis-3.2.3/src/redis-server /software/redis-3.2.3/redis.conf
+
+	elif [ "$1" = "stop" ] ; then
+			echo "this is stop"
+
+	elif [ "$1" = "rm" ] ; then
+			echo "this is rm"
+
+	else
+			echo "hello world";
+			echo "this is end"
+	fi
+
+8.redis脚本2：启动和停止redis集群
+	#!/bin/sh
+	if [ "$1" = "start" ] ; then
+			echo "this is start"
+			echo "start is run"
+			echo "end"
+			
+			docker run -d -p 8000:8000 --name redis-cluster-0 1036225283/ubuntu-16.10:redis-cluster
+			docker run -d -p 8001:8000 --name redis-cluster-1 1036225283/ubuntu-16.10:redis-cluster
+			docker run -d -p 8002:8000 --name redis-cluster-2 1036225283/ubuntu-16.10:redis-cluster
+			docker run -d -p 8003:8000 --name redis-cluster-3 1036225283/ubuntu-16.10:redis-cluster
+			docker run -d -p 8004:8000 --name redis-cluster-4 1036225283/ubuntu-16.10:redis-cluster
+			docker run -d -p 8005:8000 --name redis-cluster-5 1036225283/ubuntu-16.10:redis-cluster
+	
+	elif [ "$1" = "stop" ] ; then
+		echo "this is stop"
+			docker stop redis-cluster-0
+			docker stop redis-cluster-1
+			docker stop redis-cluster-2
+			docker stop redis-cluster-3
+			docker stop redis-cluster-4
+			docker stop redis-cluster-5
+	
+	elif [ "$1" = "rm" ] ; then
+			echo "this is rm"
+			docker rm redis-cluster-0
+			docker rm redis-cluster-1
+			docker rm redis-cluster-2
+			docker rm redis-cluster-3
+			docker rm redis-cluster-4
+			docker rm redis-cluster-5
+	
+	else
+			echo "hello world";
+			echo "this is end"
+	fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

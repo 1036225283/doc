@@ -1,0 +1,45 @@
+nio
+1.简单介绍
+		对nio的实践遇到了很多难点，最后在博客上看到了一篇文章，大受启发！发现其中源码用英文注释，首先用百度翻译了一下，然后突发奇想，
+	将英文直接放到百度里面搜，于是发现了新大陆。
+		于是发现了这篇英文教程：http://rox-xmlrpc.sourceforge.net/niotut/
+		还发现了这篇英文教程：https://community.oracle.com/thread/1146536
+		好神奇，注释都是差不多的
+		不过，最新发现的还是中文的博客：http://goon.iteye.com/category/265467
+
+2.过来一段时间后，就再也连不上服务器了，使用 netstat -nat|grep ":88" 查看，有很多僵死的连接：
+		tcp6       0      0 10.141.124.61:88        115.35.190.130:27907    ESTABLISHED
+		netstat -n | awk '/^tcp/ {++y[$NF]} END {for(w in y) print w, y[w]}'
+		netstat -nat|grep ":88"
+		netstat -nat|grep "ESTABLISHED"
+		http://blog.csdn.net/lifuxiangcaohui/article/details/50296523?_t_t_t=0.820445498857588
+
+3.搞一个全局变量管理器，搞一个定时器，定时打印全局变量的数据，看看内存的情况
+
+
+4.java nio 多线程
+		http://www.cnblogs.com/longb/archive/2006/04/04/366800.html
+
+5.java nio SelectionKey.attachment()为空的问题
+		http://cai555.iteye.com/blog/1174069
+
+6.暴露Application变量
+		使用Application对象，保存服务器全局对象，全局配置，同时，提供查看Application的handler，查询Application的情况
+		1.Application应该存在于HandlerEngine中，而不存在于SocketEngine中，因为SocketEngine是可以替换的，可以替换为bio,nio,aio,udp等Engine
+		2.Application主要存放与业务有关的东西，所以应该在业务引擎中
+		3.如何获取socketEngine的情况，并反馈到前端，例如，StoreSocketCHannel中还有多少数据等，需要提供专门接口
+
+7.当前首要问题：
+		7.1手机浏览不正常的问题(ok)
+		7.2增加多种协议并存的问题
+		7.3websocket的问题
+		7.4比redis快好多的缓存
+		7.5跨域的安全认证问题
+
+8.对于多协议的支持，主要分为两个方面，一个方面是鉴定协议，另外一个方面是调用协议处理器，并决定是否把协议与socket或者socketChannel进行关联
+	8.1对每种协议的鉴定，鉴定方式是一样的，是同一个方法。但是，对每种协议的读，对每种协议的写，还真挺麻烦的，我就搞个http协议和websocket协议好了，没有那么多精力去搞这些
+	8.2读协议传入一个buffer，byte[],Map<>，EngineSocket即可
+
+9.nio的注册和反注册
+	9.1 nio的注册和反注册不是由channel.register()和key.cancel()做到的
+	9.2 nio的注册和反注册是由key.interestOps()做到的

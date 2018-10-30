@@ -1,0 +1,27 @@
+参考文献：
+	http://www.cnblogs.com/longyg/archive/2012/06/25/2556576.html
+	http://www.jcraft.com/jsch/
+
+sftp客户端
+	http://www.freesshd.com/
+	设置
+    ssh
+        listen address选择本机的ip地址
+        port 选一个没有被占用的端口
+    authentication
+        password authentication		required
+        public key authentication	allowed
+    sftp
+        ftp的目录设置
+    encryption
+        any
+    user
+        设置密码登陆，而不是public key登陆，设置sftp选中
+
+其他工具
+	Server端：
+	https://filezilla-project.org/download.php?type=server
+	Client端：
+	https://filezilla-project.org/download.php
+
+		

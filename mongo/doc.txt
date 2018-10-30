@@ -1,0 +1,2 @@
+1.mongo readConcren用途和原理
+	http://www.mongoing.com/archives/3403

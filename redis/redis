@@ -1,0 +1,10 @@
+1.编译
+    不同的系统分别进行编译
+    yum install -y gcc
+    make
+2.启动
+    ./src/redis-server redis.conf
+
+3.mac	安装
+	make test
+	make install

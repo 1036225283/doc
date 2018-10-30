@@ -1,0 +1,5 @@
+1.查看运行时信息
+    jmap -dump:format=b,file=heap.bin <pid>
+
+2.解析heap.bin
+    jhat heap.bin

@@ -1,0 +1,12 @@
+1.解压安装
+
+2.指定安装目录
+	./configure --prefix=/software/protobuf
+
+	make
+
+	make install
+
+3.使用
+	 protoc -I=src/main/resource/proto --java_out=src/main/java src/main/resource/proto/protobuf.proto
+	 protoc --java_out=/Users/xws/IdeaProjects/learn/src/main/java ./User.proto

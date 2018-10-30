@@ -1,0 +1,82 @@
+1.ubuntu启动mysql客户端
+mysql -uroot -p
+
+2.查看连接时间
+ show global variables like '%timeout%'
+
+3.修改密码
+update user set password=password("admin10000.com") where user="root";
+flush privileges;//刷新权限
+
+4.配置文件
+	mysql的配置文件在/etc/mysql/my.cnf
+
+	mysql默认数据在/var/lib/mysql
+//查看数据库的引擎
+show variables like '%engine%'
+show global variables like '%log%'查看日志
+
+5.安装命令:sudo apt-get install mysql-server
+
+
+第一步，修改表名大小写敏感的问题
+    在/etc/mysql/my.cnf文件的[mysqld]下面添加
+    lower_case_table_names=1
+
+第二步，修改bind-address = 0.0.0.0
+
+第三步，创建用户
+    create user 'duck'@'127.0.0.1' identified by 'duck';
+
+第四步，授权用户
+    GRANT select,insert,update,delete ON xws.* TO 'duck'@'127.0.0.1' IDENTIFIED BY 'duck' WITH GRANT OPTION;
+
+	GRANT ALL PRIVILEGES ON xws.* TO 'duck'@'%' IDENTIFIED BY 'duck' WITH GRANT OPTION;
+    GRANT ALL PRIVILEGES ON xws.* TO 'xws'@'%' IDENTIFIED BY 'xws@#$xws' WITH GRANT OPTION;
+
+
+第五步，刷新权限
+    flush privileges
+第六步，关机重启
+    sudo reboot
+问题：mysql修改字符编码
+进入vim /etc/mysql/my.cnf
+1.在[client]下面添加default-character-set=utf8
+
+2.在[mysqld]下面添加default-character-set=utf8
+character-set-server=utf8
+
+创建utf-8的数据库
+	CREATE DATABASE `xws` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+
+	mysql查询时间处理
+			sql时间格式化    date_format(prescription.date_created,'%Y-%m-%d') dateCreate ,
+		sql时间加减，
+
+		set @dt = now();
+		select date_add(@dt, interval 1 day); - 加1天
+		select date_add(@dt, interval 1 hour); -加1小时
+		select date_add(@dt, interval 1 minute); - 加1分钟
+		select date_add(@dt, interval 1 second); -加1秒
+		select date_add(@dt, interval 1 microsecond);-加1毫秒
+		select date_add(@dt, interval 1 week);-加1周
+		select date_add(@dt, interval 1 month);-加1月
+		select date_add(@dt, interval 1 quarter);-加1季
+		select date_add(@dt, interval 1 year);-加1年
+
+mysql 加压版安装
+	./mysql_install_db --user=ubuntu --basedir=/software/mysql-5.6.35-linux-glibc2.5-i686 --datadir=/software/mysql-5.6.35-linux-glibc2.5-i686/data
+	
+	
+	
+	
+	//GRANT ALL PRIVILEGES ON xws.* TO 'duck'@'%' IDENTIFIED BY 'duck' WITH GRANT OPTION;
+
+-------------------------------------------冷萌知识----------------------------------------
+GROUP_CONCAT()对GROUP BY的数据集进行叠加
+
+conut if
+	COUNT(IF (a.lCreditUsed>0, TRUE, NULL)) usedCount,
+
+//从一个表拷贝数据到另外一个表
+	create table stock.tbStockDay select * from xws.tbStockDay;

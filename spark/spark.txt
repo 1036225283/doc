@@ -1,0 +1,28 @@
+2017年3月27日23:42:20
+	1.伪模式启动
+		./sbin/start-master.sh
+		./sbin/start-slave.sh spark://localhost:7077
+	1.1启动配置文件
+		cd conf
+			cp slaves.template slaves
+				vim slaves
+			cp spark-defaults.conf.template spark-defaults.conf
+				vim spark-defaults.conf
+					spark.master			spark://localhost:7077
+					spark.eventLog.enabled	true
+					spark.eventLog.dir		/home/xws/tmp/
+	1.2spark-shell
+		sudo su
+		spark-shell --master spark://localhost:7077
+
+2017年3月30日23:11:15
+	1.https://github.com/jacksu/utils4s	学习教程
+
+2017年4月3日21:22:47
+	牛掰的博客，把英文翻译成了中文
+		http://www.cnblogs.com/BYRans/p/5057110.html
+		
+spark-mongo
+	https://docs.mongodb.com/spark-connector/current/configuration/
+					
+					

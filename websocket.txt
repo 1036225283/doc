@@ -1,0 +1,30 @@
+1.websocket正式开搞
+	1.1参考资料：
+		基于netty的websocket		http://cpjsjxy.iteye.com/blog/1609830
+	1.2四年前的博客
+		nio websocket		https://my.oschina.net/ielts0909/blog/99586
+
+2.参考文献
+	2.1	http://helloyesyes.iteye.com/blog/1186533
+	2.2	http://www.jianshu.com/p/eb4c1c724d9e
+	2.3	https://m.baidu.com/from=844b/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%401320_2001%2Cta%40iphone_1_9.2_3_601/baiduid=0D254FE78DC26D30D43EC3CFBDB80DD0/w=10_10_java+websocket%E5%8D%8F%E8%AE%AE/t=iphone/l=3/tc?ref=www_iphone&lid=1363471195621461278&order=5&vit=osres&tj=www_normal_5_10_10_title&m=8&srd=1&cltj=cloud_title&dict=30&title=webSocket%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E7%9A%84%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0-java-%E7%94%B5%E8%84%91%E7%BC%96%E7%A8%8B%E7%BD%91&sec=11536&di=6d7f67f3364661c9&bdenc=1&tch=124.1583.247.846.1.25920113&nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IJBuUKytQ2zSt95mteP4sXd6oZDyqAp7QIl4sgTCcshoIuHOeAT-il17&clk_info={%22srcid%22%3A%22www_normal%22%2C%22order%22%3A%225%22%2C%22tplname%22%3A%22www_normal%22%2C%22t%22%3A1460677364682%2C%22xpath%22%3A%22div-div-div-a-p%22}
+	2.4	http://blog.csdn.net/fenglibing/article/details/6852497
+
+3.本地文件
+	file:///C:/Users/1036225283/Desktop/websocket.html
+
+4.web socket 开发事项
+    1.读web socket data
+    2.写web socket data
+
+    将业务数据解析出来
+    将业务数据包装起来
+
+第一个字节是操作码
+第二个字节是数据长度
+    暂不处理超长帧
+
+数据长度 掩码index    数据index
+126     2           6
+127     4           8
+128     10          14

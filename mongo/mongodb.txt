@@ -1,0 +1,95 @@
+一，mongo安装
+    1.解压文件
+    2.mkdir data
+    3.mkdir log
+    4.vim mongo.conf
+
+    启动：
+        ./bin/mongod --config mongod.conf
+
+    连接：
+        ./bin/mongo --port 40000
+
+    停止：
+        ./bin/mongo --port 40000    use admin   db.shutdownServer()
+		
+	鉴权：
+		db.auth("root","rootpass")
+
+二，基本操作
+    创建库     use test
+    创建集合   db.createCollection("xws")
+    插入数据    db.getCollection("xws").insert({"name":"xws"})
+
+三，用户操作
+    ##创建超级用户
+    db.createUser(
+         {
+           user:"duck",
+           pwd:"duck",
+           roles:[{role:"root",db:"admin"}]
+         }
+      )
+
+     ##创建读用户
+    db.createUser(
+         {
+           user:"read",
+           pwd:"read",
+           roles:[{role:"read",db:"test"}]
+         }
+      )
+
+    ##创建写用户
+    db.createUser(
+         {
+           user:"write",
+           pwd:"write",
+           roles:[{role:"readWrite",db:"test"}]
+         }
+      )
+
+    ##修改用户密码
+    db.updateUser(
+       "read",
+       {
+          pwd: "read123",
+          customData: { title: "Senior Manager" }
+       }
+    )
+
+
+
+1.mongodb in查询
+	db.getCollection('tbBorrowIntent').find({lBorrowIntentId : 12000005100,nState:{$in:[1]}})
+
+2.mongodb 查询非空数据
+	db.getCollection('tbBorrowIntent').find({"nState":{$ne:null}});
+
+3.mongodb 删除某个字符
+	db.collection.update({},{$unset:{"需要删除的字段":""}},false,true)
+	db.getCollection('tbBorrowIntent').update({},{$unset:{",\"lInterest\"":""}},false,true)
+
+3.1mongodb查询时间
+	db.getCollection('vCreditAddedMoney').find({"dtModifyTime":{$gt:ISODate('2017-08-23 00:00:00')}})
+	
+3.2mongodb查询字段在不在
+	
+
+4.http://blog.csdn.net/liusong0605/article/details/11529155
+
+5.查询工具
+	Robomongo		https://robomongo.org/
+	
+6.创建用户
+	http://www.jb51.net/article/52485.htm
+	
+7.创建索引
+	db.vCreditDetail.ensureIndex({strCreditCallbackTime:1,nGrantState:-1,nCreditCallbackState:-1},{background: 1});
+	db.vCreditDetail.ensureIndex({strCreditCallbackTime:1,nGrantState:-1,nCreditCallbackState:-1},{background:true});
+
+8.更新数据
+	db.getCollection('tbBankCard').update({lUserId:190},{$set:{strAccountName:'xws'}})
+
+
+root1036225283

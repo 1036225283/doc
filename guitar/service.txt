@@ -1,0 +1,75 @@
+微服务体系
+1.服务究竟是什么
+    服务名对应了一组主机或一台主机，提供某一项某一些服务
+    服务在任何地方都被解释为一组主机或者一台主机，执行者根据<服务名>寻找到目标主机的strUrl，然后请求访问
+
+2.适用场景
+    一个浏览端客户度A，负责展示数据。一个浏览器客户端B，负责发起请求：一个执行脚本发送到服务端。服务端S执行脚步，然后把执行结果传递给A。代理服务器C
+    B -> S -> A
+    那么，协议怎么传递数据呢
+    B传递给代理端C的数据格式是这样的：（json格式）
+        strFrom:B
+        strTo:  A
+        strAction:strOperationCanvas
+        strData: test.init();
+
+    C接受到数据的处理是这样的：
+        没有解析数据websocket和http数据，直接转发数据给了服务端S
+
+    S接受到数据的处理是这样的：
+        执行脚步，操作数据，将数据结果返回给代理端C      （二进制格式）
+        strFrom:B
+        strTo:A
+        strAction:strSend
+        strData: {a,b,c,d}
+
+    C接受到数据的处理是这样的：（json格式）
+        根据strAction进入数据转发流程：
+            根据strTo查找selectKey，然后转发数据
+3.在什么情况下，使用二进制数据，在什么情况下使用json数据呢
+    代理要不要初步解析协议，把https协议转发给谁，把websocket数据给谁
+    浏览器给代理服务器的是http数据，https数据，websocket数据
+    client给代理服务器的是异步协议数据
+
+4.需要一个redis这样的库，存储的是：strId：strType，供发送数据时，查询数据格式，如果是http格式，就拼装http协议给对方。如果对方是websocket协议，就拼装websocket协议给对方
+    或者在代理端进行协议解析，并把协议类型绑定到applicationId上面，只要是发送给浏览器的数据，都要进行数据的包装
+5.分布式查询。客户端根据分库原则请求给不同的服务器数据，
+
+
+6.浏览器客户端和java客户端连到代理服务器的处理是不同的，浏览器因为没有预制的applicationId，所以代理服务器直接生成了一个，而java客户端使用的异步协议，代理服务器
+    首先对协议进行判断，如果是异步协议，不会生成applicationId，而是由java 客户端自己预制的applicationId注册到代理服务器
+
+7.写数据的时候，根据selectKey是否存在进行处理：java客户端传递了applicationId，根据它来获取selectKey，然后发送数据。而非异步协议的，直接传递selectKey，进行写数据
+
+8.注册功能有两个：
+    自注册：java 客户端发起自身的注册请求，将自己注册到代理端
+    他注册：java 客户端发起请求，将已有的浏览器客户端的nFromAccountId替换成预制accountId，然后根据新提供的nFromAccountId进行通讯
+        registerOther
+
+9.把两个applicationStore合并成一个吧，定义一个applicationId的产生器，对于http，https，websocket协议，直接产生一个applicationId,
+    现在的情况是，每次请求过来，如果不是异步协议，每次都会重新生成一个applicationId，这样不太好，所以还要进行一个
+
+    如果有两个存储，<SelectKey,nFromAccountId> <nFromAccountId,ClientInfo>,功能8需要改两个地方
+
+10.浏览器客户端也需要预制一个异步协议taskId
+
+11.在一个浏览器页面里面，建立websocket连接，提供一个输入框，输入文本数据，提交到后端，进行词法解析，语法解析，执行操作，展示结果
+    输入框已经构建完成，数据可以传递给后台
+    进行词法解析，需要有限状态自动机
+        有限自动状态机最好存到数据库里面
+        有限自动状态机这样构造。识别字符，数字，中文，（）, . [ ] { } $ # @ ! ~ ^ & * - + =
+
+服务的定义
+服务名：随便定义
+事务名：随便定义
+服务类别：http，https，websocket等
+服务地址：ip+port或者host+port
+
+strServiceName      strTransName    strServiceType      strUrl
+
+服务注册中心
+1.注册服务
+2.查找服务
+
+
+
