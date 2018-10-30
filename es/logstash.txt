@@ -19,3 +19,8 @@
     5.2编写配置文件 logstash-input-jdbc
 
     5.3多表同步
+        config/pipelines.yml
+        - pipeline.id: table1
+          path.config: "config/sync_table1.cfg"
+        - pipeline.id: table2
+          path.config: "config/sync_table2.cfg"
