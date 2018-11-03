@@ -1,2 +1,80 @@
 1.参考文档
     http://blog.mayongfa.cn/192.html
+
+    wget https://github.com/happyfish100/libfastcommon/archive/V1.0.7.tar.gz
+    tar -xvf
+    ./make.sh
+    ./make.sh install
+
+
+    wget https://github.com/happyfish100/fastdfs/archive/V5.05.tar.gz
+    tar -xvf
+    ./make.sh
+    ./make.sh install
+
+
+
+    /etc/fdfs
+    /usr/lib64
+    /usr/include/fastcommon
+    /usr/include/fastdfs
+
+
+2.config tracker
+    vim /etc/fdfs/tracker.conf
+        base_path=/software/fastdfs
+        http.server_port=8088
+
+    /usr/bin/fdfs_trackerd /etc/fdfs/tracker.conf start
+
+
+
+
+
+3.config storage
+    vim/etc/fdfs/storage.conf
+            base_path=/software/fastdfs/storage
+            store_path0=/software/fastdfs/storage
+            tracker_server=192.168.198.129:22122
+
+    /usr/bin/fdfs_storaged /etc/fdfs/storage.conf start
+
+4.look run message
+    /usr/bin/fdfs_monitor /etc/fdfs/storage.conf
+
+    ps -ef|grep fdfs
+
+    netstat -unltp|grep fdfs
+
+
+5.doc
+    https://blog.csdn.net/zhiguoliu11/article/details/72899586?locationNum=9&fps=1
+
+
+6.fastdfs-nginx-module
+    wget https://github.com/happyfish100/fastdfs-nginx-module/archive/5e5f3566bbfa57418b5506aaefbe107a42c9fcb1.zip
+    ./configure --add-module=/software/fastdfs-nginx-module/src
+    make && make install
+
+    /usr/local/nginx/sbin/nginx -V
+
+    cp /software/fastdfs-nginx-module/src/mod_fastdfs.conf /etc/fdfs/
+
+
+7.config mod_fastdfs.conf
+    vim /etc/fdfs/mod_fastdfs.conf
+
+        # 连接超时时间
+        connect_timeout=10
+
+        # Tracker Server
+        tracker_server=file.ljzsg.com:22122
+
+        # StorageServer 默认端口
+        storage_server_port=23000
+
+        # 如果文件ID的uri中包含/group**，则要设置为true
+        url_have_group_name = true
+
+        # Storage 配置的store_path0路径，必须和storage.conf中的一致
+        store_path0=/software/fastdfs/storage
