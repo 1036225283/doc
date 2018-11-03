@@ -20,3 +20,10 @@
 
 7.创建索引
       http://localhost:9200/_cat/customer?pretty
+
+
+9.create group and user
+      groupadd es
+      useradd es -g es -p es
+      chown -R es:es  elasticsearch-6.4.0
+      su es
