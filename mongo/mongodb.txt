@@ -45,7 +45,7 @@
          {
            user:"write",
            pwd:"write",
-           roles:[{role:"readWrite",db:"test"}]
+           roles:[{role:"readWrite",db:"xws"}]
          }
       )
 

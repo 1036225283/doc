@@ -78,3 +78,45 @@
 
         # Storage 配置的store_path0路径，必须和storage.conf中的一致
         store_path0=/software/fastdfs/storage
+
+
+8.nginx config
+        location /group1/M00 {
+            alias /software/fastdfs/storage/data;
+        }
+
+
+        [group1, M00/00/00/wKgf9VvdPq6AScE3AAALgy_FAQc605.jpg]
+        [group1, M00/00/00/wKgf9VvdYwyARvYhAAAUCoQ8jNw632.jpg]
+
+         http://192.168.31.245/group1/M00/00/00/tlxkwlhttsGAU2ZXAAC07quU0oE095.png
+
+         ln -s /software/fastdfs/storage/data /software/fastdfs/storage/data/M00
+
+
+
+9.debug
+        FastDFS+nginx常见问题
+        配置完不能启动nginx或者启动不能访问，看nginx安装目录/log/error.log看报错信息
+        1.配置完成不能访问nginx
+        查看访问墙是否打开，如果防火墙打开，开放80端口
+        2. file: */fastdfs-nginx-module/src/common.c, line: 155, load conf file "/etc/fdfs/mod_fastdfs.conf" fail, ret code: 2:
+
+        解决办法：
+        1.1 把  实际目录/fastdfs-nginx-module/src/mod_fastdfs.conf 拷贝到/etc/fdfs:
+
+        cp /home/hc/fastdfs-nginx-module/mod_fastdfs.conf  /etc/fdfs
+        1.2 把 fastdfs安装目录/conf/http.conf  mine.types拷贝到/etc/fdfs
+
+        cp /usr/local/fdfa/conf/http.conf mine.types /etc/fdfs
+        3.访问图片报错404 ERROR - file: /home/hc/software/fdfs/fastdfs-nginx-module/src/common.c, line: 874, file: /home/hc/fastdfs/storage/data/00/00/rBQQhlm6HoKACTiCAACBm2-C8no017_big.jpg not exist
+        修改fdfs/mod_fastdfs.conf文件
+        大概62行   store_path0=图片实际存放路径
+        4.在nginx配置访问路径加上group1访问404
+        修改fdfs/mod_fastdfs.conf文件
+        大概53行 url_have_group_name = true
+        ---------------------
+        作者：Java__han
+        来源：CSDN
+        原文：https://blog.csdn.net/Java__han/article/details/77980286
+        版权声明：本文为博主原创文章，转载请附上博文链接！
