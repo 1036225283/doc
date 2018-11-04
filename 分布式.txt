@@ -1,1 +1,14 @@
 https://segmentfault.com/a/1190000005147601
+
+centos-nginx
+    安装GCC
+    yum install gcc
+
+    安装PCRE
+    yum install pcre pcre-devel
+
+    安装zlib
+    yum install zlib zlib-devel
+
+    安装OpenSSL
+    yum install openssl openssl-devel
