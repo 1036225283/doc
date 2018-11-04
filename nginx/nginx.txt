@@ -1,0 +1,54 @@
+1.	sudo apt-get install nginx
+
+2.Ubuntu安装之后的文件结构大致为：
+	所有的配置文件都在/etc/nginx下，并且每个虚拟主机已经安排在了/etc/nginx/sites-available下
+	程序文件在/usr/sbin/nginx
+	日志放在了/var/log/nginx中
+	并已经在/etc/init.d/下创建了启动脚本nginx
+	默认的虚拟主机的目录设置在了/var/www/nginx-default (有的版本 默认的虚拟主机的目录设置在了/var/www, 请参考/etc/nginx/sites-available里的配置)
+
+3.启动
+	sudo /etc/init.d/nginx start
+
+4.配置
+	vim /etc/nginx/sites-available/default
+
+5.重启
+	/etc/init.d/nginx stop
+	/etc/init.d/nginx start
+
+6.代理域名
+	
+server {
+        listen 80;
+        server_name static.1036225283.com;
+        location / {
+                proxy_pass    http://127.0.0.1:82/;
+                # proxy_redirect on ;
+                index   demo/echart/index.html;
+        }
+
+        #静态资源代理
+        location /html5/ {
+            root   /software/git/;
+            autoindex on;
+        }
+
+        error_page 500 502 503 504 /50x.html;
+
+        }    
+
+
+7.make 没有找到资源时
+    安装gcc g++的依赖库
+        apt-get install build-essential
+        apt-get install libtool
+    安装pcre依赖库（http://www.pcre.org/）
+        apt-get update
+        apt-get install libpcre3 libpcre3-dev
+
+    安装zlib依赖库（http://www.zlib.net）
+        apt-get install zlib1g-dev
+
+    安装SSL依赖库（16.04默认已经安装了）
+        apt-get install openssl
