@@ -1,0 +1,13 @@
+1.安装
+    unzip rocketmq-all-4.3.0-bin-release.zip
+
+2.解决启动内存不够的问题
+    runserver.sh    runbroker.sh
+        JAVA_OPT="${JAVA_OPT} -server -Xms128m -Xmx128m -Xmn128m -XX:PermSize=128m -XX:MaxPermSize=128m"
+
+3.启动和关闭
+    bin/mqnamesrv
+    bin/mqbroker -n localhost:9876
+
+    bin/mqshutdown broker
+    bin/mqshutdown namesrv
