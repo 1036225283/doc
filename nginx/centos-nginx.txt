@@ -2,3 +2,27 @@
     yum -y install gcc automake autoconf libtool make
 
     yum install gcc gcc-c++
+
+
+centos-nginx
+    安装GCC
+    yum install gcc
+
+    安装PCRE
+    yum install pcre pcre-devel
+
+    安装zlib
+    yum install zlib zlib-devel
+
+    安装OpenSSL
+    yum install openssl openssl-devel
+
+
+startup
+    /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+
+
+stop
+    /usr/local/nginx/sbin/nginx -s stop
+
+
