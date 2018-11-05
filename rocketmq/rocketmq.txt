@@ -11,3 +11,5 @@
 
     bin/mqshutdown broker
     bin/mqshutdown namesrv
+
+    bin/mqbroker -n localhost:9876 autoCreateTopicEnable=true > ~/software/logs/rocketmqlogs/broker.log 2>&1 &
