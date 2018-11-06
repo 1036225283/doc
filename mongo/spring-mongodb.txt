@@ -1,0 +1,16 @@
+1.maven
+    		<dependency>
+    			<groupId>org.springframework.boot</groupId>
+    			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+    		</dependency>
+
+2.dot use mongodb admin account in spring-boot,you must create new account for mongodb,then use it in spring-boor. otherwise is throw exception msg
+
+3.spring-boot application.yml
+    spring
+      data:
+        mongodb:
+          uri: mongodb://write:123456@192.168.31.245:40000/file
+
+4.
+

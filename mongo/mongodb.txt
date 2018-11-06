@@ -9,9 +9,12 @@
 
     连接：
         ./bin/mongo --port 40000
+        ./bin/mongo --192.168.31.245:port 40000
 
     停止：
-        ./bin/mongo --port 40000    use admin   db.shutdownServer()
+        ./bin/mongo --port 40000
+
+        use admin   db.shutdownServer()
 		
 	鉴权：
 		db.auth("root","rootpass")
@@ -25,8 +28,8 @@
     ##创建超级用户
     db.createUser(
          {
-           user:"duck",
-           pwd:"duck",
+           user:"root",
+           pwd:"123456",
            roles:[{role:"root",db:"admin"}]
          }
       )
@@ -35,8 +38,8 @@
     db.createUser(
          {
            user:"read",
-           pwd:"read",
-           roles:[{role:"read",db:"test"}]
+           pwd:"123456",
+           roles:[{role:"read",db:"file"}]
          }
       )
 
@@ -44,8 +47,8 @@
     db.createUser(
          {
            user:"write",
-           pwd:"write",
-           roles:[{role:"readWrite",db:"xws"}]
+           pwd:"123456",
+           roles:[{role:"readWrite",db:"file"}]
          }
       )
 
