@@ -1,0 +1,4 @@
+git clone --recursive https://github.com/uglide/RedisDesktopManager.git -b 0.9 rdm && cd ./rdm
+
+cd src/
+./configure

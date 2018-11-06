@@ -13,4 +13,44 @@
           uri: mongodb://write:123456@192.168.31.245:40000/file
 
 4.
+    public interface ImageRepository extends MongoRepository<Image, String> {
+
+        void deleteByName(String name);
+    }
+
+        @RequestMapping("/test")
+        public Result test() {
+            try {
+
+                Image image = new Image();
+                image.setUrl("http://test.com");
+                image.setName("cc.png");
+                mongoTemplate.insert(image);
+                System.out.println(mongoTemplate.getDb().getName());
+                System.out.println(mongoTemplate.getCollectionNames());
+                List<Image> list = mongoTemplate.findAll(Image.class);
+                return Result.ok();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return Result.error("请联系管理员");
+            }
+        }
+
+        @RequestMapping("/test2")
+        public Result test2() {
+            try {
+    //            mongoTemplate.findOne(query(where("age").is(33)), Image.class);
+
+                BasicQuery query = new BasicQuery("{ name : 'cc3.png'}");
+                Image image = mongoTemplate.findOne(query, Image.class);
+    //            imageRepository.deleteByName("cc.png");
+                List<Image> list = mongoTemplate.find(query, Image.class);
+                return Result.ok();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return Result.error("请联系管理员");
+            }
+        }
+
+5.file operation
 

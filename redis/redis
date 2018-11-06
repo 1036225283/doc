@@ -11,3 +11,15 @@
 
 4.window redis-cli
     redis-cli -h localhost  -p 6379 -a password
+
+5.delete *.key
+    key *
+    key xws*
+    key *x
+
+6.lua
+    delete all key
+        EVAL "return redis.call('del', unpack(redis.call('keys', ARGV[1])))" 0 *
+
+    delete *key
+        EVAL "return redis.call('del', unpack(redis.call('keys', ARGV[1])))" 0 126.com*
