@@ -1,0 +1,4 @@
+1.运行
+    ./bin/zkServer.sh start
+
+2.
