@@ -1,0 +1,16 @@
+[2018-11-06T18:01:28,773][ERROR][logstash.agent           ]
+Failed to execute action {:action=>LogStash::PipelineAction::Create/pipeline_id:main, :
+exception=>"LogStash::ConfigurationError", :message=>"
+Expected one of #, input, filter, output at line 17, column 1 (byte 616) after #
+List of pipelines to be loaded by Logstash\n#\n#
+This document must be a list of dictionaries/hashes,
+where the keys/values are pipeline settings.\n#
+Default values for ommitted settings are read from the `logstash.yml` file.\n#
+When declaring multiple pipelines,
+each MUST have its own `pipeline.id`.\n#\n#
+Example of two pipelines:\n#\n#
+- pipeline.id: test\n#
+pipeline.workers: 1\n#
+pipeline.batch.size: 1\n#
+config.string: \"input { generator {} } filter { sleep { time => 1 } } output { stdout { codec => dots } }\"\n#
+ - pipeline.id: another_test\n#   queue.type: persisted\n#   path.config: \"/tmp/logstash/*.config\"\n\n", :backtrace=>["/software/logstash-6.4.2/logstash-core/lib/logstash/compiler.rb:41:in `compile_imperative'", "/software/logstash-6.4.2/logstash-core/lib/logstash/compiler.rb:49:in `compile_graph'", "/software/logstash-6.4.2/logstash-core/lib/logstash/compiler.rb:11:in `block in compile_sources'", "org/jruby/RubyArray.java:2486:in `map'", "/software/logstash-6.4.2/logstash-core/lib/logstash/compiler.rb:10:in `compile_sources'", "org/logstash/execution/AbstractPipelineExt.java:149:in `initialize'", "/software/logstash-6.4.2/logstash-core/lib/logstash/pipeline.rb:22:in `initialize'", "/software/logstash-6.4.2/logstash-core/lib/logstash/pipeline.rb:90:in `initialize'", "/software/logstash-6.4.2/logstash-core/lib/logstash/pipeline_action/create.rb:38:in `execute'", "/software/logstash-6.4.2/logstash-core/lib/logstash/agent.rb:309:in `block in converge_state'"]}

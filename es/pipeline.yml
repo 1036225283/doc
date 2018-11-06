@@ -1,0 +1,32 @@
+- pipeline.id: order_info
+  path.config: "/software/logstash-6.4.2/config/logstash-jdbc-order-info.conf"
+  pipeline.workers: 1
+
+- pipeline.id: account_flow
+  path.config: "/software/logstash-6.4.2/config/logstash-jdbc-account-flow.conf"
+  pipeline.workers: 1
+
+- pipeline.id: account_agent_flow
+  path.config: "/software/logstash-6.4.2/config/logstash-jdbc-account-agent-flow.conf"
+  pipeline.workers: 1
+
+- pipeline.id: account_bcoin_flow
+  path.config: "/software/logstash-6.4.2/config/logstash-jdbc-account-bcoin-flow.conf"
+  pipeline.workers: 1
+
+- pipeline.id: account_fcoin_flow
+  path.config: "/software/logstash-6.4.2/config/logstash-jdbc-account-fcoin-flow.conf"
+  pipeline.workers: 1
+
+
+cp logstash-jdbc-order-info.conf logstash-jdbc-account-flow.conf
+cp logstash-jdbc-order-info.conf logstash-jdbc-account-agent-flow.conf
+cp logstash-jdbc-order-info.conf logstash-jdbc-account-bcoin-flow.conf
+cp logstash-jdbc-order-info.conf logstash-jdbc-account-fcoin-flow.conf
+
+
+vim logstash-jdbc-order-info.conf
+vim logstash-jdbc-account-flow.conf
+vim logstash-jdbc-account-agent-flow.conf
+vim logstash-jdbc-account-bcoin-flow.conf
+vim logstash-jdbc-account-fcoin-flow.conf

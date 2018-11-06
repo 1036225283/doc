@@ -6,6 +6,8 @@
     cd bin
     elasticsearch.bat  elasticsearch.sh
 
+    *** 不要在root目录下面进行安装
+
 3.查看
     http://localhost:9200/
 
@@ -27,3 +29,9 @@
       useradd es -g es -p es
       chown -R es:es  elasticsearch-6.4.0
       su es
+
+10.chinese doc
+    https://www.elastic.co/guide/cn/elasticsearch/guide/current/_talking_to_elasticsearch.html
+
+11.ma
+    ES_JAVA_OPTS="-Xms256m -Xmx256m"
