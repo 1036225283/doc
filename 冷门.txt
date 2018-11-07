@@ -173,3 +173,7 @@ jZ0RiiqGRCTVzwComUcXB-eiFWRBY6JpSsCNkmIxL5KsRCo442djHhTZE
 		keytool -genkeypair -keyalg RSA -keysize 2048 -sigalg SHA1withRSA -validity 36000 -alias www.1036225283.com -keystore d:/test.jks
 		keytool -genkeypair -keyalg RSA -keysize 2048 -sigalg SHA1withRSA -validity 36000 -alias www.1036225283.com -keystore /software/test.jks
 		http://blog.csdn.net/boss666666/article/details/10284623
+
+32.正则表达式
+		String str = "R2asas#d#fd$ss";
+        boolean flag = str.matches("(^[A-Z].*)([0-9]+.*)([a-z]+.*)(([~!@#$%^&*()_+|<>,.?/:;'\\[\\]{}\"]+.*){3})");

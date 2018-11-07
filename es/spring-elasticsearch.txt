@@ -1,0 +1,24 @@
+1.pom.xml
+    		<dependency>
+    			<groupId>org.springframework.boot</groupId>
+    			<artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+    		</dependency>
+    		<dependency>
+    			<groupId>org.springframework.data</groupId>
+    			<artifactId>spring-data-elasticsearch</artifactId>
+    		</dependency>
+
+2.yml
+      data:
+        elasticsearch:
+          cluster-name: elasticsearch
+          cluster-nodes: 192.168.31.245:9300
+          repositories:
+            enabled: true
+3.
+    public interface AccountBcoinFlowRepository extends ElasticsearchRepository<AccountBcoinFlow, Long> {
+
+        List<AccountBcoinFlow> findByCurrency(String currency);
+
+    }
+
