@@ -21,3 +21,9 @@ select date_add(@dt, interval 1 day); -- add 1 day
 6.自动更新时间
   ALTER TABLE `test` MODIFY COLUMN `updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间' ;
   ALTER TABLE `test` MODIFY COLUMN `created` timestamp NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间' ;
+
+7.
+  DATE_FORMAT(FROM_UNIXTIME(create_time),'%Y-%m-%d %H:%i:%s')
+
+8.
+  set sql_mode ='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
