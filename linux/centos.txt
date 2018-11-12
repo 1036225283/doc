@@ -1,0 +1,7 @@
+1.install snap
+    yum install epel-release
+    yum install yum-plugin-copr
+    yum copr enable ngompa/snapcore-el7
+    copr done
+    yum -y install snapd
+    systemctl enable --now snapd.socket

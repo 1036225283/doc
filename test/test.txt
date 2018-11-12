@@ -1,0 +1,69 @@
+1.资产服务
+    总资产
+        http://localhost:8686/fcoin_gate/assets/totalAssests
+    总资产详情 按币分类
+        http://localhost:8686/fcoin_gate/assets/totalAssestsDetailByCurrency
+
+    币种服务
+        http://localhost:8686/user_gate/user/listDictData
+
+    用户币币账户详情
+            http://localhost:8686/fcoin_gate/assets/userBCoinDetail
+
+    用户钱包账户详情
+            http://localhost:8686/fcoin_gate/assets/userAccountDetail
+
+    总资产详情 按币和账户分类
+        http://localhost:8686/fcoin_gate/assets/totalAssestsDetailByCurrencyByAccount
+
+    用户法币账户详情
+        http://localhost:8686/fcoin_gate/assets/userFCoinDetail             ok
+
+    用户币币账户详情
+        http://localhost:8686/fcoin_gate/assets/userBCoinDetail             ok
+
+    用户钱包账户详情
+        http://localhost:8686/fcoin_gate/assets/userAccountDetail           ok
+
+
+    新增某一币种地址服务
+        http://localhost:8686/mainAccount/myAccount/addAccountAddress
+
+    提币记录
+        http://localhost:8686/fcoin_gate/assets/userCoinRechargeOut         ok
+
+    充币记录
+        http://localhost:8686/fcoin_gate/assets/userCoinRechargeIn          ok
+
+    获取某一币种的充值地址
+        http://localhost:8686/fcoin_gate/assets/getCoinRechargeInAddress
+
+
+
+bug
+    last ip and address
+
+
+
+    		String validateCodeCache = redisRepository.get(Constants.MSG_PHONE_PRE + areaCode + phone);
+    		if (RegexUtils.isNull(validateCodeCache)) {
+    			return Result.error("您的验证码已失效，请重新获取");
+    		}
+
+
+
+
+
+/query_gate/assets/totalAssests
+
+
+
+
+
+@RequestMapping(value = "/feign/listAccountBill")
+    public PageInfo<AccountFlow> listAccountBill(@RequestParam("userId") Long userId, @RequestParam("currency") String currency, @RequestParam("endTime") String endTime, @RequestParam("startTime") String startTime, @RequestParam("type") Integer type, @RequestParam("start") int start, @RequestParam("size") int size);
+
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODMxMjEwNTgwMTAxMDAwMDEsImxvZ2luX3R5cGUiOjIsImV4cCI6MTU0MjE5ODQ1MiwibmJmIjoxNTQyMDI1NjUyfQ.CNa1XQAsfkiK_xh5OmVUwtGSE6JK1zbzpcwadz7q2A0
+
+
