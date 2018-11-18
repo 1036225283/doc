@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://io.mycat/">
+
+	<schema name="mycat" checkSQLschema="false" sqlMaxLimit="100">
+		<table name="tbUser" dataNode="tbUser0,tbUser1,tbUser2" rule="auto-sharding-long" />
+	</schema>
+ 	<dataNode name="tbUser0" dataHost="localhost1" database="xws" />
+	<dataNode name="tbUser1" dataHost="localhost1" database="xws" />
+	<dataNode name="tbUser2" dataHost="localhost1" database="xws" />
+	
+	<dataHost name="localhost1" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100" maxRetryCount="4">
+		<heartbeat>select user()</heartbeat>
+		<writeHost host="hostM1" url="user0.read.mysql:3306" user="xws" password="xws" />
+		<writeHost host="hostS1" url="localhost:3306" user="xws" password="xws" />
+	</dataHost>
+	
+</mycat:schema>

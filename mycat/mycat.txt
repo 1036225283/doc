@@ -1,1 +1,29 @@
-1.主要是
+1.官方围脖
+	http://songwie.com/articlelist/11
+
+2.主要概念
+	Schema（数据库）、Table （数据表）、User（用户）
+	基于表格的分片
+	基于数据库E-R关系的分片
+
+	DataNode
+		DataNode是MyCAT的逻辑数据节点，映射到后端的某一个物理数据库的一个Database，为了做到系统高可用，每个DataNode可以配置多个引用地址（DataSource），当主DataSource被检测为不可用时，系统会自动切换到下一个可用的DataSource上，这里的DataSource即可认为是Mysql的主从服务器的地址	
+
+	DataNode是MyCAT的逻辑数据节点
+	
+	schema:逻辑库，与MySQL中的Database（数据库）对应，一个逻辑库中定义了所包括的Table。
+table：表，即物理数据库中存储的某一张表，与传统数据库不同，这里的表格需要声明其所存储的逻辑数据节点DataNode，这是通过表格的分片规则定义来实现的，table可以定义其所属的“子表(childTable)”，子表的分片依赖于与“父表”的具体分片地址，简单的说，就是属于父表里某一条记录A的子表的所有记录都与A存储在同一个分片上。
+分片规则：是一个字段与函数的捆绑定义，根据这个字段的取值来返回所在存储的分片（DataNode）的序号，每个表格可以定义一个分片规则，分片规则可以灵活扩展，默认提供了基于数字的分片规则，字符串的分片规则等。
+dataNode: MyCAT的逻辑数据节点，是存放table的具体物理节点，也称之为分片节点，通过DataSource来关联到后端某个具体数据库上，一般来说，为了高可用性，每个DataNode都设置两个DataSource，一主一从，当主节点宕机，系统自动切换到从节点。
+dataHost：定义某个物理库的访问地址，用于捆绑到dataNode上。
+
+
+3.常用命令
+	start	启动
+	stop	停止
+	console	前台运行
+	restart	重起
+	pause	暂停
+	status	查看状态
+
+
