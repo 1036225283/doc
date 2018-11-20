@@ -1,0 +1,5 @@
+1.vim /etc/yum.repos.d/docker.repo
+
+2.yum install docker-engine
+
+3.service docker start
