@@ -1,0 +1,25 @@
+1.btc ltc
+    https://blog.csdn.net/zgsdzczh/article/details/80421679
+
+    https://www.douban.com/note/690557495/
+
+    ** https://knowm.org/open-source/xchange/
+
+    https://github.com/bitcoinj/bitcoinj
+
+    https://blog.csdn.net/liu1765686161/article/details/79446959
+
+2.btc api
+    https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list
+
+3.etc
+    https://github.com/ethereum/mist/releases/tag/v0.11.1
+
+4.btc
+    https://www.bitcoin.com/
+
+
+
+
+    Xxwsvultr@#23232
+
