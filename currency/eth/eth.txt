@@ -45,7 +45,7 @@
         ./geth -datadir "/root/.ethereum" init genesis.json
         ./geth -datadir "/root/.ethereum" console
         personal.newAccount("123.abc")
-        ./geth -targetgaslimit 4294967295 –rpc –rpcaddr "localhost” –rpcport "8101” –port "30301” –rpcapi "eth,web3,personal” –networkid 2016 –identity 2016 -nodiscover -maxpeers 5 –datadir "/software/chain” -unlock 0 -rpccorsdomain ""*” –mine console
+        ./geth -targetgaslimit 4294967295 –rpc –rpcaddr "localhost" –rpcport "8101" –port "30301" –rpcapi "eth,web3,personal" –networkid 2016 –identity 2016 -nodiscover -maxpeers 5 –datadir “/software/chain” -unlock 0 -rpccorsdomain “*” –mine console
 
 4.Ethereum Wallet搭建
     https://github.com/ethereum/mist/releases/download/v0.11.1/Ethereum-Wallet-linux64-0-11-1.zip
