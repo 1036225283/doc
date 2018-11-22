@@ -40,8 +40,30 @@
         geth version
 
     3.4 Geth启动
-        ./geth
+        ./geth console
+
+        ./geth -datadir "/root/.ethereum" init genesis.json
+        ./geth -datadir "/root/.ethereum" console
+        personal.newAccount("123.abc")
+        ./geth -targetgaslimit 4294967295 –rpc –rpcaddr "localhost” –rpcport "8101” –port "30301” –rpcapi "eth,web3,personal” –networkid 2016 –identity 2016 -nodiscover -maxpeers 5 –datadir "/software/chain” -unlock 0 -rpccorsdomain ""*” –mine console
 
 4.Ethereum Wallet搭建
     https://github.com/ethereum/mist/releases/download/v0.11.1/Ethereum-Wallet-linux64-0-11-1.zip
 
+    4.1 查看所有账号
+        web3.eth.accounts
+
+    4.2 获取任何帐户的余额
+        var primaryAccount = web3.eth.accounts[0]
+        web3.eth.getBalance(primaryAccount)
+
+    4.3 立即检查所有余额
+        function checkAllBalances() {
+          web3.eth.getAccounts(function(err, accounts) {
+           accounts.forEach(function(id) {
+            web3.eth.getBalance(id, function(err, balance) {
+             console.log("" + id + ":\tbalance: " + web3.fromWei(balance, "ether") + " ether");
+           });
+          });
+         });
+        };
