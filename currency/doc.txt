@@ -1,3 +1,25 @@
+all
+    1 BTC (比特币)
+    2 BCH-ABC&BCH-SV (比特币现金)
+    3 ETH (以太坊)
+    4 USDT (泰达币)
+    5 XRP (瑞波币)
+    6 LTC (莱特币)
+    7 EOS (柚子)
+    8 DASH (达世币)
+    9  ADA (卡尔达诺)
+    10 IOTA (IOTA)
+    11 XLM(恒星币)
+    12 XMR(门罗币)
+    13 ETC(以太经典)
+    14 ZEC(Zcash)
+    15 XEM(新经币)
+    16 TRX(波场)
+    17 NEO(小蚁)
+    18 VEN (唯链)
+    19 ZRX (ZRX（0X）)
+    20 QTUM (量子链)
+
 1.btc ltc
     https://blog.csdn.net/zgsdzczh/article/details/80421679
 
@@ -8,6 +30,9 @@
     https://github.com/bitcoinj/bitcoinj
 
     https://blog.csdn.net/liu1765686161/article/details/79446959
+    https://blog.csdn.net/u012930316/article/details/80497723
+    https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list
+
 
 2.btc api
     https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list
@@ -18,8 +43,75 @@
 4.btc
     https://www.bitcoin.com/
 
+5.eth
+    http://baijiahao.baidu.com/s?id=1605031546370773257&wfr=spider&for=pc
+    https://blog.csdn.net/xf191/article/details/79205103
+    http://blog.fens.me/bitcoin-install-geth/
+
+6.eos
+    https://blog.csdn.net/yujunlong3919/article/details/81035278
+
+ChainDesk : 精读以太坊源码
+第一章：内容简介
+http://chaindesk.cn/columninfo.html?id=77&dirId=8
+第二章：源码环境配置
+http://chaindesk.cn/columninfo.html?id=78&dirId=8
+第三章：区块及区块头
+http://chaindesk.cn/columninfo.html?id=79&dirId=8
+第四章：叔块(Uncle)
+http://chaindesk.cn/columninfo.html?id=163&dirId=8
+第五章：交易
+http://chaindesk.cn/columninfo.html?id=164&dirId=8
+第六章：交易池
+http://chaindesk.cn/columninfo.html?id=165&dirId=8
+第七章：Gas/GasPrice
+http://chaindesk.cn/columninfo.html?id=166&dirId=8
+第八章：帐户
+http://chaindesk.cn/columninfo.html?id=167&dirId=8
+第九章：交易签名
+http://chaindesk.cn/columninfo.html?id=171&dirId=8
+第十章：以太坊启动流程
+http://chaindesk.cn/columninfo.html?id=80&dirId=8
+第十一章：初始化创世区块
+http://chaindesk.cn/columninfo.html?id=81&dirId=8
+第十二章：ChainIndexer索引流程及实现
+http://chaindesk.cn/columninfo.html?id=82&dirId=8
+第十三章：交易池解析
+http://chaindesk.cn/columninfo.html?id=83&dirId=8
 
 
 
     Xxwsvultr@#23232
 
+    Xws@32ssdfssdfs     25568
+
+
+
+祝贺！ ShadowsocksR 已经配置成功!
+服务器 IP:  207.246.116.211
+服务器 端口:  25568
+连接密码:  Xws@32ssdfssdfs
+加密:  aes-256-cfb
+协议:  auth_sha1_v4
+混淆:  http_simple
+
+
+请下载和你系统版本对应的SSR客户端使用该服务
+SSR所有客户端下载地址：
+ https://www.qcgzxw.cn/301.html
+
+Vultr实战搭建ssr+锐速教程（内附视频教程）：
+ https://www.qcgzxw.cn/1640.html
+
+小文's blog地址： www.qcgzxw.cn
+
+
+
+
+ZHJH1001
+Zhjh!1001@&&
+ZHJH1001_5G
+Zhjh!1001@&&ZHJH1001
+Zhjh!1001@&&
+ZHJH1001_5G
+Zhjh!1001@&&

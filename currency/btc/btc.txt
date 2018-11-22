@@ -3,3 +3,13 @@ https://www.jianshu.com/p/5def0c66cfb8
 install docker
     1.update
     2.install apt-transport-https ca-certificates curl software-properties-common
+
+1.download bitcoin core
+    wget https://bitcoincore.org/bin/bitcoin-core-0.17.0.1/bitcoin-0.17.0.1-x86_64-linux-gnu.tar.gz
+    tar -xvf
+
+2.start
+    vim /root/.bitcoin/bitcoin.conf
+    ./bitcoind
+
+3.

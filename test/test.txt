@@ -40,30 +40,392 @@
 
 
 
+if (item.state == 1) statusText = '充币中'
+if (item.state == 2) statusText = '成功'
+if (item.state == 3) statusText = '失败'
+if (item.state == 4) statusText = '提币状态'
+if (item.state == 5) statusText = '等待提币'
+if (item.state == 6) statusText = '撤销中'
+if (item.state == 7) statusText = '已撤销'
+if (item.state == 8) statusText = '提现成功'
+if (item.state == 9) statusText = '提现失败'
+if (item.state == 10) statusText = '提币中'
+
+
+
+
+java -Xms512m -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=256m -XX:MaxNewSize=256m -jar
+
 bug
     last ip and address
 
 
-
-    		String validateCodeCache = redisRepository.get(Constants.MSG_PHONE_PRE + areaCode + phone);
-    		if (RegexUtils.isNull(validateCodeCache)) {
-    			return Result.error("您的验证码已失效，请重新获取");
-    		}
+phone
 
 
+    		String phoneCodeRedis = redisRepository.get(Constants.MSG_PHONE_PRE + user.getAreaCode() + user.getPhone());
 
 
+email
+           String emailCodeRedis = redisRepository.get(Constants.MSG_EMAIL_PRE + email);
+
+google
+                          GoogleAuthenticator googleAuthenticator = new GoogleAuthenticator();
+                          String secret = redisRepository.get(RedisConst.GOOGLE_SECRET + user.getId());
+                          log.info("谷歌验证:{}", secret);
+                          boolean authorize = googleAuthenticator.authorize(secret, googleCode);
+                          if (!authorize) {
+                              return Result.error("谷歌验证码错误");
+                          }
+
+
+error
+             catch (CustomException e) {
+                        return e.getResult();
+                    }
+
+
+
+70B283585A74B7FF90413CACAC18F09E
+
+
+Abc=1234
+
+
+
+Error:(20, 26) java: lambda expressions are not supported in -source 1.5
+  (use -source 8 or higher to enable lambda expressions)
+
+
+
+
+                      <select id="currencyConfirm" resultMap="BaseResultMap" parameterType="com.akagp.model.AccountTransfer">
+                      		SELECT
+                      		  id,user_id,currency,available,locking,valuation,is_del,created,updated
+                      		FROM `account`
+                      		WHERE user_id = #{userId}
+                      		  AND `currency` = #{currency}
+                      </select>
+
+                      <update id="decrToAvailable" parameterType="com.akagp.model.AccountTransfer">
+                      		UPDATE
+                    		  `account`
+                    		SET
+                    		  `available` = `available` - #{num},
+                    		  `updated` = NOW()
+                    		WHERE `user_id` = #{userId}
+                    		  AND `currency` = #{currency}
+                    		  AND `available` &gt; #{num}
+                      </update>
+
+
+183061909010100001
+
+1829015010100001
+
+
+
+
+ example.setOrderByClause("created desc");
 
 /query_gate/assets/totalAssests
 
 
+/user_gate/**       account_user_gate
+/bcoin_gate/**      account_bcoin_gate
+/fcoin_gate/**      account_fcoin_gate
+/agent_gate/**      account_agent_gate
+/main_gate/**       account_wallet_gate
+/query_gate/**      account_query
+/auth_gate/**       account_auth_gate
+
+
+          args:
+            retries: 3
+      - id: auth
+        uri: lb://AKAGP-PROVIDER-AUTH
+        predicates:
+        - Path=/account_auth_gate/**
+        filters:
+        - StripPrefix=1
+        - SaveSession
+        - name: Retry
+          args:
+            retries: 3
+  redis:
+    host: 192.168.31.245
+    port: 6379
+    password: 123456
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHffkAsXf21twd5Rkk+NSmGJZA9CpvXQbxH6pfOpXd9GbsB4CQ9qaxn0EtGEg7R3GZPvo5E07NceS18slAs69rQjGUILUXK4f0la7LDJsCrNTBYSvFbe3bkg8foHg8abYZmAsVlyY7Mw9T72Gy6qRTOxcLWS4cWTFdwr54j6uHEIovbxIZF46NUqnbQPW9DXBjmN9mtxmF65szbiRj31nGTS3RQ2+IYYxkog1kJ3WOTzdK6j+GODDWJc/cdPCvyrjY2+QZvitCl3E9GjTBaPV482LiRzZoL/jChrPp9Z7qYcri9L8L9qhOBhhLZaf6MyMN1sCw279Qr4Zh48ndU3zl id512@126.com
+
+token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODMxMjEwNTgwMTAxMDAwMDEsImxvZ2luX3R5cGUiOjIsImV4cCI6MTU0MjUyMTM0NiwibmJmIjoxNTQyMzQ4NTQ2fQ.ZyIlo21eLZUdc7NPjrQMyEm8jwGUmb__oehI6x5cV2I
 
 
 
-@RequestMapping(value = "/feign/listAccountBill")
-    public PageInfo<AccountFlow> listAccountBill(@RequestParam("userId") Long userId, @RequestParam("currency") String currency, @RequestParam("endTime") String endTime, @RequestParam("startTime") String startTime, @RequestParam("type") Integer type, @RequestParam("start") int start, @RequestParam("size") int size);
+
+token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODMxMjEwNTgwMTAxMDAwMDEsImxvZ2luX3R5cGUiOjIsImV4cCI6MTU0Mjg1MDIxMiwibmJmIjoxNTQyNjc3NDEyfQ.cwkkt305svrei0BjZCuGbL6EHwir3TxTWc3Ga6Tnlrs
+
+token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODMxMjEwNTgwMTAxMDAwMDEsImxvZ2luX3R5cGUiOjIsImV4cCI6MTU0Mjg1MDQ1NSwibmJmIjoxNTQyNjc3NjU1fQ.BLKhcS5MrX9RtQ0LbDV3nVXcdZ3DLi7NCS9a_AVh6Bg
 
 
-eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxODMxMjEwNTgwMTAxMDAwMDEsImxvZ2luX3R5cGUiOjIsImV4cCI6MTU0MjE5ODQ1MiwibmJmIjoxNTQyMDI1NjUyfQ.CNa1XQAsfkiK_xh5OmVUwtGSE6JK1zbzpcwadz7q2A0
 
 
+
+ coin_recharge_record WHERE ( is_del = ? and user_id = ? and direction = ? ) LIMIT ?, ?
+==> Parameters: 0(Integer), 183191731010100001(Long), 1(Integer), 10(Integer), 10(Integer)
+<==    Columns: id, user_id, direction, currency, msg, price, flow_id, num, address, created, updated, is_del, progress, state
+<==        Row: 26, 183191731010100001, 1, ETC, 2, 0.00100000, null, 1.00000000, 222, 2018-11-16 02:26:49.0, 2018-11-16 02:26:49.0, 0, 1, 1
+<==        Row: 27, 183191731010100001, 1, ETC, 11, 0.00100000, null, 1.00000000, 1233, 2018-11-16 02:29:04.0, 2018-11-16 02:29:04.0, 0, 1, 1
+<==      Total: 2
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4663dac]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3e0f9c9] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@4b194a05] will not be managed by Spring
+==>  Preparing: SELECT count(0) FROM coin_recharge_record WHERE (is_del = ? AND user_id = ? AND direction = ?)
+==> Parameters: 0(Integer), 183191731010100001(Long), 1(Integer)
+<==    Columns: count(0)
+<==        Row: 12
+<==      Total: 1
+==>  Preparing: SELECT id,user_id,direction,currency,msg,price,flow_id,num,address,created,updated,is_del,progress,state FROM coin_recharge_record WHERE ( is_del = ? and user_id = ? and direction = ? ) LIMIT ?, ?
+==> Parameters: 0(Integer), 183191731010100001(Long), 1(Integer), 10(Integer), 10(Integer)
+<==    Columns: id, user_id, direction, currency, msg, price, flow_id, num, address, created, updated, is_del, progress, state
+<==        Row: 26, 183191731010100001, 1, ETC, 2, 0.00100000, null, 1.00000000, 222, 2018-11-16 02:26:49.0, 2018-11-16 02:26:49.0, 0, 1, 1
+<==        Row: 27, 183191731010100001, 1, ETC, 11, 0.00100000, null, 1.00000000, 1233, 2018-11-16 02:29:04.0, 2018-11-16 02:29:04.0, 0, 1, 1
+<==      Total: 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+package com.akagp.service.impl;
+
+import com.akagp.mapper.*;
+import com.akagp.model.*;
+import com.akagp.service.TransferService;
+import com.akagp.utils.RedisRepository;
+import tk.mybatis.mapper.entity.Example;
+
+import javax.annotation.Resource;
+import java.math.BigDecimal;
+
+/**
+ * Created by root on 18-11-14.
+ */
+public class TransferServiceImpl implements TransferService {
+
+
+    @Resource
+    private AccountBcoinMapper accountBcoinMapper;
+    @Resource
+    private AccountBcoinFlowMapper accountBcoinFlowMapper;
+
+    @Resource
+    private AccountFcoinMapper accountFcoinMapper;
+    @Resource
+    private AccountFcoinFlowMapper accountFcoinFlowMapper;
+
+    @Resource
+    private AccountAgentMapper accountAgentMapper;
+    @Resource
+    private AccountAgentFlowMapper accountAgentFlowMapper;
+
+    @Resource
+    private AccountMapper accountMapper;
+
+    @Resource
+    private AccountFlowMapper accountFlowMapper;
+
+
+    //资金划转
+    public void transfer(Long userId, String currency, Integer in, Integer out, BigDecimal size, BigDecimal balance) {
+
+    }
+
+
+    private Account getAccount(Long userId, String currency) {
+        Account account = new Account();
+        account.setUserId(userId);
+        account.setCurrency(currency);
+        accountMapper.selectOne(account);
+        return account;
+    }
+
+
+    private AccountBcoin getAccountBcoin(Long userId, String currency) {
+        AccountBcoin account = new AccountBcoin();
+        account.setUserId(userId);
+        account.setCurrency(currency);
+        accountBcoinMapper.selectOne(account);
+        return account;
+    }
+
+    private AccountFcoin getAccountFcoin(Long userId, String currency) {
+        AccountFcoin account = new AccountFcoin();
+        account.setUserId(userId);
+        account.setCurrency(currency);
+        accountFcoinMapper.selectOne(account);
+        return account;
+    }
+
+    private AccountAgent getAccountAgent(Long userId, String currency) {
+        AccountAgent account = new AccountAgent();
+        account.setUserId(userId);
+        account.setCurrency(currency);
+        accountAgentMapper.selectOne(account);
+        return account;
+    }
+
+    //update account
+    private int updateAccount(Long userId, int direction, String currency, BigDecimal size, BigDecimal balance) {
+
+        BigDecimal balanceNew = new BigDecimal(0);
+        //1-入 0-出
+        if (direction == 0) {
+            balanceNew = balance.add(size);
+        } else {
+            balanceNew = balance.subtract(size);
+        }
+
+        Account accountUpdate = new Account();
+        accountUpdate.setBalance(balanceNew);
+
+
+        Example example = new Example(Account.class);
+        Example.Criteria criteria = example.createCriteria().
+                andEqualTo("isDel", 0).
+                andEqualTo("userId", userId).
+                andEqualTo("balance", balance).
+                andEqualTo("currency", currency);
+
+
+        return accountMapper.updateByExampleSelective(accountUpdate, example);
+    }
+
+
+    private int updateAccountFcoin(Long userId, int direction, String currency, BigDecimal size, BigDecimal balance) {
+
+        BigDecimal balanceNew = new BigDecimal(0);
+        //1-入 0-出
+        if (direction == 0) {
+            balanceNew = balance.add(size);
+        } else {
+            balanceNew = balance.subtract(size);
+        }
+
+        AccountFcoin accountUpdate = new AccountFcoin();
+        accountUpdate.setBalance(balanceNew);
+
+
+        Example example = new Example(Account.class);
+        Example.Criteria criteria = example.createCriteria().
+                andEqualTo("isDel", 0).
+                andEqualTo("userId", userId).
+                andEqualTo("balance", balance).
+                andEqualTo("currency", currency);
+
+        return accountFcoinMapper.updateByExampleSelective(accountUpdate, example);
+    }
+
+    private int updateAccountBcoin(Long userId, int direction, String currency, BigDecimal size, BigDecimal balance) {
+
+        BigDecimal balanceNew = new BigDecimal(0);
+        //1-入 0-出
+        if (direction == 0) {
+            balanceNew = balance.add(size);
+        } else {
+            balanceNew = balance.subtract(size);
+        }
+
+        AccountBcoin accountUpdate = new AccountBcoin();
+        accountUpdate.setBalance(balanceNew);
+
+
+        Example example = new Example(Account.class);
+        Example.Criteria criteria = example.createCriteria().
+                andEqualTo("isDel", 0).
+                andEqualTo("userId", userId).
+                andEqualTo("balance", balance).
+                andEqualTo("currency", currency);
+
+        return accountBcoinMapper.updateByExampleSelective(accountUpdate, example);
+    }
+
+    private int updateAccountAgent(Long userId, int direction, String currency, BigDecimal size, BigDecimal balance) {
+
+        BigDecimal balanceNew = new BigDecimal(0);
+        //1-入 0-出
+        if (direction == 0) {
+            balanceNew = balance.add(size);
+        } else {
+            balanceNew = balance.subtract(size);
+        }
+
+        AccountAgent accountUpdate = new AccountAgent();
+        accountUpdate.setBalance(balanceNew);
+
+
+        Example example = new Example(Account.class);
+        Example.Criteria criteria = example.createCriteria().
+                andEqualTo("isDel", 0).
+                andEqualTo("userId", userId).
+                andEqualTo("balance", balance).
+                andEqualTo("currency", currency);
+
+        return accountAgentMapper.updateByExampleSelective(accountUpdate, example);
+    }
+
+
+    private int addAccountFlow(Long userId, int direction, String currency, BigDecimal size, BigDecimal balance) {
+        AccountFlow flow = new AccountFlow();
+        flow.setUserId(userId);
+        flow.setDirection(direction);
+        flow.setCurrency(currency);
+        flow.setSize(size);
+        flow.setBalance(balance);
+        return accountFlowMapper.insertSelective(flow);
+    }
+
+    private int addAccountBcoinFlow(Long userId, int direction, String currency, BigDecimal size, BigDecimal balance, Integer type) {
+        AccountBcoinFlow flow = new AccountBcoinFlow();
+        flow.setUserId(userId);
+        flow.setDirection(direction);
+        flow.setCurrency(currency);
+        flow.setSize(size);
+        flow.setBalance(balance);
+        flow.setType(type);
+        return accountBcoinFlowMapper.insertSelective(flow);
+    }
+
+    private int addAccountFcoinFlow(Long userId, int direction, String currency, BigDecimal size, BigDecimal balance) {
+        AccountFcoinFlow flow = new AccountFcoinFlow();
+        flow.setUserId(userId);
+        flow.setDirection(direction);
+        flow.setCurrency(currency);
+        flow.setSize(size);
+        flow.setAmount(balance);
+        return accountFcoinFlowMapper.insertSelective(flow);
+    }
+
+    private int addAccountAgentFlow(Long userId, int direction, String currency, BigDecimal size, BigDecimal balance, Integer type) {
+        AccountAgentFlow flow = new AccountAgentFlow();
+        flow.setUserId(userId);
+        flow.setDirection(direction);
+        flow.setCurrency(currency);
+        flow.setSize(size);
+        flow.setBalance(balance);
+        flow.setType(type);
+        return accountAgentFlowMapper.insertSelective(flow);
+    }
+}
