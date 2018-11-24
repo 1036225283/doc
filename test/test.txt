@@ -140,6 +140,14 @@ Error:(20, 26) java: lambda expressions are not supported in -source 1.5
 /auth_gate/**       account_auth_gate
 
 
+
+
+0x3103f082122ad81d6668c31b0b8896472745c011
+18151906091550064717638903897306360121997835038900363147091182389649124893029
+11809325538125816191407067160011414236818990536153244024053031910511655456238911418069218389359358241294902763258662628660588846585431586528575562029705161
+
+
+
           args:
             retries: 3
       - id: auth
@@ -202,10 +210,55 @@ JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@4b194a05] will
 
 
 
+@Override
+    protected void onHandleIntent(Intent intent) {
+        //获取密码
+        String password = intent.getStringExtra("PASSWORD");
+        String privatekey = "";
+        //不一定有私钥
+        if (intent.hasExtra("PRIVATE_KEY")) {
+            normalMode = false;  //如果没有私钥，就是正常创建钱包，有私钥是扫码创建钱包
+            privatekey = intent.getStringExtra("PRIVATE_KEY");
+        }
+        //创建或添加钱包的通知
+        sendNotification();
+        try {
+            String walletAddress;
+            if (normalMode) { // 创建新的密钥
+                walletAddress = OwnWalletUtils.generateNewWalletFile(password, new File(this.getFilesDir(), ""), true);   //获取钱包地址
+            } else { // Privatekey passed  //通过私钥创建，秘钥对
+                ECKeyPair keys = ECKeyPair.create(Hex.decode(privatekey));
+                walletAddress = OwnWalletUtils.generateWalletFile(password, keys, new File(this.getFilesDir(), ""), true);    //获取钱包地址
+            }
+           //添加到钱包存储仓库
+            WalletStorage.getInstance(this).add(new FullWallet("0x" + walletAddress, walletAddress), this);
+            //命名转换
+            AddressNameConverter.getInstance(this).put("0x" + walletAddress, "Wallet " + ("0x" + walletAddress).substring(0, 6), this);
+            Settings.walletBeingGenerated = false;
+            //结束时再次拼接通知
+            finished("0x" + walletAddress);
+        } catch (CipherException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InvalidAlgorithmParameterException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchProviderException e) {
+            e.printStackTrace();
+        }
+    }
+
+作者：CangWang
+链接：https://www.jianshu.com/p/36ed013a9af7
+來源：简书
+简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。
 
 
+99.96987000
 
-
+32Bv7ra1yoJUGVmcRdy8i1BDGEcFFSZxos
 
 
 

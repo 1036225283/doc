@@ -1,5 +1,11 @@
 https://www.jianshu.com/p/5def0c66cfb8
 
+技术细节
+    https://bitcoin.org/en/developer-guide#detecting-forks
+
+RPC DOC
+    http://cw.hubwiz.com/card/c/bitcoin-json-rpc-api/
+
 install docker
     1.update
     2.install apt-transport-https ca-certificates curl software-properties-common
@@ -12,4 +18,34 @@ install docker
     vim /root/.bitcoin/bitcoin.conf
     ./bitcoind
 
-3.
+3.bit docket
+    3.1 run in docker
+        sudo docker run -it -p 19001:19001 -p 19011:19011 freewil/bitcoin-testnet-box
+        make start
+    3.2 look message
+        make getinfo
+    3.3 产生一个区块
+        make generate
+    3.4 产生100个区块
+        make generate BLOCKS=100
+    3.5 查看节点状态
+        bitcoin-cli -datadir=1  getinfo
+    3.6 查看钱包地址
+        bitcoin-cli -datadir=1  getwalletinfo
+        bitcoin-cli -datadir=2 getnewaddress
+        或者
+        make address2
+        bitcoin-cli -datadir=2  getnewaddress
+
+    3.7 查看地址私钥
+        bitcoin-cli -datadir=2  dumpprivkey '2NCfVMLkLQtXw7BuMD5FujscHrpfEVz1HzQ'
+        bitcoin-cli -datadir=2  dumpprivkey '2MxHYWRrfhEo8CnPYc9Kr4Q3o6vJAhWogSD'
+            cU2TG1JduHSataGeYHeZJ5MRgkgZttZeqYoB56sJSmDRKTyzt7Pf
+
+    3.8 给钱包2转账
+        make sendfrom1   ADDRESS=2MxHYWRrfhEo8CnPYc9Kr4Q3o6vJAhWogSD  AMOUNT=10
+
+4.在线查询余额
+    https://bitref.com/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU
+    https://www.blockchain.com/zh/btc/address/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU
+

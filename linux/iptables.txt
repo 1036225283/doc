@@ -1,0 +1,17 @@
+Linux防火墙Iptable如何设置只允许某个ip访问80端口，只允许特定ip访问某端口？参考下面命令，只允许46.166.150.22访问本机的80端口。如果要设置其他ip或端口，改改即可。
+
+iptables -I INPUT -p TCP --dport 8545 -j DROP
+iptables -I INPUT -p tcp --dport 8545 -j ACCEPT
+iptables -I INPUT -s 223.223.195.196 -p TCP --dport 8545 -j ACCEPT
+
+在root用户下执行上面2行命令后，重启iptables， service iptables restart
+
+查看iptables是否生效：
+
+iptables -L
+
+
+2.file
+    /etc/sysconfig/iptables
+
+    service iptables save + service iptables restart

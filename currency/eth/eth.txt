@@ -42,10 +42,21 @@
     3.4 Geth启动
         ./geth console
 
-        ./geth -datadir "/root/.ethereum" init genesis.json
-        ./geth -datadir "/root/.ethereum" console
-        personal.newAccount("123.abc")
-        ./geth -targetgaslimit 4294967295 –rpc –rpcaddr "localhost" –rpcport "8101" –port "30301" –rpcapi "eth,web3,personal" –networkid 2016 –identity 2016 -nodiscover -maxpeers 5 –datadir “/software/chain” -unlock 0 -rpccorsdomain “*” –mine console
+        local
+            ./geth -datadir "/software/geth" init genesis.json
+            ./geth -datadir "/software/geth" console
+            personal.newAccount("123.abc")
+            ./geth -targetgaslimit 429496 -rpc -rpcaddr "192.168.31.150" -rpcport "8101" -port "30301" -rpcapi "eth,web3,personal" -networkid 2016 -identity 2016 -nodiscover -maxpeers 5 -datadir "/software/geth" -unlock 0 -rpccorsdomain "*" -mine console
+            ./geth -targetgaslimit 429496 -rpc -rpcaddr "192.168.31.151" -rpcport "8101" -port "30301" -rpcapi "eth,web3,personal" -networkid 2016 -identity 2016 -nodiscover -maxpeers 5 -datadir "/software/geth" -unlock 0 -rpccorsdomain "*" -mine console
+            ./geth --datadir "/software/geth" --rpc --rpcaddr "192.168.31.151" --nodiscover --rpcapi "db,eth,net,web3,miner,personal,admin" console 2>>geth.log
+        server
+            personal.newAccount("xws123456")
+            ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin" console 2>>geth.log
+            ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin"
+        miner.start(1)
+        miner.stop()
+
+testrpcGeth搭建
 
 4.Ethereum Wallet搭建
     https://github.com/ethereum/mist/releases/download/v0.11.1/Ethereum-Wallet-linux64-0-11-1.zip
@@ -67,3 +78,10 @@
           });
          });
         };
+
+
+5.查看真实交易
+        https://etherscan.io/txs
+
+6.查看区块高度
+        geth -> eth.syncing
