@@ -1,0 +1,8 @@
+1.下载代码
+	https://github.com/EOSEssentials/eos-java-rpc-wrapper.git
+
+2.github
+	https://github.com/EOSEssentials/eos-java-rpc-wrapper
+
+3.参考文档
+	https://blog.csdn.net/liu1765686161/article/details/82180070		

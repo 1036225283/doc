@@ -1,7 +1,7 @@
 all
-    1 BTC (比特币)
+    1 BTC (比特币)             ok
     2 BCH-ABC&BCH-SV (比特币现金)
-    3 ETH (以太坊)
+    3 ETH (以太坊)         ok
     4 USDT (泰达币)
     5 XRP (瑞波币)
     6 LTC (莱特币)
