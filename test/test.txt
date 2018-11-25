@@ -260,6 +260,350 @@ JDBC Connection [com.alibaba.druid.proxy.jdbc.ConnectionProxyImpl@4b194a05] will
 
 32Bv7ra1yoJUGVmcRdy8i1BDGEcFFSZxos
 
+195000000000000000
+195000000000000000
+
+1000000000000000
+web3.formwei(eth.getBalance(eth.accounts[1]))
+ eth.getBalance(0x37a716fbb4229dbefcb2d8be177b11d2bb13fe2d)
+
+2
+2N5n7oMCdK6qU4tGqML8t6fySDbbJrZno8W
+
+1
+2N32EL95xQ4KvBX1JNxrWAzznSESuAxrqVg
+
+[
+  [
+    [
+      "n2wtyvfFhF9F4JmuBFxrkY4M5MBZAGSL71",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "2N2wZDnjRK88qNTRXFFuyF17WXf5QvoHpzf",
+      0.00000000
+    ],
+    [
+      "2N5n7oMCdK6qU4tGqML8t6fySDbbJrZno8W",
+      0.00000000,
+      "123"
+    ],
+    [
+      "2NEzAJV14az36iSgjt5n43B8B5BAKf2GrN8",
+      0.99993360
+    ]
+  ]
+]
+
+[
+  [
+    [
+      "mm6eUwNxQJEi3BrcZmboucz6fA8PVpRob4",
+      3050.00000000
+    ]
+  ],
+  [
+    [
+      "mnJdXgn8725FqkrzpmV794rRdhaNfeWvEJ",
+      450.00000000
+    ],
+    [
+      "2N43pu2HRM8oEQoTm4mCRwpetrSrggntW4p",
+      29.99992880
+    ],
+    [
+      "2N8EvMP1gjpdETer1BYP87pFzMJXGMLySt9",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "msvXpF5L9zpVqd7sttSn6ri9Gn47gGLQiE",
+      50.00000000
+    ]
+  ],
+  [
+    [
+      "mtdmoQu4Gh6RywJijLzJd3Sp852wEgLc52",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "mvwg5LwDtqFb39rvawHr7uQnNRkH9dZSCS",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "mxNkbGeZPh1nLzVsGzzugUDCH6AMAaF7ZY",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "myFN3jDGuPnAQJJTGJc14es2hKrgkfTJSB",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "n29BbgY37fuLTWryoB3aSy8Z7pumFUsQer",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "n2ur1LaahnSMuPX3HghF9BWksPcmrFVxUw",
+      0.00000000
+    ]
+  ],
+  [
+    [
+      "2N32EL95xQ4KvBX1JNxrWAzznSESuAxrqVg",
+      5.00000000,
+      ""
+    ]
+  ]
+]
+
+
+    @PostMapping(value = "/getCoinRechargeInAddress")
+    public Result getCoinRechargeInAddress(@RequestParam("currency") String currency) {
+
+        try {
+
+            User user = null;
+            if (!test) {
+                user = getLoginUser();
+            } else {
+                user = new User();
+                user.setId(183121058010100001l);
+            }
+
+            if (RegexUtils.isNull(currency)) {
+                return Result.error("currency is null");
+            }
+
+            List<AccountAddress> list = accountService.listAccountAddressIn(user.getId(), currency);
+
+            if (list.size() == 0) {
+
+                String account = "";
+                String address = "";
+
+                CoinAccount coinAccount = coinService.getNewAddress(currency);
+                if ("BTC".equals(currency)) {
+//                    account = redisRepository.getId(AccountConst.ACCOUNT_TRANSFER_ID, GenIndexUtil.getIdPrefix(new Date()), AccountConst.ACCOUNT_TRANSFER_MIDDLE).toString();
+                    account = coinAccount.getAccount();
+                    address = btcGateClient.getnewaddress(account);
+                } else if ("ETH".equals(currency)) {
+                    address = coinAccount.getAddress();
+                }
+                accountService.addAccountAddressIn(user.getId(), currency, address, account);
+                list = accountService.listAccountAddressIn(user.getId(), currency);
+            }
+
+            return Result.ok(list.get(0));
+        } catch (CustomException e) {
+            return e.getResult();
+        } catch (Exception e) {
+            return Result.error("system is error");
+        }
+    }
+
+
+    /**
+     * 划拨 task
+     *
+     * @return
+     */
+    @PostMapping(value = "/taskCoinOutTransfer")
+    public Result taskCoinOutTransfer() {
+
+        try {
+
+            /**
+             * flag	boolean
+             * txId	string
+             */
+//            List<CoinRechargeRecord> listBig = accountService.listBigAmount();
+
+            List<CoinRechargeRecord> listSmall = accountService.listSmallAmount();
+
+//            listBig.addAll(listSmall);
+
+            log.info("提币划转task list.size = " + listSmall.size());
+            for (CoinRechargeRecord record : listSmall) {
+                if ("ETH".equals(record.getCurrency())) {
+                    try {
+                        Map<String, Object> map = coinGateClient.sendToAddress(record.getCurrency(), record.getAddress(), record.getNum(), record.getPrice());
+                        if (map.containsKey("txId")) {
+                            record.setTxid(map.get("txId").toString());
+                            accountService.updateCoinRechargeRecordTxIdAndState(record);
+                            continue;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        continue;
+                    }
+
+                } else if ("BTC".equals(record.getCurrency())) {
+                    try {
+                        JSONObject json = btcGateClient.sendtoaddress(record.getAddress(), record.getNum().doubleValue());
+                        if (json == null) {
+                            continue;
+                        }
+
+                        log.info("提币划转task json = " + json.toString());
+                        if (!json.containsKey("flag") || !json.containsKey("txId")) {
+                            continue;
+                        }
+
+                        boolean flag = json.getBoolean("flag");
+                        String txId = json.getString("txId");
+                        if (flag) {
+                            record.setTxid(txId);
+                            accountService.updateCoinRechargeRecordTxIdAndState(record);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        continue;
+                    }
+
+                }
+            }
+            return Result.ok("");
+        } catch (CustomException e) {
+            return e.getResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error(e.getMessage());
+        }
+    }
+
+    /**
+     * 划拨确认 task
+     *
+     * @return
+     */
+    @PostMapping(value = "/taskCoinOutTransferConfirm")
+    public Result taskCoinOutTransferConfirm() {
+
+        try {
+            //btc确认数
+            List<CoinRechargeRecord> list = accountService.getCoinRechargeRecordByTransfering();
+            log.info("提币划转确认task list.size = " + list.size());
+            for (CoinRechargeRecord record : list) {
+                log.info("taskCoinOutTransferConfirm:record.id = " + record.getId());
+                log.info("taskCoinOutTransferConfirm:record.txId = " + record.getTxid());
+                if ("BTC".equals(record.getCurrency())) {
+                    Integer num = btcGateClient.selectConfirm(record.getTxid());
+                    log.info("taskCoinOutTransferConfirm:BTC.code = " + num);
+                    if (num > 6) {
+                        accountService.coinRechargeOutSuccess(record);
+                    }
+                } else if ("ETH".equals(record.getCurrency())) {
+                    Integer code = btcGateClient.selectConfirm(record.getTxid());
+                    log.info("taskCoinOutTransferConfirm:BTC.code = " + code);
+                    if (code == 1) {
+                        accountService.coinRechargeOutSuccess(record);
+                    }
+                }
+            }
+            return Result.ok("");
+        } catch (CustomException e) {
+            return e.getResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error(e.getMessage());
+        }
+    }
+
+    /**
+     * 充币task
+     *
+     * @return
+     */
+    @PostMapping(value = "/taskCoinIn")
+    public Result taskCoinIn() {
+
+        try {
+
+            List<AccountAddress> list = accountService.getALlAccountAddress();
+
+            log.info("充币task list.size = " + list.size());
+
+            for (AccountAddress accountAddress : list) {
+
+                BigDecimal balance = BigDecimal.ZERO;
+
+                if ("BTC".equals(accountAddress.getCurrency())) {
+
+                    log.info("充币task btcGateClient.getBalance.before ,account = " + accountAddress.getAccount() + " balance = " + accountAddress.getBalance());
+                    try {
+                        double dBalance = btcGateClient.getBalance(accountAddress.getAccount());
+                        balance = new BigDecimal(dBalance);
+                    } catch (Exception e) {
+                        continue;
+                    }
+
+
+
+                    log.info("充币task balance = " + balance + " account = " + accountAddress.getAccount() + " address = " + accountAddress.getAddress());
+
+                    if (balance.compareTo(accountAddress.getBalance()) != 1) {
+                        continue;
+                    }
+
+                    balance = balance.subtract(accountAddress.getBalance());
+
+                    log.info("充币task 真实余额 = " + balance);
+
+                } else if ("ETH".equals(accountAddress.getCurrency())) {
+                    try {
+                        balance = coinGateClient.getBalance(accountAddress.getCurrency(), accountAddress.getAddress());
+                    } catch (Exception e) {
+                        continue;
+                    }
+
+
+                    if (balance.compareTo(accountAddress.getBalance()) != 1) {
+                        continue;
+                    }
+
+                    balance = balance.subtract(accountAddress.getBalance());
+
+                    log.info("充币task 真实余额 = " + balance);
+
+
+                }
+                accountAddress.setBalance(balance);
+                CoinRechargeRecord coinRechargeRecord = new CoinRechargeRecord();
+                coinRechargeRecord.setUserId(accountAddress.getUserId());
+                coinRechargeRecord.setCurrency(accountAddress.getCurrency());
+                coinRechargeRecord.setNum(balance);
+                coinRechargeRecord.setAddress(accountAddress.getAddress());
+                coinRechargeRecord.setAccount(accountAddress.getAccount());
+                coinRechargeRecord.setState((byte) CoinRechargeRecordConst.COIN_IN_STATE_SUCCESS);
+                coinRechargeRecord.setDirection(AccountConst.TRANSFER_ACCOUNT_IN);
+                coinRechargeRecord.setProgress((byte) CoinRechargeRecordConst.PROGRESS_OK);
+                accountService.coinRechargeIn(coinRechargeRecord, accountAddress);
+            }
+
+        } catch (CustomException e) {
+            return e.getResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.error(e.getMessage());
+        }
+
+        return Result.ok();
+    }
+
+
 
 
 package com.akagp.service.impl;

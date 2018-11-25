@@ -45,6 +45,12 @@ install docker
     3.8 给钱包2转账
         make sendfrom1   ADDRESS=2MxHYWRrfhEo8CnPYc9Kr4Q3o6vJAhWogSD  AMOUNT=10
 
+    3.9 查看每个地址的余额
+        listaddressgroupings
+
+        查看地址接收了多少钱
+        listreceivedbyaddress
+
 4.在线查询余额
     https://bitref.com/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU
     https://www.blockchain.com/zh/btc/address/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU

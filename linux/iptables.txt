@@ -2,6 +2,7 @@ Linux防火墙Iptable如何设置只允许某个ip访问80端口，只允许特�
 
 iptables -I INPUT -p TCP --dport 8545 -j DROP
 iptables -I INPUT -p tcp --dport 8545 -j ACCEPT
+iptables -I INPUT -p tcp --dport 61315 -j ACCEPT
 iptables -I INPUT -s 223.223.195.196 -p TCP --dport 8545 -j ACCEPT
 
 在root用户下执行上面2行命令后，重启iptables， service iptables restart

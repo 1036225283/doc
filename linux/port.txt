@@ -1,1 +1,2 @@
 netstat -nap | grep 进程pid
+netstat  -anp  |grep  3306

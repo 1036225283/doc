@@ -51,7 +51,7 @@
             ./geth --datadir "/software/geth" --rpc --rpcaddr "192.168.31.151" --nodiscover --rpcapi "db,eth,net,web3,miner,personal,admin" console 2>>geth.log
         server
             personal.newAccount("xws123456")
-            ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin" console 2>>geth.log
+            ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
             ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin"
         miner.start(1)
         miner.stop()
