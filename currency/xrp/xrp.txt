@@ -2,3 +2,18 @@
     https://ripple.com/files/rt_migration_faq.pdf
 
 
+2.官方文档
+	https://github.com/ripple-unmaintained/ripple-lib-java
+
+3.参考文档
+	https://blog.csdn.net/qq_31544285/article/details/83348160
+	https://blog.csdn.net/liu1765686161/article/details/83347534
+	https://blog.csdn.net/liu1765686161/article/details/82492937	
+
+4.官网
+	https://ripple.com
+
+		
+
+
+

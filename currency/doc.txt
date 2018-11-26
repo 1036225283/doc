@@ -2,10 +2,10 @@ all
     1 BTC (比特币)             ok
     2 BCH-ABC&BCH-SV (比特币现金)
     3 ETH (以太坊)         ok
-    4 USDT (泰达币)
+    4 USDT (泰达币)        ok
     5 XRP (瑞波币)
-    6 LTC (莱特币)
-    7 EOS (柚子)
+    6 LTC (莱特币)         ok
+    7 EOS (柚子)          
     8 DASH (达世币)
     9  ADA (卡尔达诺)
     10 IOTA (IOTA)
