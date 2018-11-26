@@ -9,7 +9,7 @@
     ./geth --syncmode "fast" --datadir "./data" --rpc --rpcaddr "0.0.0.0" -rpcport "8546" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
     ./geth --datadir ./data  --port 30304 --fast --logdir .
     ./geth --datadir ./data  --port 30304 --fast --logdir . --rpc --rpcaddr "0.0.0.0" -rpcport "8547" --rpcapi "db,eth,net,web3,miner,personal,admin"
-    ./geth --datadir ./data  --port 30304 --fast --logdir . --rpc --rpcaddr "0.0.0.0" -rpcport "8547" --rpcapi "db,eth,net,web3,miner,personal,admin" --rpccorsdomain “*”
+    ./geth --datadir ./data  --port 30304 --fast --logdir . --rpc --rpcaddr "0.0.0.0" -rpcport "8547" --rpcapi "db,eth,net,web3,miner,personal,admin" --rpccorsdomain "*"
 
 
 

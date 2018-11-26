@@ -52,13 +52,11 @@
         server
             personal.newAccount("xws123456")
             ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
-            ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
-            --rpccorsdomain “*”
+            ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  --rpccorsdomain "*"
+
             ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin" --syncmode "fast"
         miner.start(1)
         miner.stop()
-
-testrpcGeth搭建
 
 4.Ethereum Wallet搭建
     https://github.com/ethereum/mist/releases/download/v0.11.1/Ethereum-Wallet-linux64-0-11-1.zip
