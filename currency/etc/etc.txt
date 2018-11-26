@@ -1,0 +1,18 @@
+1.官网
+    https://ethereumclassic.github.io/
+
+2.geth client
+    https://github.com/ethereumproject/go-ethereum/releases
+
+3.run
+    ./geth --datadir "./data" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin"
+    ./geth --syncmode "fast" --datadir "./data" --rpc --rpcaddr "0.0.0.0" -rpcport "8546" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
+    ./geth --datadir ./data  --port 30304 --fast --logdir .
+    ./geth --datadir ./data  --port 30304 --fast --logdir . --rpc --rpcaddr "0.0.0.0" -rpcport "8547" --rpcapi "db,eth,net,web3,miner,personal,admin"
+    ./geth --datadir ./data  --port 30304 --fast --logdir . --rpc --rpcaddr "0.0.0.0" -rpcport "8547" --rpcapi "db,eth,net,web3,miner,personal,admin" --rpccorsdomain “*”
+
+
+
+4.交易查询
+    http://etherhub.io/home
+    https://gastracker.io/

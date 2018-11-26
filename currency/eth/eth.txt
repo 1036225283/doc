@@ -52,7 +52,9 @@
         server
             personal.newAccount("xws123456")
             ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
-            ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin"
+            ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
+            --rpccorsdomain “*”
+            ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin" --syncmode "fast"
         miner.start(1)
         miner.stop()
 
@@ -80,8 +82,13 @@ testrpcGeth搭建
         };
 
 
-5.查看真实交易
+5.交易查询
         https://etherscan.io/txs
 
 6.查看区块高度
         geth -> eth.syncing
+        eth.getBlock("latest"),
+        eth.getBlock("earliest")
+        eth.getBlock("pending")
+        eth.blockNumber
+        eth.getBlock('latest').number

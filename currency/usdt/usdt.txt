@@ -1,6 +1,7 @@
 	可以编译安装，也可以直接下载jar包，直接运行
 	官网地址
 		http://www.omnilayer.org/download.html
+		https://bintray.com/artifact/download/omni/OmniBinaries/omnicore-0.3.1-x86_64-linux-gnu.tar.gz
 
 	参考文档
 		https://blog.csdn.net/ffzhihua/article/details/80706661
@@ -38,3 +39,7 @@
 	./omnicored -conf=%PATH TO bitcon.conf% -datadir=%PATH TO DATA DIR% &
 
 	omni同步区块，并不需要把bitcoin区块全部下载，大致一天之内就能够同步完毕。之后，我们就可以使用omnicore-cli命令，或者通过RPC API对节点和钱包进行操作。
+
+
+3.启动命令
+	./omnicored --datadir=./data

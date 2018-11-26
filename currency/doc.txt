@@ -1,24 +1,32 @@
+走过的路，踩过的坑
+    bitcoin.conf 必须在data目录下面,因此，不需要指定配置文件的路径，只需要指定datadir即可
+
+    conf detail
+    https://blog.csdn.net/yhtoo/article/details/46501829
+
 all
-    1 BTC (比特币)             ok
-    2 BCH-ABC&BCH-SV (比特币现金)
-    3 ETH (以太坊)         ok
-    4 USDT (泰达币)        ok
-    5 XRP (瑞波币)
-    6 LTC (莱特币)         ok
-    7 EOS (柚子)          
-    8 DASH (达世币)
-    9  ADA (卡尔达诺)
-    10 IOTA (IOTA)
-    11 XLM(恒星币)
-    12 XMR(门罗币)
-    13 ETC(以太经典)
-    14 ZEC(Zcash)
-    15 XEM(新经币)
-    16 TRX(波场)
-    17 NEO(小蚁)
-    18 VEN (唯链)
-    19 ZRX (ZRX（0X）)
-    20 QTUM (量子链)
+    ETH (以太坊)           ok               8545                     syncing
+    ETC(以太经典)          ok                 8546                  syncing
+
+    BTC (比特币)             ok          8332    8333            syncing
+    BCH-ABC&BCH-SV (比特币现金)           8334    8335
+    USDT (泰达币)        ok              8336    8337            syncing
+    XRP (瑞波币)
+    LTC (莱特币)         ok              8338    8339             syncing
+    EOS (柚子)
+    DASH (达世币)                                                syncing
+    ADA (卡尔达诺)
+    IOTA (IOTA)
+    XLM(恒星币)
+    XMR(门罗币)
+
+    ZEC(Zcash)
+    XEM(新经币)
+    TRX(波场)
+    NEO(小蚁)
+    VEN (唯链)
+    ZRX (ZRX（0X）)
+    QTUM (量子链)
 
 1.btc ltc
     https://blog.csdn.net/zgsdzczh/article/details/80421679

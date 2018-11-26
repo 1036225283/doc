@@ -7,3 +7,5 @@
 3.官网
     https://litecoin.org/
 
+4.启动命令
+	./litecoind --datadir=./data
