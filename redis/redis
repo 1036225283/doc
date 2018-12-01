@@ -23,3 +23,12 @@
 
     delete *key
         EVAL "return redis.call('del', unpack(redis.call('keys', ARGV[1])))" 0 126.com*
+
+
+7.redis5.2 install
+    wget http://downloads.sourceforge.net/tcl/tcl8.6.1-src.tar.gz
+    sudo tar xzvf tcl8.6.1-src.tar.gz  -C /usr/local/
+    cd  /usr/local/tcl8.6.1/unix/
+    sudo ./configure
+    sudo make
+    sudo make install

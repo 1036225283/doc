@@ -1,0 +1,4 @@
+1.install
+    wget https://downloads.lightbend.com/scala/2.12.7/scala-2.12.7.tgz
+    tar -xvf scala-2.12.7.tgz
+
