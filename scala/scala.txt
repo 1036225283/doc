@@ -1,4 +1,4 @@
 1.install
-    wget https://downloads.lightbend.com/scala/2.12.7/scala-2.12.7.tgz
+    wget https://downloads.lightbend.com/scala/2.12.7/scala-2.11.0.tgz
     tar -xvf scala-2.12.7.tgz
-
+    must install scala-2.11,and 2.12 run error in mac
