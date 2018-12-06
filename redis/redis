@@ -10,7 +10,7 @@
 	make install
 
 4.window redis-cli
-    redis-cli -h localhost  -p 6379 -a password
+    ./src/redis-cli -h 172.16.57.138  -p 6379 -a xws@123%789^asd
 
 5.delete *.key
     key *

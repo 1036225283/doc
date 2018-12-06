@@ -14,6 +14,8 @@ select date_add(@dt, interval 1 day); -- add 1 day
 
 4.插入数据根据另外一张表
 	insert into tbStockExtend(strCode) select strCode from tbStockInfo;
+	更新数据从另外一张表
+	UPDATE tbStockMoney SET dTcs =  (SELECT dTcs FROM tbStockInfo WHERE tbStockMoney.strCode = tbStockInfo.strCode);
 
 5.更新数据从另外一种表
 	update tbStockExtend  set strBaiduCode = (select strBaiduCode from tbStockInfo where tbStockInfo.strCode = tbStockExtend.strCode);
