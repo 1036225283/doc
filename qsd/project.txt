@@ -1,0 +1,50 @@
+项目结构
+1.qsd-activity-api
+    闪租侠新版本分期接口
+
+
+qsd-server-api
+    奇速贷新版本服务接口
+
+qsd-server-provider
+    奇速贷新版服务提供方工程
+
+qsd-facade
+    奇速贷服务接口工程
+
+qsd-service
+    奇速贷服务提供方工程
+        接口实现，数据库操作
+
+
+qsd-service-trade-api
+    奇速贷提现服务接口
+
+qsd-service-trade-impl
+    奇速贷活动提现服务
+
+qsd-web
+    奇速贷消费方Web工程，为前端App提供服务
+        基础服务
+        竞猜服务
+
+
+qzjf-common
+    奇子金服公共模块工程
+        消息队列mq
+        编解码
+        Md5
+        渲染器
+        json
+            渲染结果为json
+        邮件
+        redis
+        加解密
+        短信发送
+        springContext
+        三方接口
+            仲裁接口
+            暴风
+            发达达
+            红狐
+            聚爱才
