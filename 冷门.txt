@@ -178,3 +178,6 @@ jZ0RiiqGRCTVzwComUcXB-eiFWRBY6JpSsCNkmIxL5KsRCo442djHhTZE
 		String str = "R2asas#d#fd$ss";
         boolean flag = str.matches("(^[A-Z].*)([0-9]+.*)([a-z]+.*)(([~!@#$%^&*()_+|<>,.?/:;'\\[\\]{}\"]+.*){3})");
         right: (^[A-Z]).*([0-9a-z~!@#$%^&*()_+|<>,.?/:;'\[\]{}"]).*(([~!@#$%^&*()_+|<>,.?/:;'\[\]{}"]+.*){3})
+
+33.门面模式
+        https://www.cnblogs.com/lthIU/p/5860607.html
