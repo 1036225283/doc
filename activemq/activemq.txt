@@ -1,0 +1,25 @@
+1.下载安装
+    http://activemq.apache.org/getting-started.html#GettingStarted-Introduction
+
+2.启动
+    cd bin
+    ./activemq start
+
+3.访问管理
+    http://127.0.0.1:8161/admin/
+    admin   admin
+
+4.停止
+    ./activemq stop
+
+5.configuration
+    http://activemq.apache.org/configuration.html
+
+6.configuration-xml
+    http://activemq.apache.org/xml-configuration.html
+
+7.configuration-broker-uri
+    http://activemq.apache.org/broker-configuration-uri.html
+
+8.传输配置 transport
+    http://activemq.apache.org/configuring-transports.html
