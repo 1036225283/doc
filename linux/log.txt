@@ -1,0 +1,5 @@
+日志查看:
+    1.less /data/logs/qsd_logs/service/qsdservice/qsd-service.log
+    2. cat /data/logs/qsd_logs/service/qsdservice/qsd-service.log |grep -e 'saveAuthorCntctSign' | more
+    3.tail -f /log.txt
+
