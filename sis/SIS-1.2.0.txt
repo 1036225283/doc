@@ -1,0 +1,21 @@
+1.线程级事务
+    操作时，不是直接传入collection，也不需要直接传入，提供一个getCollectionFromThreadLocal方法
+    获取事务标志
+        getCommitFlagFromThreadLocal()
+
+    提交事务
+        自动提交
+            如果 autoCommit == true,在finally{}里面，自动提交
+        手动提交
+            如果 autoCommit == false,在finally{}里面，不进行提交
+
+    手动提交
+       commit(),
+        if autoCommit == false;
+        getCollectionFromThreadLocal()
+        collection.commit();
+        collection.close;
+
+2.getCollection和执行方法分离，使多个操作，可以共用一个collection，一个事务
+
+
