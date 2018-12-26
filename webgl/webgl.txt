@@ -1,2 +1,38 @@
 前端数据展示
     x + x = 2x
+
+html输入一个函数，x: 0-> 100,输出数据
+
+var array = [];
+var item = function(){
+    this.x=0;
+    this.a=0;
+}
+
+
+//x = 固定值，但是可以调整
+var x = 3;
+for(var i=0;i<=20;i++){
+    var map = {};
+    map.a = i;
+    map.x = x;
+}
+
+//多元情况下，输入x,输出y
+func = function(){
+    var y = this.array[0].a;
+    for(var i=1;i<this.array.length;i++){
+        var item = this.array[i];
+        y = y + exec(i,item.x,item.a)
+    }
+}
+
+
+//计算某项的值
+exec = function(times,x,a){
+    var result = 1;
+    for(var i=0;i<=times;i++ ){
+        result = result*x;
+    }
+    return result * a;
+}
