@@ -36,3 +36,7 @@ exec = function(times,x,a){
     }
     return result * a;
 }
+
+
+左边控制
+    http://www.w3school.com.cn/jsref/dom_obj_range.asp
