@@ -1,0 +1,24 @@
+参考资料
+    https://www.cnblogs.com/Belter/p/8536939.html
+
+    https://mp.weixin.qq.com/s?__biz=MjM5MzA1Mzc3Nw==&mid=2247483798&idx=1&sn=a99df037e386e7be94780fd65ffe3ec3&chksm=a69daca891ea25be281d3ab03c85a9024a902702fc5e10507688ab1bb696c31a17b7e77749ef&scene=21#wechat_redirect
+
+
+外国文档
+    http://iamtrask.github.io/
+
+关键字
+    Keras
+
+神经网络可视化
+    TensorFlow
+    https://playground.tensorflow.org/#activation=tanh&batchSize=10&dataset=circle&regDataset=reg-plane&learningRate=0.03&regularizationRate=0&noise=0&networkShape=4,2&seed=0.61954&showTestData=false&discretize=false&percTrainData=50&x=true&y=true&xTimesY=true&xSquared=true&ySquared=true&cosX=false&sinX=true&cosY=false&sinY=true&collectStats=false&problem=classification&initZero=false&hideText=false
+    https://playground.tensorflow.org
+
+牛人博客
+    https://me.csdn.net/wangyangzhizhou
+
+java-deeplearning4j
+    https://deeplearning4j.org/cn/quickstart
+    https://my.oschina.net/xshuai/blog/1517902
+

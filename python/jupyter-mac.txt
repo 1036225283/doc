@@ -1,0 +1,13 @@
+1.mac安装python3.7
+    brew search python3
+    brew install python3
+
+2.安装pip，用pip安装Jupyter
+    python3 -m pip install --upgrade pip
+    python3 -m pip install jupyter
+
+3.运行
+    jupyter notebook
+
+4.安装matplotlib
+    python3 -m pip install matplotlib
