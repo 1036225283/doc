@@ -1,0 +1,18 @@
+1.ubuntu安装python3.6
+    sudo add-apt-repository ppa:jonathonf/python-3.6
+    apt-get update
+    apt-get install python3.6
+
+2.安装pip
+    apt-get install python-pip
+，用pip安装Jupyter
+    python3 -m pip install --upgrade pip
+    python3 -m pip install jupyter
+
+3.运行
+    pip install SomePackage
+    pip install jupyter
+    jupyter notebook
+
+4.安装matplotlib
+    python3 -m pip install matplotlib
