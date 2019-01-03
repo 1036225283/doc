@@ -1,1 +1,6 @@
 dubbo配置文件
+
+本地dubbo环境搭建
+    1.zookeeper搭建
+    2.在网上下载dubbo-admin.war
+
