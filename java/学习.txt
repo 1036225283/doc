@@ -15,3 +15,7 @@
 
 4.nginx
     http://blog.csdn.net/yangbutao/article/details/8505270
+
+5.java jar守护进程运行
+    nohup java -jar test.jar >output 2>&1 &
+    nohup java -jar test.jar
