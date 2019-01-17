@@ -3,4 +3,5 @@ ApplicationContextAware
 	https://blog.csdn.net/wwd0501/article/details/63682793
 
 
-	
+jar启动选择配置文件
+    java -jar qsd-task.jar --spring.profiles.active = mcf-test &
