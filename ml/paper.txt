@@ -1,0 +1,7 @@
+2012年的论文
+    ImageNet Classification with Deep Convolutional Neural Networks
+        https://www.jianshu.com/p/d25bcd7ab2d2
+        https://www.cnblogs.com/zhang-yd/p/5808283.html
+    Dropout:A Simple Way to Prevent Neural Networks from Overfitting
+    Improving Neural Networks with Dropout
+    Dropout as data augmentation

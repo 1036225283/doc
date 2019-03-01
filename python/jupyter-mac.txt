@@ -12,3 +12,6 @@
 4.安装matplotlib
     python3 -m pip install matplotlib
     python3 -m pip install redis
+
+5.安装tensorflow
+    python3 -m pip install tensorflow
