@@ -1,0 +1,4 @@
+1.先装eclipse
+2.再装插件
+    http://download.eclipse.org/tools/cdt/releases/9.6
+

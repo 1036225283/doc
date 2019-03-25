@@ -181,3 +181,6 @@ jZ0RiiqGRCTVzwComUcXB-eiFWRBY6JpSsCNkmIxL5KsRCo442djHhTZE
 
 33.门面模式
         https://www.cnblogs.com/lthIU/p/5860607.html
+
+34.idea运行eclipse的web项目
+        只需要将WEB-INFO目录下面的lib，加载maven的依赖，然后mvn install 即可
