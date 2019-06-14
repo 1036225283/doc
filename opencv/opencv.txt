@@ -1,0 +1,10 @@
+1.在java中需要配置 -Djava.library.path=/usr/local/share/OpenCV/java
+
+2.安装opencv
+    下载源码，选择分支3.4.2
+    brew install ffmpeg
+    brew install cmake
+    mkdir build
+    make -j8
+    make install
+    中间有几个命令我忘了

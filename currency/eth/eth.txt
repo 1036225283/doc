@@ -52,7 +52,8 @@
         server
             personal.newAccount("xws123456")
             ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
-            ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  --rpccorsdomain "*"
+            ./geth --syncmode "fast" --datadir "/Users/xws/software/gethdata" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  --rpccorsdomain "*"
+            ./geth --datadir "/Users/xws/software/gethdata" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  --rpccorsdomain "*"
 
             ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin" --syncmode "fast"
         miner.start(1)
