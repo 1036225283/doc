@@ -1,5 +1,5 @@
 一，mongo安装
-    1.解压文件
+    1.下载解压文件 wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1804-4.0.10.tgz
     2.mkdir data
     3.mkdir log
     4.vim mongo.conf
@@ -13,7 +13,8 @@
 
     连接：
         ./bin/mongo --port 40000
-        ./bin/mongo --192.168.31.245:port 40000
+        ./bin/mongo --127.0.0.1:port 40000
+        ./bin/mongo --host 127.0.0.1 --port 40000   (最近用这波)
 
     停止：
         ./bin/mongo --port 40000

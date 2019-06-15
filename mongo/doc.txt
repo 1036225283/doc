@@ -1,2 +1,6 @@
 1.mongo readConcren用途和原理
 	http://www.mongoing.com/archives/3403
+
+2.mongo在ubuntu的安装
+    下载：https://repo.mongodb.org/apt/ubuntu/dists/bionic/mongodb-org/4.0/multiverse/binary-amd64/mongodb-org-server_4.0.10_amd64.deb
+    安装：dpkg -i mongodb-org-server_4.0.10_amd64.deb
