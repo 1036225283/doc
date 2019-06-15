@@ -18,3 +18,15 @@ iptables -L
     /etc/sysconfig/iptables
 
     service iptables save + service iptables restart
+
+
+ubuntu ufw 防火墙操作
+
+    ufw status 查看防火墙状态
+    ufw allow|deny [service]
+    ufw allow 22
+    ufw allow 22/tcp
+
+    ufw disable
+    ufw enable
+
