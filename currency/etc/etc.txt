@@ -10,10 +10,15 @@
     ./geth --syncmode "fast" --datadir "./data" --rpc --rpcaddr "0.0.0.0" -rpcport "8546" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
     ./geth --datadir ./data  --port 30304 --fast --logdir .
     ./geth --datadir ./data  --port 30304 --fast --logdir . --rpc --rpcaddr "0.0.0.0" -rpcport "8547" --rpcapi "db,eth,net,web3,miner,personal,admin"
-    ./geth --datadir ./data  --port 30304 --fast --logdir . --rpc --rpcaddr "0.0.0.0" -rpcport "8547" --rpcapi "db,eth,net,web3,miner,personal,admin" --rpccorsdomain "*"
+    ./geth --datadir ./data  --port 30304 --syncmode fast --rpc --rpcaddr "0.0.0.0" -rpcport "8547" --rpcapi "db,eth,net,web3,miner,personal,admin" --rpccorsdomain "*"
 
+        --rpccorsdomain "http://localhost:10070"
 
 
 4.交易查询
     http://etherhub.io/home
     https://gastracker.io/
+
+5.下载
+    https://geth.ethereum.org/downloads/
+    https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.8.27-4bcc0a37.tar.gz
