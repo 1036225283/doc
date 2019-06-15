@@ -1,6 +1,7 @@
 1.下载开发套件
     http://blog.hubwiz.com/2018/06/07/ethbox-readme/
 
+https://github.com/ethereum/mist/releases
     start ganache-cli
 
 2.

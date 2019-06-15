@@ -1,0 +1,7 @@
+1.look at memory
+    free -m/-g      单独查看
+
+2.usr tools
+    top
+    htop
+

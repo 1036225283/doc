@@ -10,13 +10,15 @@ install docker
     1.update
     2.install apt-transport-https ca-certificates curl software-properties-common
 
+github
+    https://github.com/bitcoin/bitcoin
+
 1.download bitcoin core
-    wget https://bitcoincore.org/bin/bitcoin-core-0.17.0.1/bitcoin-0.17.0.1-x86_64-linux-gnu.tar.gz
-    tar -xvf
+    https://bitcoincore.org/en/download/
+    https://bitcoincore.org/bin/bitcoin-core-0.18.0/bitcoin-0.18.0-x86_64-linux-gnu.tar.gz
 
 2.start
-    vim /root/.bitcoin/bitcoin.conf
-    ./bitcoind
+    ./bitcoind --datadir=../data
 
 3.bit docket
     3.1 run in docker
@@ -54,4 +56,10 @@ install docker
 4.在线查询余额
     https://bitref.com/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU
     https://www.blockchain.com/zh/btc/address/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU
+
+
+5.教程
+    https://lhalcyon.com/blockchain-bitcoin-node/
+
+
 

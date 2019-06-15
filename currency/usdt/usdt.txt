@@ -1,7 +1,8 @@
 	可以编译安装，也可以直接下载jar包，直接运行
 	官网地址
 		http://www.omnilayer.org/download.html
-		https://bintray.com/artifact/download/omni/OmniBinaries/omnicore-0.3.1-x86_64-linux-gnu.tar.gz
+
+		https://bintray.com/artifact/download/omni/OmniBinaries/omnicore-0.5.0-x86_64-linux-gnu.tar.gz
 
 	参考文档
 		https://blog.csdn.net/ffzhihua/article/details/80706661
@@ -42,4 +43,5 @@
 
 
 3.启动命令
-	./omnicored --datadir=./data
+	./omnicored --datadir=../data
+	./bin/omnicored --datadir=../data

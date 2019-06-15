@@ -4,6 +4,7 @@
 2.geth client
     https://github.com/ethereumproject/go-ethereum/releases
 
+
 3.run
     ./geth --datadir "./data" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin"
     ./geth --syncmode "fast" --datadir "./data" --rpc --rpcaddr "0.0.0.0" -rpcport "8546" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
