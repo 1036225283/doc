@@ -12,6 +12,7 @@
 
 4.配置
 	vim /etc/nginx/sites-available/default
+	https://www.jianshu.com/p/c6775e4ade73
 
 5.重启
 	/etc/init.d/nginx stop

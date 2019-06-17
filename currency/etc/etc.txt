@@ -19,6 +19,3 @@
     http://etherhub.io/home
     https://gastracker.io/
 
-5.下载
-    https://geth.ethereum.org/downloads/
-    https://gethstore.blob.core.windows.net/builds/geth-linux-amd64-1.8.27-4bcc0a37.tar.gz
