@@ -11,3 +11,45 @@
 6.配置maven      maven install from apache
 
 7.安装maven       Maven Integration
+
+8.远程部署
+
+
+9.使用插件获取git提交信息
+    git clone https://github.com/daniel-beck/changelog-environment-plugin
+    编译生成插件              mvn verify
+    上传插件到jenkins        upload changelog-environment.hpi
+
+    在配置中勾选      Add Changelog Information to Environment
+
+    Entry Format中添加 %3$s(at %4$s via %1$s)，参数分别为ChangeLog内容，时间，提交人。
+
+    Date Format中添加 yyyy-MM-dd HH:mm:ss 就是时间格式。
+
+    在命令行中使用SCM_CHANGELOG获取
+
+10.与github进行互动
+    jenkions http://39.97.234.215:8090/github-webhook
+
+    在github中创建Personal Access Token
+        github --> setting -->developers--> Personal Access Token --> Generate new token
+        命名为jenkins-token,选择repo和admin:repo_hook,点击createToken,复制保存token信息
+
+    github设置webhooks
+        选中一个项目 --> setting --> Webhooks --> http://0.0.0.0:8090/github-webhook
+        json格式
+        Just the push event
+        Active
+
+    设置jenkins的github
+        系统设置 -->  Github --> add Github server
+        添加凭据 -->  Secret --> 加上描述
+        选中该凭据 --> 勾选管理hook --> 连接测试
+
+    设置jenkins的项目配置
+        勾选  GitHub hook trigger for GITScm polling
+        勾选  Use secret text(s) or file(s)
+        Bind    选中之前通过hook测试的凭据
+
+
+

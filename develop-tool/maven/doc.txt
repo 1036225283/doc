@@ -1,0 +1,9 @@
+1.mvn指定配置文件
+    mvn -s /maven/setting.xml install
+
+2.导出jar
+	dependency:copy-dependencies
+
+3.跳过测试
+	-Dmaven.test.skip=true
+
