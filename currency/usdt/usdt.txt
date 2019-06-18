@@ -43,5 +43,4 @@
 
 
 3.启动命令
-	./omnicored --datadir=../data
-	./bin/omnicored --datadir=../data
+	omnicored --datadir=../data
