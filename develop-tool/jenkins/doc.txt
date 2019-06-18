@@ -1,0 +1,13 @@
+1.war启动     nohup java -jar jenkins.war --httpPort=8080 &
+
+2.获取密钥      cat /root/.jenkins/secrets/initialAdminPassword
+
+3.安装推荐的插件
+
+4.杀进程，重启动
+
+5.参考网址      https://www.cnblogs.com/kakaln/p/9821900.html
+
+6.配置maven      maven install from apache
+
+7.安装maven       Maven Integration

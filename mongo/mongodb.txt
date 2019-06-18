@@ -16,6 +16,8 @@
         ./bin/mongo --127.0.0.1:port 40000
         ./bin/mongo --host 127.0.0.1 --port 40000   (最近用这波)
 
+        ./mongo --port 27017 -u "root" -p "root" --authenticationDatabase "admin"
+        ./mongo --port 27017 -u "root" -p "root" --authenticationDatabase "bitrade"
     停止：
         ./bin/mongo --port 40000
 
@@ -39,6 +41,7 @@
          }
       )
 
+    ** rote:root只能为超级账户admin使用
      ##创建读用户
     db.createUser(
          {
