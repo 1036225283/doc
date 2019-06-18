@@ -29,14 +29,14 @@
     在命令行中使用SCM_CHANGELOG获取
 
 10.与github进行互动
-    jenkions http://39.97.234.215:8090/github-webhook
+    参考教程        https://juejin.im/post/5c1a3282f265da61764ad51a
 
     在github中创建Personal Access Token
         github --> setting -->developers--> Personal Access Token --> Generate new token
         命名为jenkins-token,选择repo和admin:repo_hook,点击createToken,复制保存token信息
 
     github设置webhooks
-        选中一个项目 --> setting --> Webhooks --> http://0.0.0.0:8090/github-webhook
+        选中一个项目 --> setting --> Webhooks -->     http://0.0.0.0:8090/github-webhook
         json格式
         Just the push event
         Active
