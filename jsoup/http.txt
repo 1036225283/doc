@@ -1,0 +1,9 @@
+常见的格式
+    ContentType
+    text/plain
+    text/HTML
+    text/xml
+    test/javascript
+    application/json
+    image/GIF
+    image/JPEG

@@ -1,0 +1,11 @@
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    ValueOperations valueOperations = redisTemplate.opsForValue();
+    Object val = valueOperations.get(SysConstant.MEMBER_LOGIN_FAIL_TIMES + username);
+    valueOperations.set(SysConstant.MEMBER_LOGIN_FAIL_LOCK + username, "l", SysConstant.MEMBER_LOGIN_FAIL_LOCK_EXPIRE_TIME, TimeUnit.SECONDS);
+    redisTemplate.delete(SysConstant.MEMBER_LOGIN_FAIL_LOCK + username);
+
+
+
+
