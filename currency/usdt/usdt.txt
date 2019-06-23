@@ -44,3 +44,14 @@
 
 3.启动命令
 	omnicored --datadir=../data
+	omnicored --datadir=../data -testnet
+
+4.创建测试账号        omnicore-cli --datadir=../data -testnet "getnewaddress" mytest      mhoXC6pkp4KcKEtzcpc6nL3tq9JJy34om1
+
+5.查询账户地址        omnicore-cli --datadir=../data "getaddressesbyaccount" "mytest"
+
+6.获取测试币         https://coinfaucet.eu/en/btc-testnet/
+
+7.查询余额           omnicore-cli --datadir=../data -testnet getbalance "mytest"
+
+8.获取私钥          omnicore-cli --datadir=../data dumpprivkey mhoXC6pkp4KcKEtzcpc6nL3tq9JJy34om1

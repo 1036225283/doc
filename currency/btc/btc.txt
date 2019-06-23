@@ -22,7 +22,7 @@ github
 
 3.bit docket
     3.1 run in docker
-        sudo docker run -it -p 19001:19001 -p 19011:19011 freewil/bitcoin-testnet-box
+        docker run -it -p 19001:19001 -p 19011:19011 freewil/bitcoin-testnet-box
         make start
     3.2 look message
         make getinfo
@@ -34,24 +34,36 @@ github
         bitcoin-cli -datadir=1  getinfo
     3.6 查看钱包地址
         bitcoin-cli -datadir=1  getwalletinfo
+        bitcoin-cli -datadir=1 getnewaddress
+            2MvzUrBVxSH5sRAa1Nm1U4eyFACNY6mspUi
         bitcoin-cli -datadir=2 getnewaddress
+            2N8Yxpr2GS87FAd4CYLsTJzchSup797czc9
+            2Mzw7fo5ENpcCne9FyGrhgFuA2RGt45gf5i
         或者
         make address2
         bitcoin-cli -datadir=2  getnewaddress
 
     3.7 查看地址私钥
-        bitcoin-cli -datadir=2  dumpprivkey '2NCfVMLkLQtXw7BuMD5FujscHrpfEVz1HzQ'
-        bitcoin-cli -datadir=2  dumpprivkey '2MxHYWRrfhEo8CnPYc9Kr4Q3o6vJAhWogSD'
-            cU2TG1JduHSataGeYHeZJ5MRgkgZttZeqYoB56sJSmDRKTyzt7Pf
+        bitcoin-cli -datadir=1  dumpprivkey '2MvzUrBVxSH5sRAa1Nm1U4eyFACNY6mspUi'
+            cRvf6peA8uRqBvja9ahJA4fJKsEk1dVxnUKy7AYQisQRZSR9snA5
+        bitcoin-cli -datadir=2  dumpprivkey '2N8Yxpr2GS87FAd4CYLsTJzchSup797czc9'
+            cMhHfjXj7ezNSDVpQoqUZPXeyfnxDru4xUrvHy1GMEoFQpgZLk7J
 
     3.8 给钱包2转账
-        make sendfrom1   ADDRESS=2MxHYWRrfhEo8CnPYc9Kr4Q3o6vJAhWogSD  AMOUNT=10
+        make sendfrom1   ADDRESS=2MvzUrBVxSH5sRAa1Nm1U4eyFACNY6mspUi  AMOUNT=10
+        make sendfrom1   ADDRESS=2N5czXHSEFronnYvMHUhSinQW8jjp7UjRtu  AMOUNT=10
+        bitcoin-cli -datadir=1  sendtoaddress 2N8Yxpr2GS87FAd4CYLsTJzchSup797czc9 500
 
     3.9 查看每个地址的余额
         listaddressgroupings
 
+        bitcoin-cli -datadir=1  sendtoaddress 2N8Yxpr2GS87FAd4CYLsTJzchSup797czc9 10
+
         查看地址接收了多少钱
         listreceivedbyaddress
+
+
+        密码：2        123asd@qwq
 
 4.在线查询余额
     https://bitref.com/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU
@@ -60,6 +72,8 @@ github
 
 5.教程
     https://lhalcyon.com/blockchain-bitcoin-node/
+
+
 
 
 

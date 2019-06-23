@@ -1,0 +1,19 @@
+1.重新进入docker正在运行的image          docker attach id/name
+
+2.修改docker配置的方法
+    修改配置文件
+        docker stop cid
+        systemctl stop docker
+        systemctl start docker
+
+        vim /var/lib/docker/containers/796a0e896e78***/hostconfig.json
+        vim /var/lib/docker/containers/796a0e896e78***/config.v2.json
+
+        docker start cid
+
+    commit提交镜像
+        docker stop container01
+        docker commit container01 new_image:tag
+        docker run --name container02 -p 80:80 new_image:tag
+
+3.docker root进入                     docker exec -ti -u root cid bash
