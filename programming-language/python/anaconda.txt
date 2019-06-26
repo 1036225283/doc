@@ -1,0 +1,22 @@
+1.教程                https://www.jianshu.com/p/eaee1fadc1e9
+
+2.基本命令
+    查看版本        conda --version
+    工具包升级       conda upgrade --all
+    环境切换到base   activate
+    环境创建        conda create -n learn python=3.5
+    环境切换到learn  activate learn
+    环境查看          conda env list
+    安装第三方包      conda install requests
+    卸载第三方包      conda remove requests
+    查看环境包信息     conda list
+    导出环境           conda env export > environment.yaml
+    导入环境            conda env create -f environment.yaml
+
+
+3.安装transflow
+        conda install transflow
+
+4.配置国内镜像
+        conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+        conda config --set show_channel_urls yes
