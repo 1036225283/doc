@@ -1,0 +1,6 @@
+1.参考博客
+    https://blog.csdn.net/taiyangdao/article/details/81359394
+
+2.参考文档
+    https://cloud.spring.io/spring-cloud-static/Greenwich.SR2/single/spring-cloud.html#_spring_cloud_openfeign
+
