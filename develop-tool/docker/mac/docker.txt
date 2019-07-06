@@ -1,0 +1,10 @@
+1.mac安装docker       brew cask install docker
+
+2.docker 镜像仓库
+    原地址：   https://index.docker.io/v1/
+    网易地址：http://hub-mirror.c.163.com
+
+3.安装mysql
+    docker search mysql
+    docker pull mysql:5.6
+

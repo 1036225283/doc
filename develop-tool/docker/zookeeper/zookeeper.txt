@@ -1,0 +1,13 @@
+1.下载docker zookeeper镜像
+    docker search zookeeper
+    docker pull zookeeper:3.5.5
+
+2.启动zookeeper
+    docker run --name zook0 -d -p 2181:2181 zookeeper:3.5.5
+
+3.连接到zookeeper上面去
+    docker run -it --rm --link zooktest:zookeeper zookeeper:3.5.5 zkCli.sh -server zookeeper
+
+4.zookeeper集群建立
+    编写docker-compose.yml文件
+    运行  COMPOSE_PROJECT_NAME=zk_test docker-compose up

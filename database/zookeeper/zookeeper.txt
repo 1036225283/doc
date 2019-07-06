@@ -1,4 +1,10 @@
 1.运行
     ./bin/zkServer.sh start
 
-2.
+2.常用命令
+    ls      查看
+    create /zk test                 创建/zk节点，节点值为test
+    get /                           获取根节点的数据
+    get /zk                         获取/zk节点的数据
+    delete  /zk                     删除/zk节点的数据
+
