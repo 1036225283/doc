@@ -17,3 +17,8 @@
         docker run --name container02 -p 80:80 new_image:tag
 
 3.docker root进入                     docker exec -ti -u root cid bash
+
+4.docker 查看ip
+    docker inspect -f='{{.NetworkSettings.IPAddress}}' $(sudo docker ps -a -q)
+    docker inspect -f='{{.NetworkSettings.IPAddress}}' $(sudo docker ps)
+    docker inspect -f='{{.NetworkSettings.IPAddress}}' /adoring_mclaren     查看单个容器的ip

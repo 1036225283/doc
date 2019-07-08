@@ -11,3 +11,8 @@
 4.zookeeper集群建立
     编写docker-compose.yml文件
     运行  COMPOSE_PROJECT_NAME=zk_test docker-compose up
+
+5.一定要使用官网的docker-compose.yml文件
+
+6.docker ZooKeeperServer not running
+    因为docker的image的version = 3.5.5,而docker-compose.yml文件的image:zookeeper没有跟版本信息  image:zookeeper:3.5.5

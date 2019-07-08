@@ -1,0 +1,8 @@
+1.ERROR! The server quit without updating PID file (/usr/local/mysql/data/
+    vim /etc/my.cnf
+    [mysqld]
+    log-error = /usr/local/mysql/data/error.log
+    pid-file = /usr/local/mysql/data/mysql.pid
+
+
+2.mysqld_safe A mysqld process already exists

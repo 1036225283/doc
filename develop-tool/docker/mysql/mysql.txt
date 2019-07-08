@@ -11,3 +11,7 @@
     docker logs -f my_zookeeper
 
     docker run -it --rm --link zook0:zookeeper zookeeper:3.5.5 zkCli.sh -server zookeeper
+
+
+3.进入docker进行交互
+    docker exec -it containerId /bin/bash

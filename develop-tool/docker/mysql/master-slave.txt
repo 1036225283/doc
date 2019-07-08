@@ -1,0 +1,3 @@
+1.修改/etc/mysql/mysql.conf.d/mysqld.cnf
+    GRANT REPLICATION SLAVE ON *.* to 'backup'@'%' identified by 'backup';
+    show grants for 'backup'@'%';
