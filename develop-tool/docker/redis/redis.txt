@@ -1,0 +1,19 @@
+1.docker search redis
+2.docker pull redis:5.0.5
+3.docker run
+
+4.docker-redis 主从模式
+    docker run -p 6380:6379 -d redis:5.0.5 redis-server
+    docker run -p 6381:6379 -d redis:5.0.5 redis-server
+    docker run -p 6382:6379 -d redis:5.0.5 redis-server
+
+    docker inspect redis-master             查看主节点的ip
+        172.17.0.5
+
+    redil-cli       info replication        查看节点信息
+    redis-cli       slaveof 172.17.0.5 6379 设置主节点
+    redis-cli       slaveof no one          自己变成主节点
+
+https://blog.csdn.net/xiaoxiaoyusheng2012/article/details/82056056
+
+docker exec -ti d0b86 redis-cli -h 127.0.0.1 -p 6379

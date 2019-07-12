@@ -3,6 +3,8 @@
 2.docker 运行mysql
     docker run -d -p 9000:3306 mysql:5.6             会报错
     docker run -d -p 9002:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.6
+    docker run -d -p 9000:3306 -e MYSQL_ROOT_PASSWORD=root mysql:5.6.1 --name w1
+
 
     docker run -d -p 10000:
 

@@ -22,3 +22,9 @@
     docker inspect -f='{{.NetworkSettings.IPAddress}}' $(sudo docker ps -a -q)
     docker inspect -f='{{.NetworkSettings.IPAddress}}' $(sudo docker ps)
     docker inspect -f='{{.NetworkSettings.IPAddress}}' /adoring_mclaren     查看单个容器的ip
+
+
+5.docker 拷贝文件
+    docker cp user_1_read_2:/etc/mysql/mysql.conf.d/mysqld.cnf ./
+    docker cp ./mysqld.cnf user_1_read_1:/etc/mysql/mysql.conf.d/
+    docker cp ./mysqld.cnf user_1_write:/etc/mysql/mysql.conf.d/
