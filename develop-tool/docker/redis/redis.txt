@@ -10,17 +10,6 @@
     docker cp /Users/xws/software/sentinel.conf redis-slave0:/usr/local/bin/
     docker cp /Users/xws/software/sentinel.conf redis-slave1:/usr/local/bin/
 
-    docker run --name redis-sentinel0 -d redis:5.0.5
-    docker run --name redis-sentinel1 -d redis:5.0.5
-    docker run --name redis-sentinel2 -d redis:5.0.5
-    docker cp /Users/xws/software/sentinel.conf redis-sentinel0:/usr/local/bin/
-    docker cp /Users/xws/software/sentinel.conf redis-sentinel1:/usr/local/bin/
-    docker cp /Users/xws/software/sentinel.conf redis-sentinel2:/usr/local/bin/
-
-
-        docker run --name redis-master -p 6380:6379 -p 16380:16379 -d redis:5.0.5
-        docker run --name redis-slave0 -p 6381:6379 -p 16381:16379 -d redis:5.0.5
-        docker run --name redis-slave1 -p 6382:6379 -p 16382:16379 -d redis:5.0.5
 
     docker inspect redis-master             查看主节点的ip
         172.17.0.5
@@ -34,9 +23,26 @@ https://blog.csdn.net/xiaoxiaoyusheng2012/article/details/82056056
 docker exec -ti d0b86 redis-cli -h 127.0.0.1 -p 6379
 
 5.docker-       哨兵模式
-    docker run -p 26384:26379 -d redis:5.0.5
-    docker run -p 26385:26379 -d redis:5.0.5
-    docker run -p 26386:26379 -d redis:5.0.5
+    启动哨兵节点
+        docker run --name redis-sentinel0 -d redis:5.0.5
+        docker run --name redis-sentinel1 -d redis:5.0.5
+        docker run --name redis-sentinel2 -d redis:5.0.5
+    拷贝哨兵配置文件到container
+        docker cp /Users/xws/software/sentinel.conf redis-sentinel0:/usr/local/bin/
+        docker cp /Users/xws/software/sentinel.conf redis-sentinel1:/usr/local/bin/
+        docker cp /Users/xws/software/sentinel.conf redis-sentinel2:/usr/local/bin/
 
-5.docker-redis 集群模式
-    cluster-enabled yes
+6.docker-redis 集群模式
+    redis-cli --cluster create 172.17.0.11:6379 172.17.0.14:6379 172.17.0.12:6379 172.17.0.15:6379 172.17.0.13:6379 172.17.0.16:6379  --cluster-replicas 1
+
+    docker run  --name redis-cluster-master-1  -d --privileged=true -p 6385:6379 -v /Users/xws/software/redis-cluster.conf:/etc/redis/redis.conf redis:5.0.5 redis-server /etc/redis/redis.conf
+    docker run  --name redis-cluster-master-2  -d --privileged=true -p 6386:6379 -v /Users/xws/software/redis-cluster.conf:/etc/redis/redis.conf redis:5.0.5 redis-server /etc/redis/redis.conf
+    docker run  --name redis-cluster-master-3  -d --privileged=true -p 6387:6379 -v /Users/xws/software/redis-cluster.conf:/etc/redis/redis.conf redis:5.0.5 redis-server /etc/redis/redis.conf
+    docker run  --name redis-cluster-slave-1   -d --privileged=true -p 6388:6379 -v /Users/xws/software/redis-cluster.conf:/etc/redis/redis.conf redis:5.0.5 redis-server /etc/redis/redis.conf
+    docker run  --name redis-cluster-slave-2   -d --privileged=true -p 6389:6379 -v /Users/xws/software/redis-cluster.conf:/etc/redis/redis.conf redis:5.0.5 redis-server /etc/redis/redis.conf
+    docker run  --name redis-cluster-slave-3   -d --privileged=true -p 6390:6379 -v /Users/xws/software/redis-cluster.conf:/etc/redis/redis.conf redis:5.0.5 redis-server /etc/redis/redis.conf
+
+
+    docker stop redis-cluster-master-1 redis-cluster-master-2 redis-cluster-master-3 redis-cluster-slave-1 redis-cluster-slave-2 redis-cluster-slave-3
+    docker rm redis-cluster-master-1 redis-cluster-master-2 redis-cluster-master-3 redis-cluster-slave-1 redis-cluster-slave-2 redis-cluster-slave-3
+    docker start redis-cluster-master-1 redis-cluster-master-2 redis-cluster-master-3 redis-cluster-slave-1 redis-cluster-slave-2 redis-cluster-slave-3
