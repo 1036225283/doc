@@ -3,9 +3,24 @@
 3.docker run
 
 4.docker-redis 主从模式
-    docker run -p 6380:6379 -d redis:5.0.5 redis-server
-    docker run -p 6381:6379 -d redis:5.0.5 redis-server
-    docker run -p 6382:6379 -d redis:5.0.5 redis-server
+    docker run --name redis-master -p 6380:6379 -p 26380:26379 -d redis:5.0.5 redis-server
+    docker run --name redis-slave0 -p 6381:6379 -p 26381:26379 -d redis:5.0.5 redis-server
+    docker run --name redis-slave1 -p 6382:6379 -p 26382:26379 -d redis:5.0.5 redis-server
+    docker cp /Users/xws/software/sentinel.conf redis-master:/usr/local/bin/
+    docker cp /Users/xws/software/sentinel.conf redis-slave0:/usr/local/bin/
+    docker cp /Users/xws/software/sentinel.conf redis-slave1:/usr/local/bin/
+
+    docker run --name redis-sentinel0 -d redis:5.0.5
+    docker run --name redis-sentinel1 -d redis:5.0.5
+    docker run --name redis-sentinel2 -d redis:5.0.5
+    docker cp /Users/xws/software/sentinel.conf redis-sentinel0:/usr/local/bin/
+    docker cp /Users/xws/software/sentinel.conf redis-sentinel1:/usr/local/bin/
+    docker cp /Users/xws/software/sentinel.conf redis-sentinel2:/usr/local/bin/
+
+
+        docker run --name redis-master -p 6380:6379 -p 16380:16379 -d redis:5.0.5
+        docker run --name redis-slave0 -p 6381:6379 -p 16381:16379 -d redis:5.0.5
+        docker run --name redis-slave1 -p 6382:6379 -p 16382:16379 -d redis:5.0.5
 
     docker inspect redis-master             查看主节点的ip
         172.17.0.5
@@ -17,3 +32,11 @@
 https://blog.csdn.net/xiaoxiaoyusheng2012/article/details/82056056
 
 docker exec -ti d0b86 redis-cli -h 127.0.0.1 -p 6379
+
+5.docker-       哨兵模式
+    docker run -p 26384:26379 -d redis:5.0.5
+    docker run -p 26385:26379 -d redis:5.0.5
+    docker run -p 26386:26379 -d redis:5.0.5
+
+5.docker-redis 集群模式
+    cluster-enabled yes
