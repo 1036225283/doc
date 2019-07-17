@@ -1,0 +1,7 @@
+查看是否开启binlog    show variables like 'log_%';
+
+编辑my.cnf
+    server_id=2
+    log_bin = mysql-bin
+    binlog_format = ROW
+    expire_logs_days = 30
