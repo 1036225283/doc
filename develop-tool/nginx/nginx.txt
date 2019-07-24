@@ -53,3 +53,14 @@ server {
 
     安装SSL依赖库（16.04默认已经安装了）
         apt-get install openssl
+
+vue开发时，解决跨域配置，将/data/路径转发到http://127.0.0.1:2224/上
+    location ^~ /data/ {
+                proxy_pass   http://127.0.0.1:2224/;
+            }
+    demo
+            http://api.103622283.com/data/spring-user/user/insertUser           vue请求url
+            http://127.0.0.1:2224/spring-user/user/insertUser                   nginx转发的url
+            http://127.0.0.1:2224/user/insertUser                               gateway处理过后的url
+
+

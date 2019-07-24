@@ -1,0 +1,8 @@
+1.mac下安装nginx
+    brew install nginx
+    Docroot is: /usr/local/var/www
+    /usr/local/etc/nginx/nginx.conf
+    nginx will load all files in /usr/local/etc/nginx/servers/.
+
+
+
