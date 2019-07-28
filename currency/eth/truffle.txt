@@ -1,0 +1,39 @@
+install
+    npm install -g truffle
+
+init
+    mkdir dapp          cd dapp
+    truffle init
+
+
+
+-------------------------------------
+MetaCoin
+    mkdir MetaCoin
+    cd MetaCoin
+    安装boxs   truffle unbox metacoin
+
+    编辑truffle-config.js 文件
+
+    编译合约    truffle complie
+    部署合约    truffle migrate
+    测试合约    truffle test
+
+    合约地址
+        0xA2ccB0b161F0Bf2a14087Dd400c641cbF9bab0ec
+        0x06c11Bb637dEB18F4aEa15274165915b298822d1
+        0xDaDdF9DF54887088d1515107aba7185EAc0D5af6
+
+    参考文档
+        https://www.jianshu.com/p/e697313d9e9a
+
+    MetaCoin.deployed().then(instance => contract = instance)
+-------------------------------------
+TestRPC
+    npm install -g ethereumjs-testrpc
+
+
+-------------------------------------
+SeaCoin
+    truffle init
+    npm install zeppelin-solidity
