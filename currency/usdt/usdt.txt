@@ -43,10 +43,10 @@
 
 
 3.启动命令
-	omnicored --datadir=../data
+	./bin/omnicored --datadir=../data
 	omnicored --datadir=../data -testnet
 
-4.创建测试账号        omnicore-cli --datadir=../data -testnet "getnewaddress" mytest      mhoXC6pkp4KcKEtzcpc6nL3tq9JJy34om1
+4.创建测试账号        ./omnicore-cli --datadir=../data -testnet "getnewaddress" mytest      mhoXC6pkp4KcKEtzcpc6nL3tq9JJy34om1
 
 5.查询账户地址        omnicore-cli --datadir=../data "getaddressesbyaccount" "mytest"
 

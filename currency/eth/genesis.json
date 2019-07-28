@@ -6,7 +6,7 @@
     "eip158Block": 0
   },
   "alloc": {},
-  "coinbase": "0x0000000000000000000000000000000000000000",
+  "coinbase": "0x3333333333333333333333333333333333333333",
   "difficulty": "0x400",
   "extraData": "",
   "gasLimit": "0x2fefd8",
