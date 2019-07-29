@@ -19,6 +19,7 @@
 合约地址
     0x9b8f2b144ddaced64b94867e0643757be20d2bf6
     0x8f124970c021dbab4e46994f5bcd6f79646d17c9
+    0x70A651D36F1D3bF13584898456363F509233421e
 
 参考文档
     https://blog.csdn.net/guokaikevin/article/details/79060095

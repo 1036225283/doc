@@ -17,6 +17,21 @@
 3.安装transflow
         conda install transflow
 
+        pip install tensorflow
+        pip uninstall tensorflow
+
+        pip3 install tensorflow
+        pip3 uninstall tensorflow
+
+        pip3 install -i https://pypi.douban.com/simple  tensorflow --user
+        pip3 install -i https://pypi.douban.com/simple  matplotlib --user
+        pip3 install -i https://pypi.douban.com/simple  functools-lru-cache --user
+
+        pip3 install -i https://pypi.douban.com/simple --upgrade matplotlib
+
+
+        https://mirrors.aliyun.com/pypi/simple/
+
 4.配置国内镜像
         conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
         conda config --set show_channel_urls yes

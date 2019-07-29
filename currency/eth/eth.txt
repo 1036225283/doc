@@ -46,6 +46,11 @@ https://github.com/ethereum/mist/releases
         local
             ./geth -datadir "data" init init.json   //初始化创世区块
             ./geth -datadir "data" console          //在创建的创世区块上执行交互操作
+
+            ./geth -datadir "data" account list
+            ./geth -datadir "data" account import file
+
+
             ./geth -datadir "/software/geth" console
             personal.newAccount("123.abc")
             ./geth -targetgaslimit 429496 -rpc -rpcaddr "192.168.31.150" -rpcport "8101" -port "30301" -rpcapi "eth,web3,personal" -networkid 2016 -identity 2016 -nodiscover -maxpeers 5 -datadir "/software/geth" -unlock 0 -rpccorsdomain "*" -mine console
@@ -97,11 +102,12 @@ https://github.com/ethereum/mist/releases
         eth.getBlock('latest').number
         eth.accounts
         eth.getBalance(eth.accounts[0])
+        eth.getBalance(eth.accounts[3])
         miner.start()
         miner.end()
         personal.newAccount("1234")
         web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
-        eth.sendTransaction({from:eth.accounts[0],to:eth.accounts[1],value:web3.toWei(30,"ether")}) 转帐
+        eth.sendTransaction({from:eth.accounts[0],to:eth.accounts[3],value:web3.toWei(30,"ether")}) 转帐
         personal.unlockAccount(eth.accounts[0])
 
 
