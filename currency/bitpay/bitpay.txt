@@ -1,0 +1,3 @@
+1.bitbayd -testnet -port=22034 -server -rpcport=22035 -datadir=/bitbaydata
+
+./bitbayd -testnet -staking=0 -rpcthreads=32 -datadir=/data/chain/bitbay/

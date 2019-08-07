@@ -11,3 +11,9 @@
     rpcport=19001
     port=19010
     rpcport=19011
+
+
+bitbay
+    docker run -d -p 9000:3306
+    docker run -t -i --privileged=true -u root -p 22034:22034 ubuntu
+

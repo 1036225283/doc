@@ -3,9 +3,8 @@
 2.基本命令
     查看版本        conda --version
     工具包升级       conda upgrade --all
-    环境切换到base   activate
+    环境切换        source activate learn
     环境创建        conda create -n learn python=3.5
-    环境切换到learn  activate learn
     环境查看          conda env list
     安装第三方包      conda install requests
     卸载第三方包      conda remove requests
@@ -22,16 +21,42 @@
 
         pip3 install tensorflow
         pip3 uninstall tensorflow
+        pip3 uninstall jupyter
+
 
         pip3 install -i https://pypi.douban.com/simple  tensorflow --user
         pip3 install -i https://pypi.douban.com/simple  matplotlib --user
         pip3 install -i https://pypi.douban.com/simple  functools-lru-cache --user
+        pip3 install -i https://pypi.douban.com/simple  conda-build --user
 
         pip3 install -i https://pypi.douban.com/simple --upgrade matplotlib
 
+        conda install -n learn tensorflow
+        conda install -n learn jupyter
+
+conda install conda-build
+pip3 install conda-build
 
         https://mirrors.aliyun.com/pypi/simple/
 
 4.配置国内镜像
         conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
         conda config --set show_channel_urls yes
+
+        清理镜像
+            conda config --remove-key channels
+
+        conda config --add channels https://pypi.mirrors.ustc.edu.cn/simple/
+        conda config --add channels https://mirrors.aliyun.com/pypi/
+        conda config --add channels  https://pypi.doubanio.com/simple/
+        conda config --set show_channel_urls yes
+
+
+        显示镜像
+            conda config --show-sources
+
+            /Users/xws/.anaconda_backup/2019-08-03T120536
+
+5.删除
+        conda install anaconda-clean
+        anaconda-clean

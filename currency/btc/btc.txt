@@ -65,6 +65,12 @@ github
 
         密码：2        123asd@qwq
 
+    获取公钥信息
+        validateaddress 已经不能获取公钥信息了
+        bitcoin-cli -datadir=2  validateaddress 2N2jimNewE5T5zFcPrXvuLG5DjmVMrknyVu
+        bitcoin-cli -datadir=2  getaddressinfo 2N2jimNewE5T5zFcPrXvuLG5DjmVMrknyVu
+
+
 4.在线查询余额
     https://bitref.com/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU
     https://www.blockchain.com/zh/btc/address/1BcPiHDJsxG9c5Pje82mfnWzAJMsrTNxsU
@@ -75,5 +81,27 @@ github
 
 
 
+6.多签操作
+    2N2jimNewE5T5zFcPrXvuLG5DjmVMrknyVu     02ce40016db252a415535627aea5392776d981ddd7cf9ca7afc739e17bb00b2cb1
+    2N5FkNk4RUZtGMqZMgLVzvtuKK8qTxwEXCh     039b7fe22334e9e38990e3de22fbb60d3d969e5c1b159ad9a13fceeea0687af79d
+    2NDLceNaGYvHDGVvrDcHLh8vPGR657cBbqf     021ea556b2669275731d95987704445bd06e6decef00412942fac9ae64a983508e
+
+    bitcoin-cli -datadir=2 createmultisig 2 "[\"02ce40016db252a415535627aea5392776d981ddd7cf9ca7afc739e17bb00b2cb1\",\"039b7fe22334e9e38990e3de22fbb60d3d969e5c1b159ad9a13fceeea0687af79d\",\"021ea556b2669275731d95987704445bd06e6decef00412942fac9ae64a983508e\"]"
+    bitcoin-cli -datadir=1 createmultisig 2 "[\"02ce40016db252a415535627aea5392776d981ddd7cf9ca7afc739e17bb00b2cb1\",\"039b7fe22334e9e38990e3de22fbb60d3d969e5c1b159ad9a13fceeea0687af79d\",\"021ea556b2669275731d95987704445bd06e6decef00412942fac9ae64a983508e\"]"
+
+    多签地址
+        2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m
+
+    将多签地址放到钱包里面去
+            bitcoin-cli -datadir=2 addmultisigaddress 2 "[\"02ce40016db252a415535627aea5392776d981ddd7cf9ca7afc739e17bb00b2cb1\",\"039b7fe22334e9e38990e3de22fbb60d3d969e5c1b159ad9a13fceeea0687af79d\",\"021ea556b2669275731d95987704445bd06e6decef00412942fac9ae64a983508e\"]"
+
+    向多签地址转帐
+            bitcoin-cli -datadir=1  sendtoaddress 2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m 500
+            bitcoin-cli -datadir=2  sendtoaddress 2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m 500
+
+            txId = 9e166d694f932537c38accb6482d110d26527cb5aeec3f66ff148c5dba55ba01
 
 
+    查看地址的交易信息
+            bitcoin-cli -datadir=1  listunspent 6 99999999  "[\"2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m\"]"
+            bitcoin-cli -datadir=2  listunspent 6 99999999  "[\"2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m\"]"

@@ -8,6 +8,8 @@
 
 3.运行
     jupyter notebook
+    jupyter notebook --port 9999
+    jupyter notebook --no-browser --port 9999
 
 4.安装matplotlib
     python3 -m pip install matplotlib

@@ -1,0 +1,30 @@
+1.download
+    https://web.getmonero.org/resources/developer-guides/daemon-rpc.html
+
+2.create wallet
+    monero-wallet-cli
+    助记词
+        医 部 认 润 直 池 票 蒸
+        械 吊 要 奏 予 争 淡 浪
+        谱 旗 录 油 召 园 贡 徒 录
+
+        龙 洲 智 错 李 励 填 宁
+        求 吸 催 声 干 思 监 第
+        太 夺 纲 壮 麦 氧 殊 闭 填
+
+3.run
+    ./monerod --data-dir data/ --rpc-login xws:xws --bootstrap-daemon-login xws:xws
+
+4.钱包操作
+    ./monero-wallet-rpc --wallet-file wallet --password 123456 --rpc-bind-port 18083 --disable-rpc-login
+    1)指定具体钱包
+    ./monero-wallet-rpc --wallet-file /root/wallet_file/filename --password 951224ydq --rpc-bind-port 18083 --disable-rpc-login
+    (2)不指定具体钱包，只启动服务
+    ./bin/monero-wallet-rpc --rpc-bind-port 18083 --disable-rpc-login --wallet-dir /Users/xws/software/xmr/monero/wallet
+
+
+
+5.rpc
+    curl -X POST http://127.0.0.1:18083/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_account","params":{"label":"chaoex_hot_recharge"}}' -H 'Content-Type: application/json'
+    curl -X POST http://127.0.0.1:18083/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"create_wallet","params":{"filename":"wallet_04.bin","password":"mytestpassword","language":"English"}' -H 'Content-Type: application/json'
+    curl -X POST http://127.0.0.1:18083/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"open_wallet","params":{"filename":"/Users/xws/software/xmr/monero-x86_64-apple-darwin11 2/wallet","password":"eCrp%d0M7tvJaVsh"}}' -H 'Content-Type: application/json'
