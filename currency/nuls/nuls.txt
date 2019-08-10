@@ -1,0 +1,12 @@
+1.download
+     wget http://nuls-usa-west.oss-us-west-1.aliyuncs.com/beta2/NULS-Wallet-linux64-beta2-main.tar.gz
+
+2.tar -xvf
+
+3.run
+    ./start
+    ./check_status
+4.operation
+    ./cmd
+
+5.不需要修改配置文件
