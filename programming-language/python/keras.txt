@@ -1,0 +1,5 @@
+1.choose backend
+    1)  vim keras.json
+
+    2)  import os
+        os.environ['KERAS_BACKEND']='theano'

@@ -29,6 +29,8 @@
         pip3 install -i https://pypi.douban.com/simple  functools-lru-cache --user
         pip3 install -i https://pypi.douban.com/simple  conda-build --user
         pip3 install -i https://pypi.douban.com/simple  pandas --user
+        pip3 install -i https://pypi.douban.com/simple  scipy --user
+        pip3 install -i https://pypi.douban.com/simple  keras --user
 
         pip3 install -i https://pypi.douban.com/simple --upgrade matplotlib
 
