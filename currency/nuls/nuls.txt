@@ -6,7 +6,31 @@
 3.run
     ./start
     ./check_status
+
 4.operation
     ./cmd
 
 5.不需要修改配置文件
+
+6.rpc document
+    https://github.com/nuls-io/nuls-v2/blob/master/module/nuls-sdk-provider/README.md
+
+
+常用操作
+    create
+        nuls123qwre#
+        tNULSeBaMpHLorGahzFVFsobZiZr4Lhs3igG4S      1349e5d94898a9d702c11f2c29eafd13ab3251cb95d905ce17d88f6b7a5d5717
+        /data/wallet/nuls/NULS-Wallet-linux64-beta2/backup
+
+        tNULSeBaMuN8LZnVUs3QyPWiyxSa3y2mmc2bv3
+
+        transfer tNULSeBaMpHLorGahzFVFsobZiZr4Lhs3igG4S tNULSeBaMuN8LZnVUs3QyPWiyxSa3y2mmc2bv3 10
+
+        getaccount tNULSeBaMpHLorGahzFVFsobZiZr4Lhs3igG4S --get account information
+
+        getaccounts         获取所有账户信息
+
+        getprikey tNULSeBaMpHLorGahzFVFsobZiZr4Lhs3igG4S
+        getbalance tNULSeBaMpHLorGahzFVFsobZiZr4Lhs3igG4S
+
+
