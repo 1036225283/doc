@@ -102,7 +102,7 @@ https://github.com/ethereum/mist/releases
         eth.gegBlock(12)    //  获取第12个区块的信息
         eth.getBlock('latest').number
         eth.accounts
-        eth.getBalance(eth.accounts[0])
+        eth.getBalance(eth.accounts[2])
         eth.getBalance(eth.accounts[3])
         miner.start()
         miner.end()
@@ -119,3 +119,7 @@ https://github.com/ethereum/mist/releases
 
 6.参考网站
     https://blog.csdn.net/fens/article/details/84633730
+
+
+7.多签
+
