@@ -41,3 +41,6 @@
 
 6.参考文档--里面不知门罗币的文档，还有其他币种的文档
     https://www.showdoc.cc/143489508571003?page_id=818136913318530
+
+7.rpc document
+    https://www.getmonero.org/resources/developer-guides/wallet-rpc.html

@@ -46,6 +46,7 @@ https://github.com/ethereum/mist/releases
         local
             ./geth -datadir "data" init init.json   //初始化创世区块
             ./geth -datadir "data" console          //在创建的创世区块上执行交互操作
+            ./geth  console
 
             ./geth -datadir "data" account list
             ./geth -datadir "data" account import file

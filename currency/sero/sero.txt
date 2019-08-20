@@ -1,0 +1,11 @@
+1.官网
+    https://sero.cash/cn/
+    https://github.com/sero-cash
+    https://wiki.sero.cash/zh/index.html?file=home-Home
+
+2.rpc
+    https://wiki.sero.cash/zh/index.html?file=Tutorial/sero-exchange-interface
+
+    personal.newAccount("123456")
+    5DDSaKQtRipiQN5tKSPeZ4guunSbUwnGChFUbAPu8u3yPtLvn1uNiizbYdiLhrodMCiGKHudkdPmbHj5GfSXcMrx
+    sero.getBalance("4dbWigsU8jVgvh61NRinfsJvCPdWGWnVwCE3wLK5Z5WXjshGx7ruy3mdr6G5NERasbice2iTeNP2dJekcs3JEcFr")
