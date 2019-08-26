@@ -1,3 +1,4 @@
 1.rpc document
     https://api-docs.turtlecoin.lol/#daemon-json-rpc-api-getblockhash
+    https://github.com/turtlecoin/turtlecoin-rpc-js#turtleservice-rpc-api-interface
 
