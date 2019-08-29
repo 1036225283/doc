@@ -1,0 +1,7 @@
+区块浏览器       https://explorer.cxcblock.com
+
+官网              https://www.cxcblock.com
+no-ui           https://github.com/cxcblock/cxcs
+doc             https://github.com/cxcblock/doc/tree/master/exchangeDockingGuide
+
+run             ./cxcsz CXCChain -datadir=/data/chain/cxc/ -daemon
