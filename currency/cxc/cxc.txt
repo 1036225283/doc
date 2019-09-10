@@ -3,5 +3,6 @@
 官网              https://www.cxcblock.com
 no-ui           https://github.com/cxcblock/cxcs
 doc             https://github.com/cxcblock/doc/tree/master/exchangeDockingGuide
+                https://github.com/cxcblock/doc/blob/master/exchangeDockingGuide/exchangeDocking-zh-1.0.md
 
 run             ./cxcsz CXCChain -datadir=/data/chain/cxc/ -daemon

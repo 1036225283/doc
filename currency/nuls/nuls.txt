@@ -15,6 +15,10 @@
 6.rpc document
     https://github.com/nuls-io/nuls-v2/blob/master/module/nuls-sdk-provider/README.md
 
+7.document
+    https://docs.nuls.io/zh/NULS2.0/nodeGuide.html#nuls-ncf-配置文件
+    https://docs.nuls.io
+
 
 常用操作
     create
