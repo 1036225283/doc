@@ -17,3 +17,9 @@
 
 5.安装tensorflow
     python3 -m pip install tensorflow
+
+
+6.install flask
+    pip3 install -i https://pypi.douban.com/simple Flask
+    pip3 install -i https://pypi.douban.com/simple pytest
+    pip3 install -i https://pypi.douban.com/simple requests
