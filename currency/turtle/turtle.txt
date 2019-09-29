@@ -1,0 +1,44 @@
+1.install
+    wget https://github.com/turtlecoin/turtlecoin/releases/download/v0.18.1/turtlecoin-v0.18.1-linux.tar.gz
+
+2.run
+    sync data
+        ./TurtleCoind
+
+    wallet
+        create  name:trtl pass:123456
+        TRTLuxc3B5DPUCUjwnVnsxaksMzATg3i2EG1o5ESsMtAeEoL4yz34mHM1DimQtcCaAPQ5yBhsBC4pAkqBNeQa4D4Zpwk655f3iq
+        Private spend key:
+        1c262eed3e6760554db97d313e70a3fa5746c163bba1503a7be06d5ac7aba108
+        Private view key:
+        42f0400b3ae357424ed0539e84f93d45087499a31703b6aafc2ffee294e9de0b
+
+        test
+        TRTLuy78xfeQ9kJ6rr3baDA8pAQQx6CXCJZthxseCerhDLD36UBT5cwbqp8e2rjPmN2hoNj5EgDsQKYButU73ekAZjSnF55ZH7B
+
+        Please copy your secret keys and mnemonic seed and store them in a secure location:
+        Private spend key:
+        1c1a5ab7816d7d2cde4e2c1455ddb8a4b7cdc251aecb7cf3ca0dda8f2a628808
+
+        Private view key:
+        cf78ba8bcdf5715190a6f2f3e972248f3d46358bde03602f72c8d79f382e2109
+
+    rpc
+        ./zedwallet --remote-daemon host:port
+
+3.local-test-net
+    https://docs.turtlecoin.lol/developer/local-testnet
+    ./TurtleCoind --data-dir a --add-exclusive-node 127.0.0.1:10001 --add-exclusive-node 127.0.0.1:10002 --p2p-bind-port 10000 --rpc-bind-port 20000 --enable-blockexplorer --rpc-bind-ip=0.0.0.0 &
+    ./TurtleCoind --data-dir b --add-exclusive-node 127.0.0.1:10000 --add-exclusive-node 127.0.0.1:10002 --p2p-bind-port 10001 --rpc-bind-port 20001 --enable-blockexplorer --rpc-bind-ip=0.0.0.0 &
+    ./TurtleCoind --data-dir c --add-exclusive-node 127.0.0.1:10000 --add-exclusive-node 127.0.0.1:10001 --p2p-bind-port 10002 --rpc-bind-port 20002 --enable-blockexplorer --rpc-bind-ip=0.0.0.0 &
+    ./wallet-api --data-dir a
+    ./miner --daemon-address 127.0.0.1:20000  --address TRTLuy78xfeQ9kJ6rr3baDA8pAQQx6CXCJZthxseCerhDLD36UBT5cwbqp8e2rjPmN2hoNj5EgDsQKYButU73ekAZjSnF55ZH7B
+    ./zedwallet-beta -r 127.0.0.1:20000
+
+
+
+
+
+
+
+
