@@ -9,3 +9,6 @@
     personal.newAccount("123456")
     5DDSaKQtRipiQN5tKSPeZ4guunSbUwnGChFUbAPu8u3yPtLvn1uNiizbYdiLhrodMCiGKHudkdPmbHj5GfSXcMrx
     sero.getBalance("4dbWigsU8jVgvh61NRinfsJvCPdWGWnVwCE3wLK5Z5WXjshGx7ruy3mdr6G5NERasbice2iTeNP2dJekcs3JEcFr")
+
+3.对接文档
+    https://wiki.sero.cash/zh/index.html?file=Tutorial/sero-exchange-interface
