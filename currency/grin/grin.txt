@@ -1,9 +1,10 @@
 1.download and install          (As of v1.1.0, the wallet has been split into a separate executable)
     https://github.com/mimblewimble/grin/releases
     https://github.com/mimblewimble/grin-wallet/releases
+    https://github.com/mimblewimble/grin-miner/releases
 
-
-
+use docker build test environment
+    https://github.com/1036225283/grin-docker
 
 2.run
     usernet     HQ3FfYFFTBKOHIpNx8jq        lOkwWPn1PWz1Vpe3c3vp
@@ -12,3 +13,6 @@
 
 3.block explorer
     https://grin-fans.org/zh-hans/
+
+4.api.
+    ryi6cbQU7OHt91d5xddD
