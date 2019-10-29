@@ -1,2 +1,9 @@
 1.block explorer
     https://steexp.com/account/GD3PWNM6K7BYWTISGUI2PG6VYMH5VO57GZWLCSU454X32G63ZGQBJ254
+
+2.use docker build test evnironment
+    docker pull stellar/quickstart
+    docker run --rm -it -p "8000:8000" --name stellar stellar/quickstart --testnet
+    docker run --rm -it -p "8000:8000" --name stellar stellar/quickstart:testing --standalone
+
+    docker run --rm -it -p "8000:8000" -p "11626:11626" -p "11625:11625" -p"8002:5432"  --name stellar stellar/quickstart:testing --standalone

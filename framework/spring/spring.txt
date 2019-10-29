@@ -5,3 +5,7 @@ ApplicationContextAware
 
 jar启动选择配置文件
     java -jar qsd-task.jar --spring.profiles.active = mcf-test &
+
+
+SmartLifecycle
+    当Spring容器加载所有bean并完成初始化之后，会接着回调实现该接口的类中对应的方法（start()方法

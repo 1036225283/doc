@@ -35,6 +35,8 @@
         pip3 install -i https://pypi.douban.com/simple  gym[all] --user
         pip3 install -i https://pypi.douban.com/simple  --upgrade pip
         pip3 install -i https://pypi.douban.com/simple  --upgrade pip3
+        pip3 install -i https://pypi.douban.com/simple  redis --user
+        pip3 install -i https://pypi.douban.com/simple  pymysql --user
 
         pip3 install -i https://pypi.douban.com/simple --upgrade matplotlib
 
