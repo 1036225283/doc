@@ -7,6 +7,11 @@ contract MultiSigWallet {
     mapping (address => uint8) private managers;
 
     // test code start -------------------------------------------------------------------
+    struct User {
+    string name;
+    uint8 age;
+    }
+
     string private title = "test";
 
     string public  name = "msg";
@@ -17,9 +22,13 @@ contract MultiSigWallet {
     uint[10] arr;//static array
     uint[] array;
 
-    address me;//address is uint160
+    address public me;//address is uint160
 
     mapping (address => uint) m;
+
+    // constructor(){
+    // me = msg.sender;
+    // }
 
     function test() public view returns (int){
         return b.length;
@@ -75,7 +84,19 @@ contract MultiSigWallet {
         return m[account];
     }
 
+    function chageName(string _name) isOwner {
+        name = _name;
+    }
 
+    function kill() isOwner {
+        selfdestruct(owner);
+    }
+
+
+    function initUser() view returns (string, uint){
+        User memory user = User({name : "xws", age : 26});
+        return (user.name, user.age);
+    }
     //test code end ----------------------------------------------------------------------
 
     modifier isOwner{
