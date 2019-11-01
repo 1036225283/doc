@@ -44,3 +44,5 @@
 
 7.rpc document
     https://www.getmonero.org/resources/developer-guides/wallet-rpc.html
+
+8.蒙罗币问题记录   解锁
