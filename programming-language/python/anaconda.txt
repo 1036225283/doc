@@ -37,6 +37,8 @@
         pip3 install -i https://pypi.douban.com/simple  --upgrade pip3
         pip3 install -i https://pypi.douban.com/simple  redis --user
         pip3 install -i https://pypi.douban.com/simple  pymysql --user
+        pip3 install -i https://pypi.douban.com/simple  torch --user
+        pip3 install --pre torch -f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 
         pip3 install -i https://pypi.douban.com/simple --upgrade matplotlib
 

@@ -12,8 +12,7 @@ contract MultiSigWallet {
     }
 
     modifier isManager{
-        require(
-        msg.sender == owner || managers[msg.sender] == 1);
+        require(msg.sender == owner || managers[msg.sender] == 1);
         _;
     }
 
