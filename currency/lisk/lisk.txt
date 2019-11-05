@@ -6,6 +6,17 @@ install
 参考文档
     https://blog.csdn.net/wanyuehan/article/details/79709165
 
+
+    主网镜像
+    docker pull lisk/mainnet
+
+    测试网镜像
     docker pull lisk/testnet
 
     docker run -d –restart=always -p 0.0.0.0:7000:7000 lisk/testnet
+
+docker install
+    git clone https://github.com/LiskHQ/lisk-core.git
+    cd lisk-core/docker
+    cp .env.development .env
+

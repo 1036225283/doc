@@ -37,3 +37,16 @@ TestRPC
 SeaCoin
     truffle init
     npm install zeppelin-solidity
+
+
+ERC20合约开发
+    truffle init
+    npm install openzeppelin-solidity
+    create file contracts/DemoToken.sol
+    create file migrations/2_deploy_contracts.js
+
+    truffle compile
+    truffle migrate --network   development
+
+
+    document https://www.jianshu.com/p/d735004a1a03
