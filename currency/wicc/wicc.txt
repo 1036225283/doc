@@ -17,3 +17,6 @@
 3.document
     https://wicc-devbook.readthedocs.io/zh_CN/latest/NodeDeployment/conf/
     https://wicc-devbook.readthedocs.io/zh_CN/latest/JsonRpcApi/block/      官方给的
+
+4.multiSign document
+    https://wicc-devbook.readthedocs.io/zh_CN/latest/JsonRpcApi/tx/

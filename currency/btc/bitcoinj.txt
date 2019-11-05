@@ -5,3 +5,6 @@ bitcoin java
 
 2.doc
     https://bitcoinj.github.io/getting-started-java#initial-setup
+
+3.比特币的多签，需要离线签
+    需要返回一个未花费列表，然后在为花费列表里面选一个

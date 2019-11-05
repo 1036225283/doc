@@ -29,7 +29,7 @@ github
     3.3 产生一个区块
         make generate
     3.4 产生100个区块
-        make generate BLOCKS=100
+        make generate BLOCKS=10
     3.5 查看节点状态
         bitcoin-cli -datadir=1  getinfo
     3.6 查看钱包地址
@@ -55,12 +55,18 @@ github
         bitcoin-cli -datadir=1  sendtoaddress 2N8Yxpr2GS87FAd4CYLsTJzchSup797czc9 500
 
     3.9 查看每个地址的余额
-        listaddressgroupings
 
         bitcoin-cli -datadir=1  sendtoaddress 2N8Yxpr2GS87FAd4CYLsTJzchSup797czc9 10
+        bitcoin-cli -datadir=1  listaddressgroupings
+        bitcoin-cli -datadir=2  listaddressgroupings
+
 
         查看地址接收了多少钱
         listreceivedbyaddress
+        bitcoin-cli -datadir=1  listreceivedbyaddress
+        bitcoin-cli -datadir=2  listreceivedbyaddress
+
+
 
 
         密码：2        123asd@qwq
@@ -92,8 +98,10 @@ github
     多签地址
         2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m
 
+
     将多签地址放到钱包里面去
             bitcoin-cli -datadir=2 addmultisigaddress 2 "[\"02ce40016db252a415535627aea5392776d981ddd7cf9ca7afc739e17bb00b2cb1\",\"039b7fe22334e9e38990e3de22fbb60d3d969e5c1b159ad9a13fceeea0687af79d\",\"021ea556b2669275731d95987704445bd06e6decef00412942fac9ae64a983508e\"]"
+            bitcoin-cli -datadir=1 addmultisigaddress 2 "[\"02ce40016db252a415535627aea5392776d981ddd7cf9ca7afc739e17bb00b2cb1\",\"039b7fe22334e9e38990e3de22fbb60d3d969e5c1b159ad9a13fceeea0687af79d\",\"021ea556b2669275731d95987704445bd06e6decef00412942fac9ae64a983508e\"]"
 
     向多签地址转帐
             bitcoin-cli -datadir=1  sendtoaddress 2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m 500
@@ -103,5 +111,10 @@ github
 
 
     查看地址的交易信息
-            bitcoin-cli -datadir=1  listunspent 6 99999999  "[\"2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m\"]"
-            bitcoin-cli -datadir=2  listunspent 6 99999999  "[\"2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m\"]"
+            bitcoin-cli -datadir=2  listunspent 6 99999999  '["2N72Ec5o3t8CKWq9Zb8cLCCZo7tKo1QaT2m"]'
+            bitcoin-cli -datadir=2  signrawtransactionwithkey --help
+
+    解析离线签名
+            bitcoin-cli -datadir=2  decoderawtransaction    020000000101ba55ba5d8c14ff663fecaeb57c52260d112d48b6cc8ac33725934f696d169e0000000000ffffffff0100e1f5050000000017a914681ccd18fac30d2b6fa93b0e9cdb4ea3a12ab6d68700000000
+            bitcoin-cli -datadir=2  decoderawtransaction    020000000101ba55ba5d8c14ff663fecaeb57c52260d112d48b6cc8ac33725934f696d169e0000000000ffffffff025476459e0b00000017a914971cde63c4e9339308f9b08a34519cb7c3a243ae8700e1f5050000000017a914681ccd18fac30d2b6fa93b0e9cdb4ea3a12ab6d68700000000
+            bitcoin-cli -datadir=2  decoderawtransaction    020000000101ba55ba5d8c14ff663fecaeb57c52260d112d48b6cc8ac33725934f696d169e0000000000ffffffff0200e1f5050000000017a914681ccd18fac30d2b6fa93b0e9cdb4ea3a12ab6d6875476459e0b00000017a914971cde63c4e9339308f9b08a34519cb7c3a243ae8700000000
