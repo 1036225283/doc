@@ -49,4 +49,6 @@ ERC20合约开发
     truffle migrate --network   development
 
 
-    document https://www.jianshu.com/p/d735004a1a03
+    document
+        https://www.jianshu.com/p/d735004a1a03
+        https://learnblockchain.cn/2018/01/12/create_token/
