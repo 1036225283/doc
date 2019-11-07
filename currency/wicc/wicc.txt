@@ -1,6 +1,5 @@
 1.test environment
-    docker pull wicc/waykicoind:test
-    docker pull wicc/waykicoind:2.0
+    docker pull wicc/waykicoind
 
 
 2. build private net
@@ -11,8 +10,11 @@
       -v `pwd`/lua:/tmp/lua \
       -d wicc/waykicoind
 
+    /WaykiChain.conf    是相对目录
 
     docker exec -it waykicoind-pri /bin/bash
+
+    vim import.sh
 
 3.document
     https://wicc-devbook.readthedocs.io/zh_CN/latest/NodeDeployment/conf/
