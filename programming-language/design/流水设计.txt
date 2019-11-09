@@ -1,0 +1,3 @@
+一家交易所，手续费是其重要来源之一。
+    应有资产表存储单曲总手续费，表示手续费的收入
+    currentTotalFee 总手续费(当前)    oldTotalFee 总手续费(本次流水前)     addFee 增加了多少手续费 currencyId 哪个币种

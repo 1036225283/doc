@@ -1,0 +1,9 @@
+1.install
+    https://github.com/bitshares/dev.bitshares.works
+
+
+2.github
+
+    https://github.com/bitshares/bitshares-core
+
+        git clone https://github.com/bitshares/bitshares-core.git
