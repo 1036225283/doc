@@ -1,0 +1,9 @@
+err list
+
+1.Expected object of scalar type Float but got scalar type Double for argument #2 'mat1' in call to _th_addmm
+    before
+        x = np.array(x)
+        x = torch.from_numpy(x)
+    after
+        x = np.array(x, dtype=np.float32)
+        x = torch.from_numpy(x)
