@@ -1,0 +1,17 @@
+1. install go
+    brew install go
+
+2. set GOPATH
+    /Users/xws/software/go
+
+
+3.uninstall go
+    rm -rf /usr/local/go
+    rm -rf /etc/paths.d/go
+
+4.install package
+    go get package
+
+5.license server
+    https://blog.csdn.net/tiantang_1986/article/details/81346558
+

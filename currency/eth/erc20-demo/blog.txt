@@ -1,0 +1,14 @@
+1.一文读懂erc20
+    https://www.cnblogs.com/he1m4n6a/p/9327589.html
+
+2.ETH多签
+    http://blog.domyself.me/2018/12/22/eth-multiple-signature
+
+3.android 实现ETH全部功能
+    https://blog.csdn.net/wangcheng_/article/details/82779535
+
+4.创建自己的数字货币
+    https://learnblockchain.cn/2018/01/12/create_token/
+
+5.多签
+    https://my.oschina.net/u/3782027/blog/1934520
