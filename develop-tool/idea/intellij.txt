@@ -12,3 +12,6 @@
 
 3.配置tomcat
 	Tomcat Server	->	+	->	填写name		->填写资源路径
+
+4.license code
+    https://www.licensez.com

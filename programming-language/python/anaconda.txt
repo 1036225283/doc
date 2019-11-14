@@ -3,7 +3,7 @@
 2.基本命令
     查看版本        conda --version
     工具包升级       conda upgrade --all
-    环境切换        source activate learn
+    环境切换        source activate python
     环境创建        conda create -n learn python=3.5
     环境查看          conda env list
     安装第三方包      conda install requests
@@ -72,3 +72,10 @@ pip3 install conda-build
 5.删除
         conda install anaconda-clean
         anaconda-clean
+
+
+6.install pytorch
+    conda install pytorch torchvision -c pytorch
+
+7.install redis
+    pip install redis
