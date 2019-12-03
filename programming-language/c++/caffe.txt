@@ -1,0 +1,9 @@
+1.install google protobuf
+    https://github.com/protocolbuffers/protobuf/blob/master/src/README.md
+        download    https://github.com/protocolbuffers/protobuf/releases/latest
+
+2.install boost/scoped_ptr
+    https://www.boost.org/doc/libs/1_71_0/more/getting_started/unix-variants.html
+
+3.error fatal error: 'caffe/proto/caffe.pb.h' file not found
+
