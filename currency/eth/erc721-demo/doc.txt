@@ -1,0 +1,2 @@
+1.document
+    https://medium.com/coinmonks/a-simple-erc-721-example-c3f72b5aa19
