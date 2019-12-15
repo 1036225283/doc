@@ -1,0 +1,4 @@
+1.compile
+
+    protoc --proto_path=./ --java_out=./ ./addressbook.proto
+    protoc --proto_path=./ --cpp_out=./ ./addressbook.proto
