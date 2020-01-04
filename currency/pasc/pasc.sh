@@ -26,3 +26,5 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"getblockcount","id":123}' http:/
 
 
 curl -X POST --data '{"jsonrpc":"2.0","method":"getblockoperation","params":{"block":369170,"opblock":0},"id":123}' http://localhost:4003
+
+
