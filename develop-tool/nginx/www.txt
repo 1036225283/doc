@@ -1,0 +1,33 @@
+
+upstream tomcatserver1 {
+    server 127.0.0.1:8081;
+    }
+upstream tomcatserver2 {
+    server 127.0.0.1:8082;
+    }
+server {
+        listen       80;
+        server_name  8081.max.com;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            proxy_pass   http://tomcatserver1;
+            index  index.html index.htm;
+        }
+    }
+server {
+        listen       80;
+        server_name  8082.max.com;
+
+        #charset koi8-r;
+
+        #access_log  logs/host.access.log  main;
+
+        location / {
+            proxy_pass   http://tomcatserver2;
+            index  index.html index.htm;
+        }
+    }

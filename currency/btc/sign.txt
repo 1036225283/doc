@@ -1,0 +1,5 @@
+doc
+    https://www.cnblogs.com/studyzy/p/how-bitcoin-sign-a-tx.html
+
+bitcoinj
+    https://bitcoinj.github.io/using-maven
