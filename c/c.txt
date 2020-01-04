@@ -1,9 +1,0 @@
-1.先装eclipse
-2.再装插件
-    http://download.eclipse.org/tools/cdt/releases/9.6
-
-3.gcc编译c代码
-    gcc -o hello hello.c
-
-4.java生成c文件
-     javac -h . JniTest.java
