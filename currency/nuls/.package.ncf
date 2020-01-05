@@ -1,0 +1,15 @@
+[package]
+account=1
+block=1
+consensus=1
+ledger=1
+network=1
+transaction=1
+cmd-client=1
+nuls-api=1
+public-service=0
+smart-contract=1
+chain-manager=1
+protocol-update=1
+cross-chain=1
+mykernel=0
