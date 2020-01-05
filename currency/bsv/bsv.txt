@@ -1,0 +1,4 @@
+./bin/bitcoind -datadir=/bsv/data/
+
+document
+    https://zhuanlan.zhihu.com/p/64697171
