@@ -1,0 +1,5 @@
+vue create my-app
+cd my-app
+vue add element
+
+npm run serve

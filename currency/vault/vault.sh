@@ -1,3 +1,9 @@
+document
+    https://www.jianshu.com/p/a6903da41080
+    hd
+        https://blog.csdn.net/opassf/article/details/79978047
+    hd code
+        https://blog.csdn.net/yujunlong3919/article/details/84562578
 install
 	export PATH=$PATH:/Users/edz/software/pass/
 
