@@ -1,0 +1,7 @@
+init project
+    npx create-react-app my-react
+
+run project
+    yarn start
+
+
