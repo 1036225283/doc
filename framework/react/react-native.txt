@@ -7,4 +7,16 @@ install
     # 如果之后需要切换回官方源可使用
     npx nrm use npm
 
-yarn react-native run-android
+run
+    yarn react-native run-android
+
+add ele ui document
+    https://react-native-elements.github.io/react-native-elements/docs/getting_started.html
+
+add ele ui
+    yarn add react-native-elements
+    npm install react-native-elements
+
+other
+    https://github.com/poberwong/react-native-gank
+    https://www.jianshu.com/p/ab7eb90034fd
