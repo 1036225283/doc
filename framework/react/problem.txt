@@ -1,0 +1,2 @@
+Failed to launch emulator. Reason: No emulators found as an output of `emulator -list-avds
+    /Users/xws/Library/Android/sdk/tools/bin/sdkmanager --licenses
