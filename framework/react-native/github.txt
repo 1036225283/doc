@@ -1,0 +1,23 @@
+https://www.cnblogs.com/jcxfighting/p/9088416.html
+
+https://gitee.com/tuonina/react-native-signature-capture
+
+https://new.qq.com/rain/a/20191009A003TW00
+
+类似微信
+    https://www.cnblogs.com/xiaoyan2017/p/11441285.html
+
+类似饿了么
+    https://github.com/manakiaHk/element-react-native
+
+类似网易云音乐
+    https://github.com/yezihaohao/NeteaseCloudMusic
+
+常用插件
+    https://segmentfault.com/a/1190000012053486
+    https://www.jianshu.com/p/1906d21cdd84
+    https://www.jianshu.com/p/c7a8f115dca0
+    https://www.jianshu.com/p/d9cd9a868764
+
+练手
+    https://github.com/fangwei716/30-days-of-react-native

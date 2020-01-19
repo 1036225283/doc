@@ -1,5 +1,7 @@
-[mysq]ERROR 2006 (HY000) at line xx: MySQL server has gone away 解决方法
+1.[mysq]ERROR 2006 (HY000) at line xx: MySQL server has gone away 解决方法
+    wait_timeout=2880000
+    interactive_timeout = 2880000
+    max_allowed_packet = 100M
 
-wait_timeout=2880000
-interactive_timeout = 2880000
-max_allowed_packet = 100M
+2.create command denied to user×××
+    GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON User.* TO root@'%' identified by 'root';

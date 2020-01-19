@@ -1,0 +1,32 @@
+Ubuntu16.04彻底卸载MySQL
+
+删除mysql的数据文件
+
+sudo rm /var/lib/mysql/ -R
+
+
+
+删除mysql的配置文件
+
+sudo rm /etc/mysql/ -R
+
+
+
+自动卸载mysql（包括server和client）
+
+sudo apt-get autoremove mysql* --purge
+
+sudo apt-get remove apparmor
+
+然后在终端中查看MySQL的依赖项：dpkg --list|grep mysql
+
+卸载：  sudo apt-get remove dbconfig-mysql
+
+卸载：sudo apt-get remove mysql-client
+
+卸载：sudo apt-get remove mysql-client-5.7
+
+卸载：sudo apt-get remove mysql-client-core-5.7
+
+再次执行自动卸载：sudo apt-get autoremove mysql* --purge
+
