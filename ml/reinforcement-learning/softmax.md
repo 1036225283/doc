@@ -1,6 +1,30 @@
 ## softmax
 
-$s^i=\frac{(e^z)^i}{\sum_j^N(e^z)^j}$
+$f(s^i)=\frac{(e^z)^i}{\sum_j^N(e^z)^j}$
+
+$f(s^i)=(e^z)^i*{\sum_j^N(e^z)^j}^{-1}$
+
+$f(a)=(e^z)^i$
+
+$f(b)={\sum_j^N(e^z)^j}^{-1}$
+
+$f'(s^i)=f'(a)*f(b)+f'(b)*f(a)$
+
+###i=j
+
+$f'(s^i)=(e^z)^i*{\sum_j^N(e^z)^j}^{-1}-{\sum_j^N(e^z)^j}^{-2}*(e^z)^i$
+
+$f'(s^i)=\frac{(e^z)^i}{\sum_j^N(e^z)^j}-\frac{(e^z)^i}{{\sum_j^N(e^z)^j}^2}$
+
+$f'(s^i)=\frac{(e^z)^i*\sum_j^N(e^z)^j}{{\sum_j^N(e^z)^j}^2}-\frac{(e^z)^i}{{\sum_j^N(e^z)^j}^2}$
+
+$f'(s^i)=\frac{(e^z)^i*\sum_j^N(e^z)^j-(e^z)^i}{{\sum_j^N(e^z)^j}^2}$
+
+###i!=j
+
+$f'(s^i)=(e^z)^i*{\sum_j^N(e^z)^j}^{-1}$
+
+
 
 $s^i=\frac{(e^z)^i}{(e^z)^1+(e^z)^2+(e^z)^3}$
 

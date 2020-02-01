@@ -1,0 +1,13 @@
+1.install brew node
+
+
+run
+    yarn react-native run-android
+
+update
+    npm update -g react-native-cli
+    npm install --save react-native@0.18
+
+info
+    npm info react-native
+
