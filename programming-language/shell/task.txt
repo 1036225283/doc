@@ -1,0 +1,3 @@
+crontab -e
+
+00 01 * * * /bin/sh /usr/local/mysql/backupdb.sh

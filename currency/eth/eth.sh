@@ -2,7 +2,7 @@
 
 
 # ETH
-curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0xf4a14010acbe82428516415a117b157b59cc6bb3", "scottxianggangretieth"],"id":1}' http://127.0.0.1:8545/
+curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"personal_unlockAccount","params":["0x6471c1093d8c6a8b6976ba5c9b9106dc2afe20a6", "123456"],"id":1}' http://127.0.0.1:8545/
 
 curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionByHash","params":["0xc0e3c639cf06455786653bdd89503a3f9e4726217f54b394d5f925e7e6939109"],"id":1}' http://127.0.0.1:8545/
 
@@ -25,7 +25,7 @@ curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method
 curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionCount","params":["0xf4a14010acbe82428516415a117b157b59cc6bb3","earliest"],"id":1}' http://127.0.0.1:8545/
 
 
-curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x0259b2c92ad97acaf2de4f0819347f4c31513a6d", "latest"],"id":1}' http://127.0.0.1:8545/
+curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getBalance","params":["0x85d4f27b22db1ff0d1f05846ec7c51186d47ec3b", "latest"],"id":1}' http://127.0.0.1:8545/
 
 curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}' http://127.0.0.1:8545/
 
@@ -34,7 +34,7 @@ curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method
 curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":1}' http://127.0.0.1:8545/
 
 curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"personal_newAccount","params":["123456"],"id":1}' http://127.0.0.1:8545/
-0x0259b2c92ad97acaf2de4f0819347f4c31513a6d
+0x6471c1093d8c6a8b6976ba5c9b9106dc2afe20a6
 
 curl -H "Content-Type:application/json" -X POST --data '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params":["0x2216155d595f51b5350e0cad45f689192106b06d506354e90c8206b39cbecac1"],"id":1}' http://127.0.0.1:8545/
 

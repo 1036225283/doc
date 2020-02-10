@@ -20,6 +20,8 @@ $f'(s^i)=\frac{(e^z)^i}{\sum_j^N(e^z)^j}-\frac{(e^z)^i*(e^z)^j}{{\sum_j^N(e^z)^j
 
 $f'(s^i)=s^i-s^i*s^i$
 
+$f'(s^i)=s^i(1-s^i)$
+
 ###i!=j
 
 $f'(s^i)=-s^i*s^j$

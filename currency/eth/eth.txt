@@ -44,8 +44,8 @@ https://github.com/ethereum/mist/releases
         ./geth console
 
         local
-            ./geth -datadir "data" init init.json   //初始化创世区块
-            ./geth -datadir "data" console          //在创建的创世区块上执行交互操作
+            ./geth -datadir "./data" init init.json   //初始化创世区块
+            ./geth -datadir "./data" console          //在创建的创世区块上执行交互操作
             ./geth  console
 
             ./geth -datadir "data" account list
@@ -63,7 +63,7 @@ https://github.com/ethereum/mist/releases
             ./geth --syncmode "fast" --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  console 2>>geth.log
             ./geth --syncmode "fast" --datadir "/Users/xws/software/gethdata" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  --rpccorsdomain "*"
             ./geth --datadir "/Users/xws/software/gethdata" --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  --rpccorsdomain "*"
-            ./geth --datadir data/ --allow-insecure-unlock --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  --rpccorsdomain "*" console
+            ./geth --datadir "./data" --allow-insecure-unlock --rpc --rpcaddr "0.0.0.0" -rpcport "8545" --rpcapi "db,eth,net,web3,miner,personal,admin"  --rpccorsdomain "*" console
 
             ./geth --datadir "/root/.ethereum" --rpc --rpcaddr "0.0.0.0" --rpcapi "db,eth,net,web3,miner,personal,admin" --syncmode "fast"
             ./geth --datadir=/data --cache 2048 --syncmode full --maxpeers 50 --gcmode=archive --rpc --rpcaddr 127.0.0.1 --rpcport 8090
@@ -105,15 +105,20 @@ https://github.com/ethereum/mist/releases
         eth.getBlock('latest').number
         eth.accounts
         eth.getBalance(eth.accounts[2])
-        eth.getBalance(eth.accounts[3])
+        eth.getBalance("0x400534e31Ea0E62e5f84bFbE7f304f2c5B918C4a")
         miner.start()
         miner.end()
         personal.newAccount("1234")
         web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
         eth.sendTransaction({from:eth.accounts[0],to:eth.accounts[3],value:web3.toWei(30,"ether")}) 转帐
+        eth.sendTransaction({from:eth.accounts[0],to:"0x400534e31Ea0E62e5f84bFbE7f304f2c5B918C4a",value:web3.toWei(30,"ether")})
+
         eth.sendTransaction({from:"0x43a86ba1b98fbc66ded61a6329340589d269b2c7",to:eth.accounts[3],value:web3.toWei(30,"ether")})
         personal.unlockAccount(eth.accounts[0])
         personal.unlockAccount("0x43a86ba1b98fbc66ded61a6329340589d269b2c7")
+
+        personal.importRawKey("F19013E29532C6B8D5F2D5505238E069999B5FF2CE9E1DF20D25774949B4D144", "123456")
+
 
 
 

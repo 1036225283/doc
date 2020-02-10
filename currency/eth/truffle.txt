@@ -52,3 +52,6 @@ ERC20合约开发
     document
         https://www.jianshu.com/p/d735004a1a03
         https://learnblockchain.cn/2018/01/12/create_token/
+
+发布合约到ETH公链
+    npm install truffle-hdwallet-provider
