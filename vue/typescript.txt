@@ -1,2 +1,0 @@
-1.查看是否安装typescript    tsc -version
-2.install typescript        npm install -g typescript
