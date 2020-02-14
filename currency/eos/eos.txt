@@ -32,4 +32,27 @@
 3.jianshu
 	https://www.jianshu.com/p/de11454df912
 
-				
+4.快照网址
+    http://snapshots.eossweden.org
+    https://eosnode.tools/snapshots
+
+
+5.install
+	https://developers.eos.io/welcome/latest/getting-started/development-environment/before-you-begin
+	wget https://github.com/EOSIO/eos/releases/download/v2.0.0/eosio-2.0.0-1.el7.x86_64.rpm
+	sudo yum install ./eosio-2.0.0-1.el7.x86_64.rpm
+
+6.种子节点
+  	https://eosnodes.privex.io/?config=1
+
+7.document
+	https://blog.csdn.net/qq_28505809/article/details/85295838
+	https://blog.csdn.net/it_zhangxiang/article/details/85159350
+
+8.stop safely
+	pkill nodeos
+
+9.run
+    nohup nodeos --data-dir /eos/data/ --filter-on myeunexgroup:transfer: &
+    nohup nodeos --data-dir /eos/data/ --filter-on myeunexgroup:transfer: --snapshot /eos/snapshots-data/snapshots/snapshot-0605d913ff9b449b551aa419776eedd9a04d0cb341ec1d051cd9b6ea7113b8f6.bin &
+
