@@ -5,6 +5,7 @@
 2.安装vue-cli
     npm install -g @vue/cli-init
     npm install -g @vue/cli
+    npm install -g @vue/cli
 
 3.初始化项目
     vue init webpack projectName

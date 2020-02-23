@@ -1,0 +1,5 @@
+doc
+    https://reacttraining.com/react-router/web/example/route-config
+
+install
+    yran add react-route-dom

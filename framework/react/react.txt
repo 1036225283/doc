@@ -4,4 +4,10 @@ init project
 run project
     yarn start
 
+add route
+
+doc
+    https://blog.csdn.net/ryuenkyo/article/details/80935470
+
+
 
