@@ -1,0 +1,10 @@
+1.facebook
+    AI Habitat
+
+2.室内场景数据集
+    https://blog.csdn.net/Pancheng1/article/details/87713783
+
+3.斯坦福实验环境
+    Gibson Environment
+    https://github.com/StanfordVL/GibsonEnv
+    https://blog.csdn.net/qq_34806812/article/details/83508099
