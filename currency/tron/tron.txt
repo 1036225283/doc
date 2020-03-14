@@ -1,0 +1,5 @@
+1.github
+    git clone https://github.com/TRON-US/docker-tron-quickstart.git
+
+2.build
+
