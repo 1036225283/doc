@@ -3,3 +3,15 @@
 
 2.build
 
+3.docker
+    docker run -it \
+      -p 9090:9090 \
+      --rm \
+      --name tron \
+      -e "preapprove=multiSignFee:1,allowMultiSign:1" \
+      trontools/quickstart
+
+    docker run -it -p 8091:8091 -p 8092:8092 -p 8090:8090 -p 50051:50051 -p 50052:50052 --rm --name tron trontools/quickstart
+
+4.document
+    https://cn.developers.tron.network/docs/交易
