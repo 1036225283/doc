@@ -15,3 +15,6 @@
 
 4.document
     https://cn.developers.tron.network/docs/交易
+
+
+java -jar java-tron.jar -p f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6 --witness -c /Users/xws/project/doc/currency/tron/super-config.conf
