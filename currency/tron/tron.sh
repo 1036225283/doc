@@ -4,21 +4,48 @@
 curl http://127.0.0.1:9090/admin/accounts
 
 # transfer
-curl -X POST  http://127.0.0.1:9090/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"410905e5c44f91d0425929b56ef39a8f5ad18c007d","amount":100}'
-curl -X POST  http://127.0.0.1:9090/wallet/easytransfer -d '{"passPhrase": "7465737470617373776f7264","toAddress": "41D1E7A6BC354106CB410E65FF8B181C600FF14292", "amount":10}'
+# ok
+curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"410905e5c44f91d0425929b56ef39a8f5ad18c007d","amount":100}'
+curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"410905e5c44f91d0425929b56ef39a8f5ad18c007d","amount":100}'
+curl -X POST  http://127.0.0.1:16667/wallet/easytransfer -d '{"passPhrase": "7465737470617373776f7264","toAddress": "41D1E7A6BC354106CB410E65FF8B181C600FF14292", "amount":10}'
 
-curl -X POST  http://127.0.0.1:9090/wallet/easytransferbyprivate -d '{"privateKey": "186eaefa8b860a8aa94c5b2097fd1e4100d58204d0bc97fce3411410c06d1e1e", "toAddress":"419d671babfa95a99e984a068914f5c67d24f7d83a","amount": 77888000000}'
+# get account info
+curl -X POST  http://127.0.0.1:16667/wallet/getaccountresource -d '{"address" : "410905e5c44f91d0425929b56ef39a8f5ad18c007d"}'
+curl -X POST  http://127.0.0.1:16667/wallet/getaccountresource -d '{"address" : "TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","visible" : true}'
+curl -X POST  http://127.0.0.1:16667/wallet/getaccount -d '{"address" : "TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","visible" : true}'
 
 
-curl -X POST  http://127.0.0.1:9090/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"THkDEasinhayE6knyeJwwjxzjYYAhcmhDV","amount":100}'
+curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"TV5BWDcYj8ix9dmRoCHtGfRxWneMgsexjM","amount":100,"visible" : true}'
+
+
+# boarst
+curl --request POST \
+  --url http://127.0.0.1:16667/wallet/broadcasttransaction \
+  --header 'content-type: application/json' \
+  --data '{"visible":false,"txID":"60ff5a4331a46c03f771280ae8e487df231baa24849983dcb5137b72bf4869f9","raw_data":{"contract":[{"parameter":{"value":{"owner_address":"41bf97a54f4b829c4e9253b26024b1829e1a3b1120","account_address":"412b12c4786c48eb47aa3d2368671105c9e7b0d659"},"type_url":"type.googleapis.com/protocol.AccountCreateContract"},"type":"AccountCreateContract"}],"ref_block_bytes":"9895","ref_block_hash":"da9b5e0786de1690","expiration":1576574544000,"timestamp":1576574485586},"raw_data_hex":"0a0298952208da9b5e0786de16904080d1a999f12d5a6612640a32747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e4163636f756e74437265617465436f6e7472616374122e0a1541bf97a54f4b829c4e9253b26024b1829e1a3b11201215412b12c4786c48eb47aa3d2368671105c9e7b0d65970d288a699f12d"}'
+
+curl --request POST \
+  --url http://127.0.0.1:16667/wallet/broadcasttransaction \
+  --header 'content-type: application/json' \
+  --data '{"visible":false,"txID":"60ff5a4331a46c03f771280ae8e487df231baa24849983dcb5137b72bf4869f9","raw_data_hex":"0A715A6F0802126B0A32747970652E676F6F676C65617069732E636F6D2F70726F746F636F6C2E5472616E736665724173736574436F6E747261637412350A035452581215410905E5C44F91D0425929B56EF39A8F5AD18C007D1A1541D18BA2C4F7D9BCBA4F14F9AFE29FB6A273089033206412414D414958A4378EA7D63907BFE62D653E720ECF4A02C6B195FEB772594FDB7F272BFC13F3D13B51FD1E4B97AF360F48B1FE181923A82D4288DE27B662F7C4024000"}'
+
+
+curl --request POST \
+  --url https://api.trongrid.io/wallet/gettransactionsign \
+  --header 'content-type: application/json' \
+  --data '{"transaction":{"visible":false,"txID":"60ff5a4331a46c03f771280ae8e487df231baa24849983dcb5137b72bf4869f9","raw_data":{"contract":[{"parameter":{"value":{"owner_address":"41bf97a54f4b829c4e9253b26024b1829e1a3b1120","account_address":"412b12c4786c48eb47aa3d2368671105c9e7b0d659"},"type_url":"type.googleapis.com/protocol.AccountCreateContract"},"type":"AccountCreateContract"}],"ref_block_bytes":"9895","ref_block_hash":"da9b5e0786de1690","expiration":1576574544000,"timestamp":1576574485586},"raw_data_hex":"0a0298952208da9b5e0786de16904080d1a999f12d5a6612640a32747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e4163636f756e74437265617465436f6e7472616374122e0a1541bf97a54f4b829c4e9253b26024b1829e1a3b11201215412b12c4786c48eb47aa3d2368671105c9e7b0d65970d288a699f12d"},"privateKey":"your private key"}'
 
 # get balance
-curl -X POST  http://127.0.0.1:9090/wallet/getaccount -d '{"address": "TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK"}'
+curl -X POST  http://127.0.0.1:16667/wallet/getaccount -d '{"address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","visible" : true}'
+{"address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","balance": 200,"create_time": 1585383672000,"account_resource": {}}
+curl -X POST  http://127.0.0.1:16667/wallet/getaccount -d '{"address": "TV5BWDcYj8ix9dmRoCHtGfRxWneMgsexjM","visible" : true}'
+{"account_name": "TestB","address": "TV5BWDcYj8ix9dmRoCHtGfRxWneMgsexjM","balance": 1000000000000100,"account_resource": {}}
+curl -X POST  http://127.0.0.1:16667/wallet/getaccount -d '{"address": "410905e5c44f91d0425929b56ef39a8f5ad18c007d"}'
 
 
 # validateaddress
 curl --request POST \
-  --url http://127.0.0.1:9090/wallet/validateaddress \
+  --url http://127.0.0.1:16667/wallet/validateaddress \
   --header 'content-type: application/json' \
   --data '{"address":"410905e5c44f91d0425929b56ef39a8f5ad18c007d"}'
 TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE
@@ -71,3 +98,10 @@ TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE
 #(18) c0277dd8d207935829e6c58bd352f43233ce2fb2bab0741aaa4dd4929faabe22
 #(19) 91182576325368fdf8767d09a56f8b9b0ff58d1a66c02b90a7bab0ba3bdfe2e5
 #
+
+
+
+curl --request POST \
+  --url https://api.trongrid.io/wallet/broadcasttransaction \
+  --header 'content-type: application/json' \
+  --data '{"visible":false,"txID":"60ff5a4331a46c03f771280ae8e487df231baa24849983dcb5137b72bf4869f9","raw_data":{"contract":[{"parameter":{"value":{"owner_address":"41bf97a54f4b829c4e9253b26024b1829e1a3b1120","account_address":"412b12c4786c48eb47aa3d2368671105c9e7b0d659"},"type_url":"type.googleapis.com/protocol.AccountCreateContract"},"type":"AccountCreateContract"}],"ref_block_bytes":"9895","ref_block_hash":"da9b5e0786de1690","expiration":1576574544000,"timestamp":1576574485586},"raw_data_hex":"0a0298952208da9b5e0786de16904080d1a999f12d5a6612640a32747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e4163636f756e74437265617465436f6e7472616374122e0a1541bf97a54f4b829c4e9253b26024b1829e1a3b11201215412b12c4786c48eb47aa3d2368671105c9e7b0d65970d288a699f12d"}'
