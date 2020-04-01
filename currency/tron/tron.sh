@@ -17,6 +17,9 @@ curl -X POST  http://127.0.0.1:16667/wallet/getaccount -d '{"address" : "TGRkqdo
 
 curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"TV5BWDcYj8ix9dmRoCHtGfRxWneMgsexjM","amount":100,"visible" : true}'
 
+# get block
+curl -X POST  http://127.0.0.1:16667/wallet/getnowblock
+
 
 # boarst
 curl --request POST \
@@ -44,14 +47,31 @@ curl -X POST  http://127.0.0.1:16667/wallet/getaccount -d '{"address": "410905e5
 
 
 # validateaddress
-curl --request POST \
-  --url http://127.0.0.1:16667/wallet/validateaddress \
-  --header 'content-type: application/json' \
-  --data '{"address":"410905e5c44f91d0425929b56ef39a8f5ad18c007d"}'
+curl --request POST --url http://127.0.0.1:16667/wallet/validateaddress --header 'content-type: application/json' --data '{"address":"41ef0a3808ca500de23e1f67a478e536076b9c887b"}'
 TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE
+curl --request POST --url http://127.0.0.1:16667/admin/accounts --header 'content-type: application/json' --data '{"address":"41ef0a3808ca500de23e1f67a478e536076b9c887b"}'
+
+curl -X POST  http://127.0.0.1:16667/wallet/broadcasthex -d '{"transaction":"0A715A6F0802126B0A32747970652E676F6F676C65617069732E636F6D2F70726F746F636F6C2E5472616E736665724173736574436F6E747261637412350A035452581215410905E5C44F91D0425929B56EF39A8F5AD18C007D1A1541D18BA2C4F7D9BCBA4F14F9AFE29FB6A273089033206412414D414958A4378EA7D63907BFE62D653E720ECF4A02C6B195FEB772594FDB7F272BFC13F3D13B51FD1E4B97AF360F48B1FE181923A82D4288DE27B662F7C4024000"}'
 
 
+#
+curl -X POST  http://127.0.0.1:8090/wallet/gettransactionsign -d '{
+"transaction" : {"txID":"454f156bf1256587ff6ccdbc56e64ad0c51e4f8efea5490dcbc720ee606bc7b8","raw_data":{"contract":[{"parameter":{"value":{"amount":1000,"owner_address":"41e552f6487585c2b58bc2c9bb4492bc1f17132cd0","to_address":"41d1e7a6bc354106cb410e65ff8b181c600ff14292"},"type_url":"type.googleapis.com/protocol.TransferContract"},"type":"TransferContract"}],"ref_block_bytes":"267e","ref_block_hash":"9a447d222e8de9f2","expiration":1530893064000,"timestamp":1530893006233}}, "privateKey": "your private key"
+}'
 
+# create transaction
+curl -X POST http://127.0.0.1:16667/wallet/createtransaction -d
+'{
+    "owner_address": "TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","to_address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","amount": 100,"visible": true
+}'
+
+curl -X POST  http://127.0.0.1:16667/wallet/createtransaction -d '{ "owner_address": "TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","to_address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","amount": 100,"visible": true}'
+curl -X POST  http://127.0.0.1:16667/wallet/createtransaction -d '{ "owner_address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","to_address": "TFKw3fQ8m815ibTmQJSoaE9Kqug9Q5SYyc","amount": 100,"visible": true}'
+
+{"visible":true,"txID":"9612f6c078a73e7352f0a4a2acef4d6c739549f539d1abde3fcd6f1b8aeb1242","raw_data":{"contract":[{"parameter":{"value":{"amount":100,"owner_address":"TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","to_address":"TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE"},"type_url":"type.googleapis.com/protocol.TransferContract"},"type":"TransferContract"}],"ref_block_bytes":"4d10","ref_block_hash":"5d198b2fb7583839","expiration":1585658181000,"timestamp":1585658121171},"raw_data_hex":"0a024d1022085d198b2fb75838394088ebde84932e5a65080112610a2d747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e5472616e73666572436f6e747261637412300a154146d625764064fdcc44e622bf9498a95dca57b5791215410905e5c44f91d0425929b56ef39a8f5ad18c007d186470d397db84932e"}
+
+# broadcast transaction
+curl -X POST  http://127.0.0.1:16667/wallet/broadcasttransaction -d '{"visible":true,"txID":"25a7eed7d441c72c0057af5e7f74a95e45fbd390f6e5f87732a7f29059a7b041","raw_data":{"contract":[{"parameter":{"value":{"amount":100,"owner_address":"TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","to_address":"TFKw3fQ8m815ibTmQJSoaE9Kqug9Q5SYyc"},"type_url":"type.googleapis.com/protocol.TransferContract"},"type":"TransferContract"}],"ref_block_bytes":"5aae","ref_block_hash":"54ebdbc0545dc4e4","expiration":1585669512000,"timestamp":1585669453952},"raw_data_hex":"0a025aae220854ebdbc0545dc4e440c0b6928a932e5a65080112610a2d747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e5472616e73666572436f6e747261637412300a15410905e5c44f91d0425929b56ef39a8f5ad18c007d1215413ac40ba3968c2e9415bf57edeec4099afb2f699318647080f18e8a932e","signature":["5bada55cda397ee4bc9cacc8bb9d3b59640d1da3290e896eb98e944301f2d45037ae914e61aec8f955ce3efe3f2f6e18985c17a3e61d21205bd12ae6913cf2a400"]}'
 
 #(0) TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK (10000 TRX)
 #(1) TV5BWDcYj8ix9dmRoCHtGfRxWneMgsexjM (10000 TRX)
