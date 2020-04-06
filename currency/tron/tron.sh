@@ -17,8 +17,16 @@ curl -X POST  http://127.0.0.1:16667/wallet/getaccount -d '{"address" : "TGRkqdo
 
 curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"TV5BWDcYj8ix9dmRoCHtGfRxWneMgsexjM","amount":100,"visible" : true}'
 
-# get block
+# get height
 curl -X POST  http://127.0.0.1:16667/wallet/getnowblock
+
+# get block by height
+curl -X POST  http://127.0.0.1:16667/wallet/getblockbynum -d '{"num": 34511,"visible" : true}'
+curl -X POST  http://127.0.0.1:16667/wallet/getblockbyid -d '{"value": "00000000000086cffb5a47705466581f5a827a0c9a053c0c3a871ecdda39d1b7","visible" : true}'
+
+# get transaction by txId
+curl -X POST  http://127.0.0.1:16667/wallet/gettransactionbyid -d '{"value": "6231c0c9eb7b846c5b1caab75c4f393446723ee7edadcd990673e737061ef54c"}'
+
 
 
 # boarst
@@ -65,8 +73,8 @@ curl -X POST http://127.0.0.1:16667/wallet/createtransaction -d
     "owner_address": "TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","to_address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","amount": 100,"visible": true
 }'
 
-curl -X POST  http://127.0.0.1:16667/wallet/createtransaction -d '{ "owner_address": "TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","to_address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","amount": 100,"visible": true}'
-curl -X POST  http://127.0.0.1:16667/wallet/createtransaction -d '{ "owner_address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","to_address": "TFKw3fQ8m815ibTmQJSoaE9Kqug9Q5SYyc","amount": 100,"visible": true}'
+curl -X POST  http://127.0.0.1:16667/wallet/createtransaction -d '{ "owner_address": "TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","to_address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","amount": 100.1,"visible": true}'
+curl -X POST  http://127.0.0.1:16667/wallet/createtransaction -d '{ "owner_address": "TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","to_address": "TFKw3fQ8m815ibTmQJSoaE9Kqug9Q5SYyc","amount": 100.1,"visible": true}'
 
 {"visible":true,"txID":"9612f6c078a73e7352f0a4a2acef4d6c739549f539d1abde3fcd6f1b8aeb1242","raw_data":{"contract":[{"parameter":{"value":{"amount":100,"owner_address":"TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK","to_address":"TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE"},"type_url":"type.googleapis.com/protocol.TransferContract"},"type":"TransferContract"}],"ref_block_bytes":"4d10","ref_block_hash":"5d198b2fb7583839","expiration":1585658181000,"timestamp":1585658121171},"raw_data_hex":"0a024d1022085d198b2fb75838394088ebde84932e5a65080112610a2d747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e5472616e73666572436f6e747261637412300a154146d625764064fdcc44e622bf9498a95dca57b5791215410905e5c44f91d0425929b56ef39a8f5ad18c007d186470d397db84932e"}
 
