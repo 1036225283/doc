@@ -6,7 +6,7 @@ curl http://127.0.0.1:9090/admin/accounts
 # transfer
 # ok
 curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"410905e5c44f91d0425929b56ef39a8f5ad18c007d","amount":100}'
-curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"410905e5c44f91d0425929b56ef39a8f5ad18c007d","amount":100}'
+curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","amount":1000000000, "visible":true}'
 curl -X POST  http://127.0.0.1:16667/wallet/easytransfer -d '{"passPhrase": "7465737470617373776f7264","toAddress": "41D1E7A6BC354106CB410E65FF8B181C600FF14292", "amount":10}'
 
 # get account info
@@ -81,6 +81,21 @@ curl -X POST  http://127.0.0.1:16667/wallet/createtransaction -d '{ "owner_addre
 # broadcast transaction
 curl -X POST  http://127.0.0.1:16667/wallet/broadcasttransaction -d '{"visible":true,"txID":"25a7eed7d441c72c0057af5e7f74a95e45fbd390f6e5f87732a7f29059a7b041","raw_data":{"contract":[{"parameter":{"value":{"amount":100,"owner_address":"TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","to_address":"TFKw3fQ8m815ibTmQJSoaE9Kqug9Q5SYyc"},"type_url":"type.googleapis.com/protocol.TransferContract"},"type":"TransferContract"}],"ref_block_bytes":"5aae","ref_block_hash":"54ebdbc0545dc4e4","expiration":1585669512000,"timestamp":1585669453952},"raw_data_hex":"0a025aae220854ebdbc0545dc4e440c0b6928a932e5a65080112610a2d747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e5472616e73666572436f6e747261637412300a15410905e5c44f91d0425929b56ef39a8f5ad18c007d1215413ac40ba3968c2e9415bf57edeec4099afb2f699318647080f18e8a932e","signature":["5bada55cda397ee4bc9cacc8bb9d3b59640d1da3290e896eb98e944301f2d45037ae914e61aec8f955ce3efe3f2f6e18985c17a3e61d21205bd12ae6913cf2a400"]}'
 
+
+# balance of trc20
+/wallet/triggerconstantcontract
+Description: Trigger the constant of the smart contract, the transaction is off the blockchain
+curl -X POST http://127.0.0.1:16667/wallet/triggersmartcontract -d '{
+"contract_address":"419E62BE7F4F103C36507CB2A753418791B1CDC182",
+"function_selector":"balanceOf(address)",
+"parameter":"000000000000000000000041977C20977F412C2A1AA4EF3D49FEE5EC4C31CDFB",
+"owner_address":"41977C20977F412C2A1AA4EF3D49FEE5EC4C31CDFB"
+}'
+
+
+demo: curl -X POST  http://127.0.0.1:8090/wallet/triggerconstantcontract -d '{"contract_address":"4189139CB1387AF85E3D24E212A008AC974967E561","function_selector":"set(uint256,uint256)","parameter":"00000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000002","fee_limit":10,"call_value":100,"owner_address":"41D1E7A6BC354106CB410E65FF8B181C600FF14292"}'
+
+
 #(0) TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK (10000 TRX)
 #(1) TV5BWDcYj8ix9dmRoCHtGfRxWneMgsexjM (10000 TRX)
 #(2) TVRAKky9T7zETitmkacFptmavtaxQzEMEo (10000 TRX)
@@ -133,3 +148,6 @@ curl --request POST \
   --url https://api.trongrid.io/wallet/broadcasttransaction \
   --header 'content-type: application/json' \
   --data '{"visible":false,"txID":"60ff5a4331a46c03f771280ae8e487df231baa24849983dcb5137b72bf4869f9","raw_data":{"contract":[{"parameter":{"value":{"owner_address":"41bf97a54f4b829c4e9253b26024b1829e1a3b1120","account_address":"412b12c4786c48eb47aa3d2368671105c9e7b0d659"},"type_url":"type.googleapis.com/protocol.AccountCreateContract"},"type":"AccountCreateContract"}],"ref_block_bytes":"9895","ref_block_hash":"da9b5e0786de1690","expiration":1576574544000,"timestamp":1576574485586},"raw_data_hex":"0a0298952208da9b5e0786de16904080d1a999f12d5a6612640a32747970652e676f6f676c65617069732e636f6d2f70726f746f636f6c2e4163636f756e74437265617465436f6e7472616374122e0a1541bf97a54f4b829c4e9253b26024b1829e1a3b11201215412b12c4786c48eb47aa3d2368671105c9e7b0d65970d288a699f12d"}'
+
+#申请免费的资源
+    搜shasta tesnet faucet
