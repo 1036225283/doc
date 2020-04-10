@@ -9,3 +9,10 @@
     npm install
 
 4.create .env file
+
+
+_____________________________________________
+
+1.install ide
+    git clone https://github.com/tronprotocol/tron-studio
+    ./gradlew build -x test -x check
