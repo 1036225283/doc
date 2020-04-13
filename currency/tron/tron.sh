@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# test url
+    https://api.shasta.trongrid.io
+    TDQZjhJ9DWPQUegDJgUaK5x8JHQZjoNEQv
+    https://shasta.tronscan.org/#/address/TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK/transfers
+
 # get the environment accounts from docker
 curl http://127.0.0.1:9090/admin/accounts
 
@@ -85,7 +90,7 @@ curl -X POST  http://127.0.0.1:16667/wallet/broadcasttransaction -d '{"visible":
 # balance of trc20
 /wallet/triggerconstantcontract
 Description: Trigger the constant of the smart contract, the transaction is off the blockchain
-curl -X POST http://127.0.0.1:16667/wallet/triggersmartcontract -d '{
+curl -X POST https://api.shasta.trongrid.io/wallet/triggersmartcontract -d '{
 "contract_address":"419E62BE7F4F103C36507CB2A753418791B1CDC182",
 "function_selector":"balanceOf(address)",
 "parameter":"000000000000000000000041977C20977F412C2A1AA4EF3D49FEE5EC4C31CDFB",

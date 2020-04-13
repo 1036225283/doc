@@ -16,3 +16,4 @@ _____________________________________________
 1.install ide
     git clone https://github.com/tronprotocol/tron-studio
     ./gradlew build -x test -x check
+    java -jar build/libs/TronStudio.jar
