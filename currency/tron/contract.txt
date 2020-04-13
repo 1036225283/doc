@@ -1,0 +1,19 @@
+1.download
+    git clone https://github.com/Tronbox-boxes/metacoin-box
+
+2.modify limit
+    tronbox.js
+
+3.install
+    rm package-lock.json
+    npm install
+
+4.create .env file
+
+
+_____________________________________________
+
+1.install ide
+    git clone https://github.com/tronprotocol/tron-studio
+    ./gradlew build -x test -x check
+    java -jar build/libs/TronStudio.jar

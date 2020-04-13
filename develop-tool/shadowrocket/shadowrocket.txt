@@ -1,0 +1,6 @@
+1.server install
+    wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
+    chmod +x shadowsocks-all.sh
+
+2.document
+    https://blog.51cto.com/leoheng/2142850

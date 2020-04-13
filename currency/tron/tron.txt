@@ -1,0 +1,41 @@
+1.github
+    git clone https://github.com/TRON-US/docker-tron-quickstart.git
+
+2.build
+
+3.docker
+    docker run -it \
+      -p 9090:9090 \
+      --rm \
+      --name tron \
+      -e "preapprove=multiSignFee:1,allowMultiSign:1" \
+      trontools/quickstart
+
+    docker run -it -p 8091:8091 -p 8092:8092 -p 8090:8090 -p 50051:50051 -p 50052:50052 --rm --name tron trontools/quickstart
+
+4.document
+    https://cn.developers.tron.network/docs/交易
+
+
+java -jar java-tron.jar -p f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6 --witness -c /Users/xws/project/doc/currency/tron/super-config.conf
+
+
+5.在本地搭建节点
+ nohup java -Xmx2g -XX:+HeapDumpOnOutOfMemoryError -jar FullNode.jar  --witness  -c /Users/xws/project/doc/currency/tron/super-config.conf
+ nohup java -Xmx2g -XX:+HeapDumpOnOutOfMemoryError -jar FullNode.jar  -c /Users/xws/project/doc/currency/tron/full-config.conf
+
+6.离线签文档
+    https://tronprotocol.github.io/documentation-zh/api/http/?nsukey=vmEPJl3butdVzNHogu8uyBx2cZxg6bRXCy3R1sFV02nRRAePyrbj6InlkizXd64AoM49HmeA1D02WwdfMTBUlbpon%2BT9VXFg5dCZzWl3y%2Fz8SA1pohUr0BThvBGvjmP2z7Jt%2BjFwfKpqMtFUCu6IIY0wDlm7mIWjVHh8wZI5e7695aV5GZ8uvdk%2Faaq6cSPFtzgW6yMvtN7bqyoFfHZF7w%3D%3D
+    https://tronprotocol.github.io/documentation-zh/api/http/
+    broadcasttransaction
+    broadcasthex
+
+    demo：curl -X POST  http://127.0.0.1:8090/wallet/broadcasttransaction -d '{"signature":["97c825b41c77de2a8bd65b3df55cd4c0df59c307c0187e42321dcc1cc455ddba583dd9502e17cfec5945b34cad0511985a6165999092a6dec84c2bdd97e649fc01"],"txID":"454f156bf1256587ff6ccdbc56e64ad0c51e4f8efea5490dcbc720ee606bc7b8","raw_data":{"contract":[{"parameter":{"value":{"amount":1000,"owner_address":"41e552f6487585c2b58bc2c9bb4492bc1f17132cd0","to_address":"41d1e7a6bc354106cb410e65ff8b181c600ff14292"},"type_url":"type.googleapis.com/protocol.TransferContract"},"type":"TransferContract"}],"ref_block_bytes":"267e","ref_block_hash":"9a447d222e8de9f2","expiration":1530893064000,"timestamp":1530893006233}}'
+
+    demo：curl -X POST  http://127.0.0.1:8090/wallet/broadcasthex -d '{"transaction":"0A8A010A0202DB2208C89D4811359A28004098A4E0A6B52D5A730802126F0A32747970652E676F6F676C65617069732E636F6D2F70726F746F636F6C2E5472616E736665724173736574436F6E747261637412390A07313030303030311215415A523B449890854C8FC460AB602DF9F31FE4293F1A15416B0580DA195542DDABE288FEC436C7D5AF769D24206412418BF3F2E492ED443607910EA9EF0A7EF79728DAAAAC0EE2BA6CB87DA38366DF9AC4ADE54B2912C1DEB0EE6666B86A07A6C7DF68F1F9DA171EEE6A370B3CA9CBBB00"}'
+
+7.
+    trx.reference.block = "solid" // head;solid;
+
+8.js lib 离线签
+    https://github.com/TRON-US/tronweb/blob/master/src/utils/crypto.js

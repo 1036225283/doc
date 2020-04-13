@@ -1,0 +1,11 @@
+1.data
+    https://www.data-baker.com/open_source.html
+
+2.一文搞懂HMM
+    https://www.jianshu.com/p/3a624de8b4c6
+    https://www.jianshu.com/p/400ad1ff2190
+    https://blog.csdn.net/lgb_love/article/details/81909188
+
+
+3.CTC 详解
+    https://blog.csdn.ne t/yifen4234/article/details/80334516
