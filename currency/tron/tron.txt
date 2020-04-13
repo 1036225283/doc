@@ -1,6 +1,9 @@
 1.github
     git clone https://github.com/TRON-US/docker-tron-quickstart.git
 
+download full.jar
+    https://github.com/tronprotocol/java-tron/releases
+
 2.build
 
 3.docker

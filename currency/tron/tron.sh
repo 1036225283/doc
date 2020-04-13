@@ -25,6 +25,10 @@ curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateK
 # get height
 curl -X POST  http://127.0.0.1:16667/wallet/getnowblock
 
+    https://api.shasta.trongrid.io
+curl -X POST  https://api.shasta.trongrid.io/wallet/getblockbylatestnum -d '{"num": 5}'
+
+
 # get block by height
 curl -X POST  http://127.0.0.1:16667/wallet/getblockbynum -d '{"num": 34511,"visible" : true}'
 curl -X POST  http://127.0.0.1:16667/wallet/getblockbyid -d '{"value": "00000000000086cffb5a47705466581f5a827a0c9a053c0c3a871ecdda39d1b7","visible" : true}'
