@@ -9,8 +9,8 @@
 curl http://127.0.0.1:9090/admin/accounts
 
 # transfer
-# ok
-curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"410905e5c44f91d0425929b56ef39a8f5ad18c007d","amount":100}'
+# ok TGRkqdofLgCbS7Woay5jr8xLEb8qCYoQUK
+curl -X POST  https://api.shasta.trongrid.io/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"THkDEasinhayE6knyeJwwjxzjYYAhcmhDV","amount":10,"visible":true}'
 curl -X POST  http://127.0.0.1:16667/wallet/easytransferbyprivate -d '{"privateKey": "f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5979a975ccc6", "toAddress":"TAnv9Z1v86BkLmbH1XqVhqZkkBKVFQZhAE","amount":1000000000, "visible":true}'
 curl -X POST  http://127.0.0.1:16667/wallet/easytransfer -d '{"passPhrase": "7465737470617373776f7264","toAddress": "41D1E7A6BC354106CB410E65FF8B181C600FF14292", "amount":10}'
 
@@ -30,7 +30,7 @@ curl -X POST  https://api.shasta.trongrid.io/wallet/getblockbylatestnum -d '{"nu
 
 
 # get block by height
-curl -X POST  http://127.0.0.1:16667/wallet/getblockbynum -d '{"num": 34511,"visible" : true}'
+curl -X POST  https://api.shasta.trongrid.io/wallet/getblockbynum -d '{"num": 3730046,"visible" : true}'
 curl -X POST  http://127.0.0.1:16667/wallet/getblockbyid -d '{"value": "00000000000086cffb5a47705466581f5a827a0c9a053c0c3a871ecdda39d1b7","visible" : true}'
 
 # get transaction by txId
