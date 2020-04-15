@@ -5,3 +5,7 @@
 
 2.create command denied to user×××
     GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP ON User.* TO root@'%' identified by 'root';
+
+3.remote login error
+    vim /etc/mysql/mysql.conf.d/mysqld.cnf
+    注释掉 bind-address = 127.0.0.1
