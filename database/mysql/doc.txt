@@ -1,4 +1,22 @@
-1.ubuntu启动mysql客户端
+1.查找cnf文件,第一个优先级最高
+  mysql --help|grep 'my.cnf'
+
+2.查看字符编码
+  show variables like 'character%';
+
+3.修改.cnf的字符编码配置
+  #服务端默认编码（数据库级别）
+  character_set_server = utf8mb4
+  #服务端默认的比对规则，排序规则
+  collation_server = utf8mb4_bin
+
+
+ 4.mac安装mysql
+
+ 5.mac设置环境变量
+ 	/usr/local/mysql/bin
+
+ 1.ubuntu启动mysql客户端
 mysql -uroot -p
 
 2.查看连接时间
@@ -43,7 +61,8 @@ show global variables like '%log%'查看日志
 进入vim /etc/mysql/my.cnf
 1.在[client]下面添加default-character-set=utf8
 
-2.在[mysqld]下面添加default-character-set=utf8
+2.在[mysqld]下面添加
+default-character-set=utf8
 character-set-server=utf8
 
 创建utf-8的数据库
@@ -66,10 +85,10 @@ character-set-server=utf8
 
 mysql 加压版安装
 	./mysql_install_db --user=ubuntu --basedir=/software/mysql-5.6.35-linux-glibc2.5-i686 --datadir=/software/mysql-5.6.35-linux-glibc2.5-i686/data
-	
-	
-	
-	
+
+
+
+
 	//GRANT ALL PRIVILEGES ON xws.* TO 'duck'@'%' IDENTIFIED BY 'duck' WITH GRANT OPTION;
 
 -------------------------------------------冷萌知识----------------------------------------
@@ -80,3 +99,51 @@ conut if
 
 //从一个表拷贝数据到另外一个表
 	create table stock.tbStockDay select * from xws.tbStockDay;
+
+
+
+
+//开启binlog
+my.cnf [mysqld] 下加入
+log-bin=mysql-bin #添加这一行就ok
+binlog-format=ROW #选择row模式
+server_id=1 #配置mysql replaction需要定义，不能和canal的slaveId重复
+
+
+在mysql中 配置canal数据库管理用户，配置相应权限（repication权限）
+
+CREATE USER canal IDENTIFIED BY 'canal';
+GRANT SELECT, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'canal'@'%';
+-- GRANT ALL PRIVILEGES ON *.* TO 'canal'@'%' ;
+FLUSH PRIVILEGES;
+
+canal启动报错的问题
+	mysql5.6版本的 binlog_checksum           | CRC32
+	set global binlog_checksum='NONE';
+	show variables like "%sum%";
+
+
+	canal.instance.parser.parallelThreadSize = 1		用来解决单核cpu的bug
+
+
+mac 卸载mysql：
+sudo rm /usr/local/mysql
+sudo rm -rf /usr/local/mysql*
+sudo rm -rf /Library/StartupItems/MySQLCOM
+sudo rm -rf /Library/PreferencePanes/My*
+vim /etc/hostconfig  (and removed the line MYSQLCOM=-YES-)
+rm -rf ~/Library/PreferencePanes/My*
+sudo rm -rf /Library/Receipts/mysql*
+sudo rm -rf /Library/Receipts/MySQL*
+sudo rm -rf /var/db/receipts/com.mysql.*
+
+
+MySQL查看版本
+	status;
+
+linux解压命令
+ tar zxvf canal.deployer-1.1.0.tar.gz  -C /software/mycat/
+
+
+mycat
+

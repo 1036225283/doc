@@ -1,0 +1,4 @@
+# 备份
+# mysqldump --databases stock > /cloud/mysql/back20200206.sql
+# 恢复
+# mysql  < /cloud/mysql/2020041401.sql
