@@ -1,0 +1,6 @@
+vim /etc/crontab
+
+15 1    * * *   root    /cloud/mysql/back.sh
+
+ubuntu
+    service cron restart
