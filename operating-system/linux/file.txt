@@ -8,3 +8,7 @@ tar  zxvf   xx.tgz
     查看硬盘剩余空间 #df -h #df -H
     查看目录占用空间 #du -hs 目录名
     优盘没法卸载 #sync fuser -km /media/usbdisk
+
+修改用户
+    chown -R ubuntu /cloud/
+    chown -R mysql /cloud/

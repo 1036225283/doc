@@ -9,3 +9,7 @@
 3.remote login error
     vim /etc/mysql/mysql.conf.d/mysqld.cnf
     注释掉 bind-address = 127.0.0.1
+
+4.error log
+    tail -f /var/log/mysql/error.log
+
