@@ -1,0 +1,40 @@
+更换mysql的datadir
+
+1.stop mysql service
+    /etc/init.d/mysql stop
+
+2.copy datadir
+    cp  -a  /var/lib/mysql  /mnt                                # -a 可以保留目录权限及其他目录属性
+    mv  /var/lib/mysql   /var/lib/mysql.bak              # 修改数据库目录名称，防止混淆
+
+3.modify datadir
+    vim  /etc/mysql/mysql.conf.d.mysqld.cnf          # mysql配置文件
+    修改  datadir=/mnt/mysql                                 # 改为要移动到的新位置
+
+4.update apparmor
+    vim  /etc/apparmor.d/tunables/alias                  # 配置别名规则
+    文件最后添加一行   alias /var/lib/mysql/ -> /mnt/mysql/,
+    service  apparmor restart
+
+5.start mysql
+    /etc/init.d/mysql start
+
+6.look up
+    mysql -uroot -p
+    select @@datadir;
+
+
+7.error
+    apparmor控制了应用的目录访问权限，所以mysql是绕不开它的。
+    修改“/etc/apparmor.d/usr.sbin.mysqld”文件。
+    将其中默认的data目录是：
+
+    /var/lib/mysql/ r,
+    /var/lib/mysql/** rwk,
+
+    把这两行修改为移动过的的实际的数据文件目录，例如：
+
+    /home/baiyu/Project/mysql/ r,
+    /home/baiyu/Project/mysql/** rwk,
+
+    保存，执行 service apparmor restart 重启apparmor服务。

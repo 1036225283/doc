@@ -1,0 +1,7 @@
+1.查看挂载信息
+    fdisk -l
+
+2.mkdir cloud
+
+3.mount
+    mount /dev/vdb1 /home/ubuntu/cloud

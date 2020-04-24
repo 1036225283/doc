@@ -1,6 +1,9 @@
 1.github
     git clone https://github.com/TRON-US/docker-tron-quickstart.git
 
+download full.jar
+    https://github.com/tronprotocol/java-tron/releases
+
 2.build
 
 3.docker
@@ -39,3 +42,6 @@ java -jar java-tron.jar -p f89b77b8b17674ad9c8e9941c66ad29b970614b8906e0b7d7b2d5
 
 8.js lib 离线签
     https://github.com/TRON-US/tronweb/blob/master/src/utils/crypto.js
+
+9.快照启动
+    java -jar fullnode.jar -d 快照目录
