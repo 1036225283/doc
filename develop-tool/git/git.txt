@@ -142,6 +142,11 @@ git reset --hard branch
 从其他分支提取文件
 git checkout [branch] -- [file name]
 
+删除某个文件夹
+    git rm -r --cached .idea
+    git commit -m '删除.idea'
+    git push -u origin master
+
 
 
 

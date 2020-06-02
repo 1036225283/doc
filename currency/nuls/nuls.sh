@@ -56,6 +56,10 @@ curl -X POST --data '{"args":["love","love",100000000,8],"alias":"love","sender"
 
 {"success":true,"data":{"txHash":"80ad75e0f7d90a62d721c37a7248c60259eeebac88f1c9a51fc0ff2611192e91","contractAddress":"LUCKdGs3MARB3dRbj83Z6gUa3dPgm9X4t7XuV"}}
 
+# public api
+curl -X POST --data '{data:[]}' -H 'content-type:application/json;' http://127.0.0.1:18003/getChainInfo
+
+"getCoinInfo","params":[1],"id":621}
 
 curl -X POST --data '{}' -H 'content-type:application/json;' http://127.0.0.1:18004/api/account
 
@@ -72,7 +76,7 @@ curl -X POST --data '{"password":"cWF$i2hV.mzEI0wn"}' -H 'content-type:applicati
 
 
 
-
+"getCoinInfo","params":[1],"id":621
 
 
 
