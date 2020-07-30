@@ -12,3 +12,12 @@ tar  zxvf   xx.tgz
 修改用户
     chown -R ubuntu /cloud/
     chown -R mysql /cloud/
+
+查看io占用率
+    先用iostat查看磁盘io 是否读写负载很高
+        iostat -x 1 10
+    找出使用io高的进程的工具  iotop
+        yum install iotop -y
+        iotop
+    参考网站
+        https://blog.csdn.net/saga_gallon/article/details/82891709
