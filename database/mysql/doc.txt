@@ -51,7 +51,8 @@ show global variables like '%log%'查看日志
 
 	GRANT ALL PRIVILEGES ON xws.* TO 'duck'@'%' IDENTIFIED BY 'duck' WITH GRANT OPTION;
     GRANT ALL PRIVILEGES ON xws.* TO 'xws'@'%' IDENTIFIED BY 'xws@#$xws' WITH GRANT OPTION;
-
+    给用户授予只读和连接权限
+    GRANT SELECT ON stock.tbSql to xxx@'%' IDENTIFIED BY 'xxx';
 
 第五步，刷新权限
     flush privileges
