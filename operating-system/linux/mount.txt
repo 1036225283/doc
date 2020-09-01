@@ -5,3 +5,12 @@
 
 3.mount
     mount /dev/vdb1 /home/ubuntu/cloud
+
+
+4.挂载顺序
+    先关机
+    再卸载硬盘
+    再开机
+    再挂载硬盘
+    再手动命令挂载
+
