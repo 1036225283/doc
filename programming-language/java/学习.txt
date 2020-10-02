@@ -19,3 +19,11 @@
 5.java jar守护进程运行
     nohup java -jar test.jar >output 2>&1 &
     nohup java -jar test.jar
+
+    （1）执行java -jar xxx.jar后
+
+    （2）ctrl+z 退出到控制台,执行 bg
+
+    （3）exit
+
+    完成以上3步，退出SHELL后，jar服务一直在后台运行。
